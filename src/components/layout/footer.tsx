@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { Code2, ShieldCheck, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
+import { ShieldCheck, Github, Mail, MapPin, Phone } from "lucide-react";
 import { saasProducts } from "@/data/saas-products";
 import { SITE_CONTACT } from "@/data/contact";
 
@@ -13,16 +13,7 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Col 1: Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-indigo-600 to-cyan-400 p-[1px]">
-                <div className="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center">
-                  <Code2 className="w-4 h-4 text-indigo-400" />
-                </div>
-              </div>
-              <span className="text-lg font-bold text-white tracking-tight">
-                Vision <span className="text-cyan-400">Solutions</span>
-              </span>
-            </Link>
+            <Logo size="md" />
             <p className="text-xs text-slate-400 leading-relaxed">
               Vision Solutions — Software House & Studio de Engenharia de Software especializado na criação, manutenção e licenciamento de produtos digitais e plataformas SaaS.
             </p>
