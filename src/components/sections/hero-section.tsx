@@ -27,24 +27,24 @@ export const HeroSection = () => {
             Software House & Studio de Desenvolvimento
           </motion.div>
 
-          {/* Main Headline */}
+          {/* Main Headline — Profissional, Autoritário & Focado em Resultado */}
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-6xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.15]"
           >
-            Construímos softwares que impulsionam a <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400">operação do seu negócio</span>
+            Engenharia de software sob medida para <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-400">operações de alto desempenho</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Subheadline — Clareza e Solidez Comercial */}
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal"
           >
-            Desenvolvemos SaaS, sistemas empresariais e plataformas digitais sob medida — da ideia à produção.
+            Desenvolvemos plataformas SaaS, sistemas empresariais e arquiteturas digitais sob medida — do diagnóstico estratégico à entrega em produção.
           </motion.p>
 
           {/* CTAs */}
