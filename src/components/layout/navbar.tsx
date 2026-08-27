@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight, Code2 } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,19 +26,8 @@ export const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-cyan-400 p-[1px] shadow-sm group-hover:scale-105 transition-transform">
-            <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-              <Code2 className="w-4 h-4 text-indigo-400 group-hover:text-cyan-400 transition-colors" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-lg font-bold tracking-tight text-white flex items-center gap-1">
-              Vision <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Solutions</span>
-            </span>
-          </div>
-        </Link>
+        {/* Brand Logo Component */}
+        <Logo size="md" />
 
         {/* Desktop Links: Produtos, Soluções, Tecnologia, Sobre */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
