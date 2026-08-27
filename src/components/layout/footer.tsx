@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
 import { ShieldCheck, Github, Mail, MapPin, Phone } from "lucide-react";
 import { saasProducts } from "@/data/saas-products";
@@ -36,41 +37,46 @@ export const Footer = () => {
               Produtos & SaaS ({saasProducts.length})
             </h4>
             <ul className="space-y-2 text-xs">
-              {saasProducts.map((p) => (
+              {saasProducts.slice(0, 5).map((p) => (
                 <li key={p.id}>
-                  <a href="#produtos" className="hover:text-indigo-400 transition-colors">
+                  <Link href="/produtos" className="hover:text-indigo-400 transition-colors">
                     {p.name} — {p.categoryLabel}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3: Soluções & Serviços */}
+          {/* Col 3: Soluções & Páginas */}
           <div>
             <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-4 font-mono">
-              Serviços & Soluções
+              Empresa & Serviços
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#solucoes" className="hover:text-indigo-400 transition-colors">
-                  Criação de novos SaaS Multi-Tenant
-                </a>
+                <Link href="/servicos" className="hover:text-indigo-400 transition-colors">
+                  Serviços de Engenharia
+                </Link>
               </li>
               <li>
-                <a href="#sob-medida" className="hover:text-indigo-400 transition-colors">
-                  Desenvolvimento Sob Medida
-                </a>
+                <Link href="/tecnologia" className="hover:text-indigo-400 transition-colors">
+                  Engenharia & Stack
+                </Link>
               </li>
               <li>
-                <a href="#solucoes" className="hover:text-indigo-400 transition-colors">
-                  Sistemas Empresariais (ERP/CRM)
-                </a>
+                <Link href="/sobre" className="hover:text-indigo-400 transition-colors">
+                  Sobre a Vision Solutions
+                </Link>
               </li>
               <li>
-                <a href="#solucoes" className="hover:text-indigo-400 transition-colors">
-                  APIs & Integrações de Sistemas
-                </a>
+                <Link href="/privacidade" className="hover:text-indigo-400 transition-colors">
+                  Política de Privacidade
+                </Link>
+              </li>
+              <li>
+                <Link href="/termos" className="hover:text-indigo-400 transition-colors">
+                  Termos de Uso
+                </Link>
               </li>
             </ul>
           </div>
@@ -110,8 +116,9 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} Vision Solutions Software House. Todos os direitos reservados.</p>
-          <div className="flex items-center gap-1">
-            <span>Desenvolvido em Next.js 15 & React 19</span>
+          <div className="flex items-center gap-4 text-xs">
+            <Link href="/privacidade" className="hover:text-slate-200 transition-colors">Privacidade</Link>
+            <Link href="/termos" className="hover:text-slate-200 transition-colors">Termos</Link>
           </div>
         </div>
       </div>
