@@ -1,50 +1,37 @@
-export interface CustomService {
+export interface CoreSolution {
   title: string;
-  subtitle: string;
   description: string;
-  deliverables: string[];
   iconName: string;
-  badge: string;
 }
 
-export const customServices: CustomService[] = [
+export const coreSolutions: CoreSolution[] = [
   {
-    title: "Criação de Novos SaaS Multi-Tenant",
-    subtitle: "Do conceito à produção em tempo recorde",
-    description: "Transformamos a sua ideia de negócio em uma plataforma SaaS escalável, completa com painel administrativo, gestão de planos/assinaturas, banco multi-tenant e design de alta conversão.",
-    deliverables: [
-      "Arquitetura escalável com Next.js 15 & NestJS/Fastify",
-      "Integração com Stripe / Asaas para cobrança recorrente",
-      "Painel administrativo e métricas de MRR/ARR",
-      "Setup de CI/CD automatizado em nuvem (Vercel, Render, AWS)"
-    ],
-    iconName: "Rocket",
-    badge: "SaaS Studio"
+    title: "SaaS",
+    description: "Criamos produtos digitais recorrentes e plataformas multi-tenant preparadas para escalar.",
+    iconName: "Rocket"
   },
   {
-    title: "Desenvolvimento de Software Enterprise Sob Medida",
-    subtitle: "Sistemas complexos para grandes operações",
-    description: "Criamos ERPs, CRMs customizados e plataformas corporativas sob medida para automatizar os gargalos operacionais da sua empresa com máxima segurança.",
-    deliverables: [
-      "Mapeamento de processos e engenharia de software",
-      "Apps Desktop (Electron) e Web de alta velocidade",
-      "Integração com legados e APIs de terceiros",
-      "Garantia de Uptime e suporte dedicado"
-    ],
-    iconName: "Building2",
-    badge: "Enterprise"
+    title: "Sistemas Empresariais",
+    description: "ERP, CRM, gestão interna e sistemas operacionais para organizar processos de negócio.",
+    iconName: "Building2"
   },
   {
-    title: "APIs de Alta Vazão & Microsserviços",
-    subtitle: "Performance sem limites para milhões de requisições",
-    description: "Engenharia de backend especializada em microsserviços, mensageria distribuída e filas assíncronas para aguentar picos de uso sem lentidão.",
-    deliverables: [
-      "Arquitetura NATS JetStream, Redis e BullMQ",
-      "Documentação completa de API OpenAPI/Swagger",
-      "Telemetria, logs centralizados e monitoramento 24/7",
-      "Containerização com Docker e Kubernetes"
-    ],
-    iconName: "Server",
-    badge: "Backend Engineering"
+    title: "Desenvolvimento Sob Medida",
+    description: "Software desenvolvido exatamente de acordo com as regras, fluxos e necessidades da sua empresa.",
+    iconName: "Code2"
+  },
+  {
+    title: "Integrações e Automação",
+    description: "APIs, automações, webhooks e integração contínua entre sistemas fragmentados.",
+    iconName: "Workflow"
   }
+];
+
+export const customSoftwareTypes = [
+  { title: "ERP & Gestão Operacional", desc: "Sistemas para controle de estoque, ordens de serviço e finanças." },
+  { title: "CRM & Atendimento", desc: "Plataformas para gestão de clientes, funil de vendas e histórico." },
+  { title: "Sistemas Internos & Balcão", desc: "Ferramentas operacionais web e desktop para equipes de atendimento." },
+  { title: "Dashboards & Relatórios", desc: "Painéis de indicadores em tempo real para tomada de decisão." },
+  { title: "Plataformas Web & SaaS", desc: "Portais de autoatendimento, marketplaces e soluções recorrentes." },
+  { title: "APIs & Integrações", desc: "Conexão entre softwares legados, meios de pagamento e serviços terceiros." }
 ];

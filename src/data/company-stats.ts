@@ -1,56 +1,61 @@
-export interface CompanyStat {
+export interface VerifiableFact {
   label: string;
   value: string;
   description: string;
   iconName: string;
 }
 
-export const companyStats: CompanyStat[] = [
+export const companyFacts: VerifiableFact[] = [
   {
-    label: "SaaS em Produção",
+    label: "Produtos Desenvolvidos",
     value: "8+",
-    description: "Plataformas ativas atendendo múltiplos mercados e verticais",
+    description: "Plataformas SaaS e sistemas em operação para diferentes nichos",
     iconName: "Layers"
   },
   {
-    label: "Requisições Processadas",
-    value: "+1.5M/mês",
-    description: "Infraestrutura de alta vazão com NATS, Redis e BullMQ",
-    iconName: "Zap"
+    label: "Plataformas Suportadas",
+    value: "Web & Desktop",
+    description: "Sistemas em nuvem acessíveis no navegador e aplicativos nativos de balcão",
+    iconName: "Monitor"
   },
   {
-    label: "Uptime Global",
-    value: "99.98%",
-    description: "Arquitetura distribuída com isolamento multi-tenant",
+    label: "Arquitetura",
+    value: "Multi-Tenant & APIs",
+    description: "Estrutura modular com isolamento de dados e facilidade de integração",
     iconName: "ShieldCheck"
   },
   {
-    label: "Usuários & Clientes Impactados",
-    value: "+50.000",
-    description: "De profissionais autônomos a redes corporativas",
-    iconName: "Users"
+    label: "Propriedade de Código",
+    value: "100% Próprio",
+    description: "Desenvolvimento autoral sem dependência de templates pré-prontos",
+    iconName: "Code2"
   }
 ];
 
-export const techPillars = [
+export const processSteps = [
   {
-    title: "Clean Architecture & Modularitat",
-    description: "Sistemas construídos com separação clara de responsabilidades, facilitando manutenção e escalabilidade sem débitos técnicos.",
-    iconName: "Code2"
+    number: "01",
+    title: "Descoberta",
+    description: "Entendimento aprofundado do seu negócio, mapeamento dos gargalos operacionais e definição clara dos objetivos do software."
   },
   {
-    title: "Multi-Tenant & Security First",
-    description: "Bancos de dados com isolamento estrito por cliente, HTTPS obrigatório, criptografia JWT e políticas de privacidade alinhadas com LGPD.",
-    iconName: "Lock"
+    number: "02",
+    title: "Arquitetura",
+    description: "Planejamento da estrutura técnica, modelo de dados, telas principais e fluxos de trabalho antes de escrever o código."
   },
   {
-    title: "High-Volume Async Queues",
-    description: "Processamento distribuído em background com Redis, NATS JetStream e BullMQ para garantir execução ultra-rápida sem congelar a UI.",
-    iconName: "Cpu"
+    number: "03",
+    title: "Desenvolvimento",
+    description: "Construção incremental do software com entregas frequentes para validação contínua e ajustes em tempo real."
   },
   {
-    title: "Multi-Platform Experience",
-    description: "Desenvolvimento híbrido com Web Next.js 15, Apps Nativos Mobile e Aplicativos Desktop Electron otimizados para PCs de balcão.",
-    iconName: "MonitorAndMobile"
+    number: "04",
+    title: "Deploy",
+    description: "Publicação segura em ambiente de produção, testes de carga, configuração de domínio e preparação da equipe para operação."
+  },
+  {
+    number: "05",
+    title: "Evolução",
+    description: "Acompanhamento pós-lançamento, suporte técnico contínuo, melhorias graduais e implementação de novas funcionalidades."
   }
 ];

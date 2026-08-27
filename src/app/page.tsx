@@ -4,12 +4,12 @@ import React from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
-import { MetricsBar } from "@/components/sections/metrics-bar";
+import { CoreSolutionsSection } from "@/components/sections/core-solutions-section";
 import { SaaSShowcase } from "@/components/sections/saas-showcase";
 import { CustomSoftwareSection } from "@/components/sections/custom-software-section";
+import { ProcessSection } from "@/components/sections/process-section";
 import { TechStackSection } from "@/components/sections/tech-stack-section";
-import { TestimonialsSection } from "@/components/sections/testimonials-section";
-import { FAQSection } from "@/components/sections/faq-section";
+import { BuildingSection } from "@/components/sections/building-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
@@ -17,12 +17,12 @@ export default function Home() {
     <main className="min-h-screen bg-slate-950 text-slate-100 selection:bg-indigo-500 selection:text-white">
       <Navbar />
       <HeroSection />
-      <MetricsBar />
+      <CoreSolutionsSection />
       <SaaSShowcase />
       <CustomSoftwareSection />
+      <ProcessSection />
       <TechStackSection />
-      <TestimonialsSection />
-      <FAQSection />
+      <BuildingSection />
       <ContactSection />
       <Footer />
     </main>

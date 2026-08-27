@@ -5,7 +5,7 @@ import { Modal } from "@/components/ui/modal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SaaSProduct } from "@/data/saas-products";
-import { CheckCircle2, ArrowUpRight, Cpu, Target, ExternalLink } from "lucide-react";
+import { CheckCircle2, ArrowUpRight, Cpu, Target } from "lucide-react";
 
 interface SaaSDetailModalProps {
   product: SaaSProduct | null;
@@ -21,33 +21,23 @@ export const SaaSDetailModal: React.FC<SaaSDetailModalProps> = ({ product, isOpe
       <div className="space-y-6">
         {/* Header Tagline & Badge */}
         <div className="flex flex-wrap items-center gap-3">
-          <Badge variant={product.statusColor as any}>{product.status}</Badge>
+          <Badge variant="indigo">{product.status}</Badge>
           <Badge variant="outline">{product.badge}</Badge>
           <span className="text-xs text-slate-400 font-mono">Categoria: {product.categoryLabel}</span>
         </div>
 
         {/* Tagline */}
-        <h4 className="text-xl font-bold text-slate-100 leading-snug">{product.tagline}</h4>
+        <h4 className="text-lg font-bold text-slate-100 leading-snug">{product.tagline}</h4>
 
-        {/* Long Description */}
-        <p className="text-sm text-slate-300 leading-relaxed bg-slate-950/60 p-4 rounded-xl border border-slate-800">
-          {product.longDescription}
+        {/* Description */}
+        <p className="text-sm text-slate-300 leading-relaxed bg-slate-950 p-4 rounded-xl border border-slate-800">
+          {product.description}
         </p>
 
-        {/* Key Metrics Grid */}
-        <div>
-          <h5 className="text-xs uppercase font-mono tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
-            <Target className="w-4 h-4 text-cyan-400" />
-            Métricas de Impacto Alcançadas
-          </h5>
-          <div className="grid grid-cols-3 gap-3">
-            {product.metrics.map((m, idx) => (
-              <div key={idx} className="bg-slate-950/80 p-3 rounded-xl border border-slate-800/80 text-center">
-                <span className="block text-lg font-black text-white font-mono">{m.value}</span>
-                <span className="text-[11px] text-slate-400">{m.label}</span>
-              </div>
-            ))}
-          </div>
+        {/* Problem Solved Highlight Box */}
+        <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
+          <span className="text-xs uppercase font-mono text-slate-400 block mb-1">Problema de negócio que resolve:</span>
+          <p className="text-xs text-indigo-300 font-medium">{product.problemSolved}</p>
         </div>
 
         {/* Main Features */}
@@ -57,7 +47,7 @@ export const SaaSDetailModal: React.FC<SaaSDetailModalProps> = ({ product, isOpe
           </h5>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
             {product.features.map((feat, idx) => (
-              <div key={idx} className="flex items-start gap-2 text-xs text-slate-300 bg-slate-950/40 p-2.5 rounded-lg border border-slate-800/50">
+              <div key={idx} className="flex items-start gap-2 text-xs text-slate-300 bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/60">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <span>{feat}</span>
               </div>
@@ -69,23 +59,18 @@ export const SaaSDetailModal: React.FC<SaaSDetailModalProps> = ({ product, isOpe
         <div>
           <h5 className="text-xs uppercase font-mono tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
             <Cpu className="w-4 h-4 text-indigo-400" />
-            Stack Tecnológica & Arquitetura
+            Tecnologias
           </h5>
           <div className="flex flex-wrap gap-2">
             {product.techStack.map((tech, idx) => (
               <span
                 key={idx}
-                className="text-xs font-mono px-2.5 py-1 rounded-md bg-indigo-950/40 text-indigo-300 border border-indigo-800/40"
+                className="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-950 text-slate-300 border border-slate-800"
               >
                 {tech}
               </span>
             ))}
           </div>
-        </div>
-
-        {/* Target Audience */}
-        <div className="text-xs text-slate-400 border-t border-slate-800 pt-4">
-          <strong className="text-slate-200">Público-Alvo Recomendado:</strong> {product.targetAudience}
         </div>
 
         {/* CTAs */}
@@ -95,8 +80,8 @@ export const SaaSDetailModal: React.FC<SaaSDetailModalProps> = ({ product, isOpe
           </Button>
           <a href="#contato" onClick={onClose} className="w-full sm:w-auto">
             <Button variant="glow" size="sm" className="w-full sm:w-auto">
-              Testar / Licenciar este SaaS
-              <ArrowUpRight className="w-4 h-4" />
+              Falar sobre o {product.name}
+              <ArrowUpRight className="w-4 h-4 ml-1" />
             </Button>
           </a>
         </div>
