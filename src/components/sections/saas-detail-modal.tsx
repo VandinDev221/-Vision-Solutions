@@ -5,7 +5,7 @@ import { Modal } from "@/components/ui/modal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SaaSProduct } from "@/data/saas-products";
-import { CheckCircle2, ArrowUpRight, Cpu, Target } from "lucide-react";
+import { CheckCircle2, ArrowUpRight, Cpu } from "lucide-react";
 
 interface SaaSDetailModalProps {
   product: SaaSProduct | null;
@@ -37,7 +37,7 @@ export const SaaSDetailModal: React.FC<SaaSDetailModalProps> = ({ product, isOpe
         {/* Problem Solved Highlight Box */}
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800">
           <span className="text-xs uppercase font-mono text-slate-400 block mb-1">Problema de negócio que resolve:</span>
-          <p className="text-xs text-indigo-300 font-medium">{product.problemSolved}</p>
+          <p className="text-xs text-sky-300 font-medium">{product.problemSolved}</p>
         </div>
 
         {/* Main Features */}
@@ -79,7 +79,7 @@ export const SaaSDetailModal: React.FC<SaaSDetailModalProps> = ({ product, isOpe
             Fechar
           </Button>
           <a href="#contato" onClick={onClose} className="w-full sm:w-auto">
-            <Button variant="glow" size="sm" className="w-full sm:w-auto">
+            <Button variant="primary" size="sm" className="w-full sm:w-auto">
               Falar sobre o {product.name}
               <ArrowUpRight className="w-4 h-4 ml-1" />
             </Button>

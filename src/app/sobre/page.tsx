@@ -10,10 +10,10 @@ import Link from "next/link";
 
 export default function SobrePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-[#090d16] text-slate-100">
       <Navbar />
 
-      <section className="pt-36 pb-16 bg-slate-950 border-b border-slate-800/80">
+      <section className="pt-36 pb-16 bg-[#090d16] border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
           <span className="text-xs font-mono font-semibold text-purple-400 uppercase tracking-wider block mb-2">
             Institucional
@@ -27,7 +27,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-950">
+      <section className="py-20 bg-[#090d16]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           {/* Posicionamento */}
           <div className="space-y-4">
@@ -45,7 +45,7 @@ export default function SobrePage() {
             <h2 className="text-2xl font-bold text-white">Filosofia de Engenharia</h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Card className="p-5 bg-slate-900/60 border-slate-800">
+              <Card className="p-5 bg-[#111726] border-slate-800">
                 <div className="flex items-start gap-3">
                   <ShieldCheck className="w-5 h-5 text-indigo-400 shrink-0 mt-0.5" />
                   <div>
@@ -57,7 +57,7 @@ export default function SobrePage() {
                 </div>
               </Card>
 
-              <Card className="p-5 bg-slate-900/60 border-slate-800">
+              <Card className="p-5 bg-[#111726] border-slate-800">
                 <div className="flex items-start gap-3">
                   <Cpu className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
                   <div>
@@ -69,7 +69,7 @@ export default function SobrePage() {
                 </div>
               </Card>
 
-              <Card className="p-5 bg-slate-900/60 border-slate-800">
+              <Card className="p-5 bg-[#111726] border-slate-800">
                 <div className="flex items-start gap-3">
                   <Code2 className="w-5 h-5 text-purple-400 shrink-0 mt-0.5" />
                   <div>
@@ -81,7 +81,7 @@ export default function SobrePage() {
                 </div>
               </Card>
 
-              <Card className="p-5 bg-slate-900/60 border-slate-800">
+              <Card className="p-5 bg-[#111726] border-slate-800">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                   <div>
@@ -96,13 +96,13 @@ export default function SobrePage() {
           </div>
 
           {/* CTA */}
-          <div className="p-8 rounded-2xl bg-gradient-to-r from-indigo-950/40 via-purple-950/20 to-slate-900 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="p-8 rounded-xl bg-[#111726] border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
               <h3 className="text-lg font-bold text-white">Precisa de um software sob medida?</h3>
               <p className="text-xs text-slate-400 mt-1">Avalie os requisitos do seu projeto com nossa equipe.</p>
             </div>
             <Link href="/contato">
-              <Button variant="glow" size="sm">
+              <Button variant="primary" size="sm">
                 Falar com Especialista
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>

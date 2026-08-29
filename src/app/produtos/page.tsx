@@ -7,18 +7,18 @@ import { saasProducts } from "@/data/saas-products";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Monitor, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export default function ProdutosPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-[#090d16] text-slate-100">
       <Navbar />
       
       {/* Header */}
-      <section className="pt-36 pb-16 bg-slate-950 border-b border-slate-800/80">
+      <section className="pt-36 pb-16 bg-[#090d16] border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-          <span className="text-xs font-mono font-semibold text-indigo-400 uppercase tracking-wider block mb-2">
+          <span className="text-xs font-mono font-semibold text-sky-400 uppercase tracking-wider block mb-2">
             Ecossistema de Soluções
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -31,11 +31,11 @@ export default function ProdutosPage() {
       </section>
 
       {/* Product Catalog Grid */}
-      <section className="py-20 bg-slate-950">
+      <section className="py-20 bg-[#090d16]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {saasProducts.map((p) => (
-              <Card key={p.id} className="p-8 bg-slate-900/60 border-slate-800 flex flex-col justify-between">
+              <Card key={p.id} className="p-8 bg-[#111726] border-slate-800 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-4">
                     <Badge variant="indigo" className="text-xs font-mono">
@@ -49,11 +49,11 @@ export default function ProdutosPage() {
                   <p className="text-xs text-slate-400 leading-relaxed mb-6">{p.description}</p>
 
                   {/* Problem Solved */}
-                  <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/80 mb-6">
+                  <div className="p-4 rounded-lg bg-slate-950 border border-slate-800/80 mb-6">
                     <span className="text-[10px] font-mono text-slate-400 uppercase block mb-1">
                       Problema de Negócio que Resolve:
                     </span>
-                    <p className="text-xs text-indigo-300 font-medium">{p.problemSolved}</p>
+                    <p className="text-xs text-sky-300 font-medium">{p.problemSolved}</p>
                   </div>
 
                   {/* Features */}
@@ -81,7 +81,7 @@ export default function ProdutosPage() {
                 <div className="mt-8 pt-4 border-t border-slate-800/80 flex items-center justify-between">
                   <span className="text-xs text-slate-500 font-mono">{p.badge}</span>
                   <Link href="/contato">
-                    <Button variant="glow" size="sm">
+                    <Button variant="primary" size="sm">
                       Solicitar Informações do {p.name}
                       <ArrowRight className="w-3.5 h-3.5 ml-1" />
                     </Button>

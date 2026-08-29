@@ -11,38 +11,31 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        brand: {
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          900: "#312e81",
-          glow: "#60a5fa",
+        slateSurface: {
+          50: "#f8fafc",
+          800: "#1e293b",
+          900: "#0f172a",
+          950: "#090d16",
+          card: "#111726",
+          hover: "#161e31",
         },
-        cyanGlow: "#06b6d4",
-        emeraldGlow: "#10b981",
-        violetGlow: "#8b5cf6",
-      },
-      animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "glow": "glow 3s ease-in-out infinite alternate",
-        "float": "float 6s ease-in-out infinite",
-      },
-      keyframes: {
-        glow: {
-          "0%": { opacity: "0.4", filter: "blur(20px)" },
-          "100%": { opacity: "0.8", filter: "blur(35px)" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
+        brandAccent: {
+          cyan: "#38bdf8",
+          indigo: "#6366f1",
+          violet: "#8b5cf6",
+          emerald: "#10b981",
         },
       },
-      backgroundImage: {
-        "radial-gradient": "radial-gradient(var(--tw-gradient-stops))",
-        "glass-gradient": "linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)",
+      borderRadius: {
+        sm: "6px",
+        md: "10px",
+        lg: "16px",
+        xl: "24px",
+      },
+      transitionDuration: {
+        fast: "150ms",
+        normal: "250ms",
+        smooth: "400ms",
       },
     },
   },

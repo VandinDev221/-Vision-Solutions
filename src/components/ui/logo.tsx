@@ -5,32 +5,30 @@ import { cn } from "@/lib/utils";
 interface LogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
-  showTagline?: boolean;
 }
 
 export const Logo: React.FC<LogoProps> = ({
   className,
-  size = "md",
-  showTagline = true
+  size = "md"
 }) => {
   const iconSizes = {
-    sm: "w-8 h-8",
-    md: "w-9 h-9",
-    lg: "w-11 h-11"
+    sm: "w-7 h-7",
+    md: "w-8 h-8",
+    lg: "w-10 h-10"
   };
 
   const textSizes = {
     sm: "text-base",
     md: "text-lg",
-    lg: "text-2xl"
+    lg: "text-xl"
   };
 
   return (
-    <Link href="/" className={cn("flex items-center gap-3 group", className)}>
-      {/* Icon Graphic Symbol (Stylized V + S Prism Node) */}
+    <Link href="/" className={cn("flex items-center gap-2.5 group", className)}>
+      {/* Precision Icon Symbol */}
       <div
         className={cn(
-          "relative rounded-xl bg-slate-950 p-[1px] border border-slate-800 shadow-md group-hover:border-cyan-500/50 group-hover:scale-105 transition-all duration-300 overflow-hidden shrink-0",
+          "relative rounded-md bg-slate-900 border border-slate-700/60 p-[1px] shadow-sm group-hover:border-sky-500/50 transition-colors duration-200 shrink-0 overflow-hidden",
           iconSizes[size]
         )}
       >
@@ -38,37 +36,27 @@ export const Logo: React.FC<LogoProps> = ({
           <defs>
             <linearGradient id="logo-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#38bdf8" />
-              <stop offset="100%" stop-color="#06b6d4" />
-            </linearGradient>
-            <linearGradient id="logo-violet" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#a855f7" />
-              <stop offset="100%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#0284c7" />
             </linearGradient>
             <linearGradient id="logo-indigo" x1="0%" y1="100%" x2="100%" y2="0%">
               <stop offset="0%" stop-color="#6366f1" />
-              <stop offset="100%" stop-color="#818cf8" />
+              <stop offset="100%" stop-color="#4f46e5" />
             </linearGradient>
           </defs>
 
-          <rect width="512" height="512" fill="#020617" />
+          <rect width="512" height="512" fill="#090d16" />
           <path d="M 148 160 L 256 360 L 210 360 L 110 178 Z" fill="url(#logo-cyan)" />
-          <path d="M 364 160 L 256 360 L 302 360 L 402 178 Z" fill="url(#logo-violet)" />
-          <path d="M 256 180 L 320 280 L 256 340 L 192 280 Z" fill="url(#logo-indigo)" opacity="0.9" />
-          <circle cx="256" cy="275" r="24" fill="#ffffff" />
-          <circle cx="256" cy="275" r="14" fill="#06b6d4" />
+          <path d="M 364 160 L 256 360 L 302 360 L 402 178 Z" fill="url(#logo-indigo)" />
+          <path d="M 256 180 L 320 280 L 256 340 L 192 280 Z" fill="#38bdf8" opacity="0.8" />
+          <circle cx="256" cy="275" r="20" fill="#ffffff" />
         </svg>
       </div>
 
       {/* Typography Brand Name */}
       <div className="flex flex-col">
-        <span className={cn("font-extrabold tracking-tight text-white flex items-center gap-1 leading-none", textSizes[size])}>
-          Vision <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-purple-400">Solutions</span>
+        <span className={cn("font-bold tracking-tight text-white flex items-center gap-1 leading-none", textSizes[size])}>
+          Vision <span className="text-sky-400 font-semibold">Solutions</span>
         </span>
-        {showTagline && (
-          <span className="text-[9px] uppercase tracking-widest font-mono text-slate-400 mt-1">
-            Software House & Studio
-          </span>
-        )}
       </div>
     </Link>
   );
