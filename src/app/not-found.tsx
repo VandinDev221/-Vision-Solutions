@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
@@ -7,7 +7,7 @@ import { ArrowLeft, FileQuestion } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col justify-between">
+    <main className="min-h-screen bg-[#090d16] text-slate-100 flex flex-col justify-between selection:bg-sky-500 selection:text-slate-950">
       <Navbar />
       <div className="py-32 px-4 text-center max-w-2xl mx-auto my-auto">
         <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 w-fit mx-auto mb-6">
@@ -18,12 +18,12 @@ export default function NotFound() {
           Página não encontrada
         </h1>
         <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
-          O endereço que você tentou acessar não existe ou foi movido. Verifique a URL ou navegue de volta para a página inicial.
+          O endereço que você tentou acessar não existe ou foi movido. Verifique a URL ou navegue de volta para a página inicial da Vision Solutions.
         </p>
         <Link href="/">
           <Button variant="primary" size="md" className="font-semibold">
             <ArrowLeft className="w-4 h-4 mr-1.5" />
-            Voltar para a Vision Solutions
+            Voltar para a Página Inicial
           </Button>
         </Link>
       </div>

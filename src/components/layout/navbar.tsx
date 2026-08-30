@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -60,8 +60,8 @@ export const Navbar = () => {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <Link href="/contato">
-            <Button variant="primary" size="sm">
-              Solicitar projeto
+            <Button variant="primary" size="sm" className="font-semibold">
+              Falar Conosco
             </Button>
           </Link>
         </div>
@@ -94,8 +94,8 @@ export const Navbar = () => {
           </nav>
           <div className="pt-2 border-t border-slate-800/60">
             <Link href="/contato" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="primary" className="w-full justify-center">
-                Solicitar projeto
+              <Button variant="primary" className="w-full justify-center font-semibold">
+                Falar Conosco
               </Button>
             </Link>
           </div>

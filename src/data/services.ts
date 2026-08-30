@@ -1,4 +1,4 @@
-export interface CoreSolution {
+﻿export interface CoreSolution {
   title: string;
   description: string;
   iconName: string;
@@ -6,13 +6,13 @@ export interface CoreSolution {
 
 export const coreSolutions: CoreSolution[] = [
   {
-    title: "SaaS",
-    description: "Criamos produtos digitais recorrentes e plataformas multi-tenant preparadas para escalar.",
+    title: "Produtos SaaS",
+    description: "Criamos plataformas digitais recorrentes e sistemas multi-tenant focados em estabilidade e usabilidade.",
     iconName: "Rocket"
   },
   {
-    title: "Sistemas Empresariais",
-    description: "ERP, CRM, gestão interna e sistemas operacionais para organizar processos de negócio.",
+    title: "Sistemas Empresariais & ERP",
+    description: "Sistemas desenhados para organizar processos internos, estoques, orçamentos e fluxo operacional.",
     iconName: "Building2"
   },
   {
@@ -22,7 +22,7 @@ export const coreSolutions: CoreSolution[] = [
   },
   {
     title: "Integrações e Automação",
-    description: "APIs, automações, webhooks e integração contínua entre sistemas fragmentados.",
+    description: "APIs, automações, webhooks e integração contínua entre ferramentas e bancos de dados.",
     iconName: "Workflow"
   }
 ];

@@ -1,7 +1,6 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
-import { Badge } from "@/components/ui/badge";
 import { HelpCircle, ChevronDown } from "lucide-react";
 
 export const FAQSection = () => {
@@ -9,41 +8,40 @@ export const FAQSection = () => {
 
   const faqs = [
     {
-      question: "Como funciona o licenciamento ou contratação dos SaaS do ecossistema?",
-      answer: "Oferecemos modelos flexíveis: aluguel/assinatura mensal (SaaS), licenciamento de instância exclusiva (single-tenant em nuvem própria) e aquisição de licença enterprise. Cada plano inclui atualizações contínuas de segurança e suporte técnico especializado."
+      question: "Como funciona a contratação ou licenciamento dos produtos SaaS?",
+      answer: "Oferecemos modelos flexíveis: assinatura mensal como serviço (SaaS), licenciamento de instância exclusiva e planos customizados para empresas. Cada modelo inclui atualizações de segurança e suporte técnico."
     },
     {
-      question: "Posso solicitar o desenvolvimento de um SaaS novo ou projeto sob medida?",
-      answer: "Sim! Somos uma Software House e Studio de Inovação completo. Analisamos os requisitos do seu projeto, desenhamos a arquitetura Clean Architecture em Next.js 15 / Fastify / PostgreSQL e entregamos o produto pronto para produção em tempo recorde."
+      question: "Como funciona o desenvolvimento de software sob medida?",
+      answer: "Analisamos detalhadamente os gargalos operacionais da sua empresa, desenhamos a arquitetura técnica e o modelo de dados, e desenvolvemos o sistema em ciclos incrementais com código 100% autoral."
     },
     {
-      question: "Como é garantida a segurança e isolamento dos dados dos clientes (Multi-tenant)?",
-      answer: "Utilizamos arquitetura multi-tenant com isolamento rígido em nível de banco de dados (schemas dedicados ou tabelas com controle de tenant estrito), HTTPS/HSTS obrigatório, autenticação via JWT com refresh HTTPOnly e backups diários automatizados."
+      question: "Como é garantida a segurança e o isolamento dos dados dos clientes?",
+      answer: "Utilizamos arquitetura multi-tenant com isolamento rígido em nível de banco de dados, comunicação HTTPS obrigatória, autenticação segura e rotinas automatizadas de backup."
     },
     {
-      question: "Os sistemas possuem integração com WhatsApp?",
-      answer: "Sim! Vários dos nossos SaaS (como SynDent, BarberCRM e DisparoFlow) já contam com automação de WhatsApp nativa para confirmação de agendamentos, avisos de aniversário, lembretes de retorno e réguas de cobrança financeira."
+      question: "Os sistemas possuem integração com WhatsApp e APIs de terceiros?",
+      answer: "Sim. Nossos produtos e sistemas sob medida são construídos para integrar facilmente com gateways de pagamento, APIs de mensageria, sistemas legados e webhooks."
     },
     {
-      question: "Vocês disponibilizam período de teste (trial) ou demonstração ao vivo?",
-      answer: "Com certeza. Basta preencher o formulário de contato abaixo ou clicar no botão 'Solicitar Software / Demo'. A nossa equipe agendará uma demonstração guiada e disponibilizará credenciais de teste para você experimentar na prática."
+      question: "Como posso solicitar uma demonstração ou orçamento?",
+      answer: "Basta preencher o formulário na página de contato ou falar diretamente pelo nosso WhatsApp comercial (+55 98 98919-8146). Entenderemos seu cenário e apresentaremos a melhor solução."
     }
   ];
 
   return (
-    <section id="faq" className="relative py-24 bg-slate-950">
+    <section id="faq" className="relative py-24 bg-[#090d16] border-b border-slate-800/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <Badge variant="indigo" className="mb-4">
-            <HelpCircle className="w-3.5 h-3.5" />
-            Tire Suas Dúvidas
-          </Badge>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-            Perguntas Frequentes (FAQ)
+          <span className="text-xs font-mono font-semibold text-sky-400 uppercase tracking-wider block mb-2">
+            Perguntas Frequentes
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Dúvidas Comuns
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300">
-            Respostas diretas sobre nosso ecossistema SaaS, desenvolvimento sob medida e licenciamento.
+          <p className="mt-4 text-base text-slate-300">
+            Respostas diretas sobre nossos produtos SaaS, desenvolvimento sob medida e atendimento.
           </p>
         </div>
 
@@ -54,22 +52,22 @@ export const FAQSection = () => {
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-slate-900/70 border border-slate-800/80 overflow-hidden transition-all duration-300"
+                className="rounded-xl bg-[#111726] border border-slate-800 overflow-hidden transition-all duration-200"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-white text-base sm:text-lg hover:text-indigo-400 transition-colors cursor-pointer"
+                  className="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-white text-base hover:text-sky-300 transition-colors cursor-pointer"
                 >
                   <span>{faq.question}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 text-indigo-400" : ""
+                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-sky-400" : ""
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/50 pt-4 bg-slate-950/40">
+                  <div className="px-6 pb-6 text-slate-300 text-sm leading-relaxed border-t border-slate-800/80 pt-4 bg-[#090d16]/50">
                     {faq.answer}
                   </div>
                 )}

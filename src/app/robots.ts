@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+﻿import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       }
     ],
-    sitemap: "https://visionsolutions.dev.br/sitemap.xml",
-    host: "https://visionsolutions.dev.br",
+    sitemap: "https://visionsolutionsbr.vercel.app/sitemap.xml",
+    host: "https://visionsolutionsbr.vercel.app",
   };
 }

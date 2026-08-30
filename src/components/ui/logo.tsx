@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -35,12 +35,12 @@ export const Logo: React.FC<LogoProps> = ({
         <svg viewBox="0 0 512 512" className="w-full h-full">
           <defs>
             <linearGradient id="logo-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#38bdf8" />
-              <stop offset="100%" stop-color="#0284c7" />
+              <stop offset="0%" stopColor="#38bdf8" />
+              <stop offset="100%" stopColor="#0284c7" />
             </linearGradient>
             <linearGradient id="logo-indigo" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#6366f1" />
-              <stop offset="100%" stop-color="#4f46e5" />
+              <stop offset="0%" stopColor="#6366f1" />
+              <stop offset="100%" stopColor="#4f46e5" />
             </linearGradient>
           </defs>
 

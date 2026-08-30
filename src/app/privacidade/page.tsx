@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { Navbar } from "@/components/layout/navbar";
@@ -6,10 +6,10 @@ import { Footer } from "@/components/layout/footer";
 
 export default function PrivacidadePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen bg-[#090d16] text-slate-100 selection:bg-sky-500 selection:text-slate-950">
       <Navbar />
 
-      <section className="pt-36 pb-16 bg-slate-950 border-b border-slate-800/80">
+      <section className="pt-36 pb-16 bg-[#090d16] border-b border-slate-800/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <span className="text-xs font-mono font-semibold text-slate-400 uppercase tracking-wider block mb-2">
             Legal & Conformidade
@@ -23,12 +23,12 @@ export default function PrivacidadePage() {
         </div>
       </section>
 
-      <section className="py-16 bg-slate-950 text-slate-300 text-sm leading-relaxed">
+      <section className="py-16 bg-[#090d16] text-slate-300 text-sm leading-relaxed">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="space-y-3">
             <h2 className="text-lg font-bold text-white">1. Informações Gerais</h2>
             <p>
-              A Vision Solutions compromete-se com a transparência e a proteção dos dados pessoais dos usuários que acessam nosso portal corporativo. Esta Política de Privacidade descreve como tratamos as informações coletadas em nossa plataforma.
+              A Vision Solutions compromete-se com a transparência e a proteção dos dados pessoais dos usuários que acessam nosso portal corporativo. Esta Política de Privacidade descreve como tratamos as informações coletadas em nossa plataforma de acordo com a Lei Geral de Proteção de Dados (LGPD).
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export default function PrivacidadePage() {
               <li>Nome completo;</li>
               <li>Endereço de e-mail;</li>
               <li>Número de telefone/WhatsApp;</li>
-              <li>Descrição ou requisitos do projeto solicitado.</li>
+              <li>Descrição e requisitos do projeto solicitado.</li>
             </ul>
           </div>
 
@@ -53,7 +53,7 @@ export default function PrivacidadePage() {
             <ul className="list-disc pl-5 space-y-1 text-slate-400">
               <li>Responder a solicitações de orçamento e dúvidas comerciais;</li>
               <li>Agendar reuniões de alinhamento e demonstrações de produtos;</li>
-              <li>Cumprir obrigações legais e regulatórias.</li>
+              <li>Cumprir obrigações legais e regulatórias vigentes.</li>
             </ul>
           </div>
 
@@ -67,7 +67,7 @@ export default function PrivacidadePage() {
           <div className="space-y-3">
             <h2 className="text-lg font-bold text-white">5. Direitos do Titular</h2>
             <p>
-              Em conformidade com a Lei Geral de Proteção de Dados (LGPD), você pode solicitar a confirmação, acesso, correção ou exclusão dos seus dados pessoais armazenados a qualquer momento entrando em contato conosco via e-mail ou WhatsApp.
+              Em conformidade com a LGPD, você pode solicitar a confirmação, acesso, correção ou exclusão dos seus dados pessoais armazenados a qualquer momento entrando em contato conosco via e-mail (<span className="font-mono text-sky-400">vandersonandrade_dev@outlook.com</span>) ou WhatsApp (<span className="font-mono text-emerald-400">+55 (98) 98919-8146</span>).
             </p>
           </div>
         </div>

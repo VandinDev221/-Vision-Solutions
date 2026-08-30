@@ -1,4 +1,4 @@
-export interface VerifiableFact {
+﻿export interface VerifiableFact {
   label: string;
   value: string;
   description: string;
@@ -7,27 +7,27 @@ export interface VerifiableFact {
 
 export const companyFacts: VerifiableFact[] = [
   {
-    label: "Produtos Desenvolvidos",
+    label: "Produtos em Desenvolvimento",
     value: "8+",
-    description: "Plataformas SaaS e sistemas em operação para diferentes nichos",
+    description: "Plataformas SaaS e sistemas para nichos específicos de negócio",
     iconName: "Layers"
   },
   {
-    label: "Plataformas Suportadas",
+    label: "Plataformas Atendidas",
     value: "Web & Desktop",
-    description: "Sistemas em nuvem acessíveis no navegador e aplicativos nativos de balcão",
+    description: "Sistemas em nuvem modernos e aplicações nativas para balcão",
     iconName: "Monitor"
   },
   {
     label: "Arquitetura",
     value: "Multi-Tenant & APIs",
-    description: "Estrutura modular com isolamento de dados e facilidade de integração",
+    description: "Estrutura modular com isolamento rigoroso de dados e segurança",
     iconName: "ShieldCheck"
   },
   {
-    label: "Propriedade de Código",
-    value: "100% Próprio",
-    description: "Desenvolvimento autoral sem dependência de templates pré-prontos",
+    label: "Propriedade Intelectual",
+    value: "100% Autoral",
+    description: "Engenharia de software própria adaptada à necessidade de cada cliente",
     iconName: "Code2"
   }
 ];
@@ -35,27 +35,32 @@ export const companyFacts: VerifiableFact[] = [
 export const processSteps = [
   {
     number: "01",
-    title: "Descoberta",
-    description: "Entendimento aprofundado do seu negócio, mapeamento dos gargalos operacionais e definição clara dos objetivos do software."
+    title: "Entendimento",
+    description: "Mapeamento aprofundado dos gargalos da operação e definição clara dos requisitos essenciais."
   },
   {
     number: "02",
     title: "Arquitetura",
-    description: "Planejamento da estrutura técnica, modelo de dados, telas principais e fluxos de trabalho antes de escrever o código."
+    description: "Planejamento da estrutura técnica, modelo de banco de dados, fluxos de tela e segurança antes do código."
   },
   {
     number: "03",
     title: "Desenvolvimento",
-    description: "Construção incremental do software com entregas frequentes para validação contínua e ajustes em tempo real."
+    description: "Construção incremental com código limpo, testes automatizados e entregas frequentes para validação."
   },
   {
     number: "04",
-    title: "Deploy",
-    description: "Publicação segura em ambiente de produção, testes de carga, configuração de domínio e preparação da equipe para operação."
+    title: "Validação",
+    description: "Testes de carga, validação de regras de negócio com usuários reais e refinamento de interface."
   },
   {
     number: "05",
+    title: "Produção",
+    description: "Deploy seguro em infraestrutura em nuvem, migração de dados e acompanhamento assistido no lançamento."
+  },
+  {
+    number: "06",
     title: "Evolução",
-    description: "Acompanhamento pós-lançamento, suporte técnico contínuo, melhorias graduais e implementação de novas funcionalidades."
+    description: "Monitoramento contínuo, suporte técnico direto e desenvolvimento de melhorias operacionais."
   }
 ];
