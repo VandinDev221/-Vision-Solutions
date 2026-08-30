@@ -14,13 +14,13 @@ export const ContactSection = () => {
     need: ""
   });
 
-  const handleGmailSubmit = (e: React.FormEvent) => {
+  const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const subject = `Orçamento Vision Solutions — ${formData.name || "Novo Contato"}`;
     const body = `Olá, equipe Vision Solutions!\n\nMeu nome é ${formData.name}.\nE-mail: ${formData.email}\nWhatsApp: ${formData.whatsapp}\n\nDetalhes do Projeto / Necessidade:\n${formData.need}`;
     
-    const gmailUrl = SITE_CONTACT.getGmailComposeUrl(subject, body);
-    window.open(gmailUrl, "_blank", "noopener,noreferrer");
+    const mailtoUrl = SITE_CONTACT.getEmailComposeUrl(subject, body);
+    window.location.href = mailtoUrl;
   };
 
   const handleWhatsappSubmit = () => {
@@ -83,9 +83,7 @@ export const ContactSection = () => {
 
               {/* Email Link */}
               <a
-                href={SITE_CONTACT.getGmailComposeUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`mailto:${SITE_CONTACT.displayEmail}`}
                 className="p-3.5 rounded-lg bg-[#111726] border border-slate-800 flex items-center justify-between gap-3 text-slate-300 hover:text-white hover:border-slate-700 transition-all group"
               >
                 <div className="flex items-center gap-3">
@@ -112,7 +110,7 @@ export const ContactSection = () => {
           {/* Right Column: Form */}
           <div className="lg:col-span-7">
             <Card className="p-8 bg-[#111726] border-slate-800 shadow-xl">
-              <form onSubmit={handleGmailSubmit} className="space-y-5">
+              <form onSubmit={handleEmailSubmit} className="space-y-5">
                 <h3 className="text-lg font-bold text-white border-b border-slate-800 pb-3">
                   Solicitar Orçamento
                 </h3>
@@ -181,7 +179,7 @@ export const ContactSection = () => {
                 <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                   <Button variant="primary" size="lg" type="submit" className="w-full font-semibold">
                     <Send className="w-4 h-4 mr-1.5" />
-                    Enviar via Gmail
+                    Enviar via E-mail
                   </Button>
                   <Button
                     type="button"

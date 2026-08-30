@@ -97,9 +97,7 @@ export const Footer = () => {
             </h4>
             <div className="space-y-3 text-xs">
               <a
-                href={SITE_CONTACT.getGmailComposeUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`mailto:${SITE_CONTACT.displayEmail}`}
                 className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
