@@ -1,9 +1,9 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
 import { Logo } from "@/components/ui/logo";
-import { ShieldCheck, Github, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { saasProducts } from "@/data/saas-products";
 import { SITE_CONTACT } from "@/data/contact";
 
@@ -19,6 +19,15 @@ export const Footer = () => {
               Vision Solutions — Software House & Studio de Engenharia de Software especializado na criação, manutenção e licenciamento de produtos digitais e plataformas SaaS.
             </p>
             <div className="flex items-center gap-3 pt-2">
+              <a
+                href={SITE_CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-pink-400 transition-colors"
+                aria-label="Instagram Oficial"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
               <a
                 href="https://github.com/VandinDev221/-Vision-Solutions.git"
                 target="_blank"
@@ -104,6 +113,15 @@ export const Footer = () => {
               >
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="font-mono">{SITE_CONTACT.displayWhatsapp}</span>
+              </a>
+              <a
+                href={SITE_CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-slate-300 hover:text-pink-400 transition-colors"
+              >
+                <Instagram className="w-4 h-4 text-pink-400 shrink-0" />
+                <span className="font-mono">{SITE_CONTACT.displayInstagram}</span>
               </a>
               <div className="flex items-center gap-2 text-slate-400">
                 <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />

@@ -1,10 +1,10 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SITE_CONTACT } from "@/data/contact";
-import { Mail, Phone, MapPin, Send, ExternalLink, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ExternalLink, MessageSquare, Instagram } from "lucide-react";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -42,11 +42,45 @@ export const ContactSection = () => {
               Vamos transformar sua ideia em software?
             </h2>
             <p className="text-base text-slate-300 leading-relaxed">
-              Conte o que você precisa. Avaliamos o projeto, arquitetura e o melhor caminho para transformar sua necessidade em uma solução digital.
+              Conte o que você precisa. Avaliamos o projeto, arquitetura e o melhor caminho para transformar sua necessidade em uma solução digital de alto impacto.
             </p>
 
             {/* Direct Interactive Contact Links */}
             <div className="space-y-3 pt-4">
+              {/* WhatsApp Link */}
+              <a
+                href={SITE_CONTACT.getWhatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-lg bg-[#111726] border border-slate-800 flex items-center justify-between gap-3 text-slate-300 hover:text-white hover:border-emerald-500/50 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <div>
+                    <span className="block text-[11px] font-mono text-slate-400 uppercase">WhatsApp Oficial</span>
+                    <span className="text-sm font-bold text-white font-mono">{SITE_CONTACT.displayWhatsapp}</span>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-emerald-400 transition-colors" />
+              </a>
+
+              {/* Instagram Link */}
+              <a
+                href={SITE_CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-lg bg-[#111726] border border-slate-800 flex items-center justify-between gap-3 text-slate-300 hover:text-white hover:border-pink-500/50 transition-all group"
+              >
+                <div className="flex items-center gap-3">
+                  <Instagram className="w-4 h-4 text-pink-400 shrink-0" />
+                  <div>
+                    <span className="block text-[11px] font-mono text-slate-400 uppercase">Instagram Oficial</span>
+                    <span className="text-sm font-bold text-white font-mono">{SITE_CONTACT.displayInstagram}</span>
+                  </div>
+                </div>
+                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-pink-400 transition-colors" />
+              </a>
+
               {/* Email Link */}
               <a
                 href={SITE_CONTACT.getGmailComposeUrl()}
@@ -62,23 +96,6 @@ export const ContactSection = () => {
                   </div>
                 </div>
                 <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-sky-400 transition-colors" />
-              </a>
-
-              {/* WhatsApp Link */}
-              <a
-                href={SITE_CONTACT.getWhatsappUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3.5 rounded-lg bg-[#111726] border border-slate-800 flex items-center justify-between gap-3 text-slate-300 hover:text-white hover:border-emerald-500/50 transition-all group"
-              >
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <div>
-                    <span className="block text-[11px] font-mono text-slate-400 uppercase">WhatsApp Comercial</span>
-                    <span className="text-sm font-bold text-white font-mono">{SITE_CONTACT.displayWhatsapp}</span>
-                  </div>
-                </div>
-                <ExternalLink className="w-4 h-4 text-slate-500 group-hover:text-emerald-400 transition-colors" />
               </a>
 
               {/* Location */}
@@ -124,7 +141,7 @@ export const ContactSection = () => {
                     <input
                       type="tel"
                       required
-                      placeholder="(98) 98589-4988"
+                      placeholder="(98) 98919-8146"
                       value={formData.whatsapp}
                       onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                       className="w-full bg-[#090d16] border border-slate-800 rounded-md px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50"
