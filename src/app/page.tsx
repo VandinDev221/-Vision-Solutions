@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { Navbar } from "@/components/layout/navbar";
@@ -9,7 +9,7 @@ import { SaaSShowcase } from "@/components/sections/saas-showcase";
 import { CustomSoftwareSection } from "@/components/sections/custom-software-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { TechStackSection } from "@/components/sections/tech-stack-section";
-import { BuildingSection } from "@/components/sections/building-section";
+import { PrinciplesSection } from "@/components/sections/principles-section";
 import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
       <CustomSoftwareSection />
       <ProcessSection />
       <TechStackSection />
-      <BuildingSection />
+      <PrinciplesSection />
       <ContactSection />
       <Footer />
     </main>

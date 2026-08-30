@@ -1,9 +1,9 @@
-﻿export const SITE_CONTACT = {
+export const SITE_CONTACT = {
   // E-mail real que recebe as mensagens
   realEmail: "vandersonandrade_dev@outlook.com",
 
   // E-mail visual exibido na interface
-  displayEmail: "vandersonandrade_dev@outlook.com",
+  displayEmail: "contato@visionsolution.com.br",
 
   // WhatsApp oficial da Vision Solutions (DDD 98 - São Luís, MA)
   whatsappNumber: "5598989198146",

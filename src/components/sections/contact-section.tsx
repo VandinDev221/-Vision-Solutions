@@ -1,10 +1,11 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SITE_CONTACT } from "@/data/contact";
-import { Mail, Phone, MapPin, Send, ExternalLink, MessageSquare, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ExternalLink, MessageSquare, Instagram, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -30,20 +31,29 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="relative py-24 bg-[#090d16] overflow-hidden border-t border-slate-800">
+    <section id="contato" className="relative py-24 bg-[#090d16] overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Contact info */}
+          {/* Left Column: Contact info & CTA */}
           <div className="lg:col-span-5 space-y-6">
             <span className="text-xs font-mono font-semibold text-sky-400 uppercase tracking-wider block">
-              Contato & Orçamentos
+              Contato Direto
             </span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-              Vamos transformar sua ideia em software?
+              Tem um problema que precisa virar software?
             </h2>
             <p className="text-base text-slate-300 leading-relaxed">
-              Conte o que você precisa. Avaliamos o projeto, arquitetura e o melhor caminho para transformar sua necessidade em uma solução digital de alto impacto.
+              Vamos entender o cenário da sua operação e avaliar a melhor solução — seja através de um dos nossos produtos SaaS ou por desenvolvimento sob medida.
             </p>
+
+            <div className="pt-2">
+              <Link href="/produtos">
+                <Button variant="outline" size="sm" className="text-xs font-medium text-slate-300 border-slate-700 hover:border-slate-500">
+                  Conhecer nossos produtos
+                  <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+                </Button>
+              </Link>
+            </div>
 
             {/* Direct Interactive Contact Links */}
             <div className="space-y-3 pt-4">
@@ -57,7 +67,7 @@ export const ContactSection = () => {
                 <div className="flex items-center gap-3">
                   <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
                   <div>
-                    <span className="block text-[11px] font-mono text-slate-400 uppercase">WhatsApp Oficial</span>
+                    <span className="block text-[11px] font-mono text-slate-400 uppercase">WhatsApp Comercial</span>
                     <span className="text-sm font-bold text-white font-mono">{SITE_CONTACT.displayWhatsapp}</span>
                   </div>
                 </div>
@@ -83,7 +93,7 @@ export const ContactSection = () => {
 
               {/* Email Link */}
               <a
-                href={`mailto:${SITE_CONTACT.displayEmail}`}
+                href={`mailto:${SITE_CONTACT.realEmail}`}
                 className="p-3.5 rounded-lg bg-[#111726] border border-slate-800 flex items-center justify-between gap-3 text-slate-300 hover:text-white hover:border-slate-700 transition-all group"
               >
                 <div className="flex items-center gap-3">
@@ -112,7 +122,7 @@ export const ContactSection = () => {
             <Card className="p-8 bg-[#111726] border-slate-800 shadow-xl">
               <form onSubmit={handleEmailSubmit} className="space-y-5">
                 <h3 className="text-lg font-bold text-white border-b border-slate-800 pb-3">
-                  Solicitar Orçamento
+                  Falar com a Vision Solutions
                 </h3>
 
                 {/* 1. Nome */}
@@ -168,7 +178,7 @@ export const ContactSection = () => {
                   <textarea
                     rows={4}
                     required
-                    placeholder="Descreva brevemente o seu sistema, SaaS de interesse ou necessidade de negócio..."
+                    placeholder="Descreva o cenário da sua empresa, SaaS de interesse ou necessidade de software..."
                     value={formData.need}
                     onChange={(e) => setFormData({ ...formData, need: e.target.value })}
                     className="w-full bg-[#090d16] border border-slate-800 rounded-md p-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-sky-500/50"
@@ -179,7 +189,7 @@ export const ContactSection = () => {
                 <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
                   <Button variant="primary" size="lg" type="submit" className="w-full font-semibold">
                     <Send className="w-4 h-4 mr-1.5" />
-                    Enviar via E-mail
+                    Enviar Mensagem
                   </Button>
                   <Button
                     type="button"
@@ -189,7 +199,7 @@ export const ContactSection = () => {
                     className="w-full font-semibold text-emerald-300 border-emerald-500/40 hover:border-emerald-500"
                   >
                     <MessageSquare className="w-4 h-4 mr-1.5" />
-                    Enviar via WhatsApp
+                    Falar no WhatsApp
                   </Button>
                 </div>
               </form>

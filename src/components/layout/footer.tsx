@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -97,7 +97,7 @@ export const Footer = () => {
             </h4>
             <div className="space-y-3 text-xs">
               <a
-                href={`mailto:${SITE_CONTACT.displayEmail}`}
+                href={`mailto:${SITE_CONTACT.realEmail}`}
                 className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 text-indigo-400 shrink-0" />
