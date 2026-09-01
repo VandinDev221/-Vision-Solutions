@@ -13,12 +13,17 @@ interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export const TiltCard: React.FC<TiltCardProps> = ({
   children,
   className = "",
-  maxTilt = 12,
+  maxTilt = 10,
   glowColor = "rgba(56, 189, 248, 0.15)",
   ...props
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768);
+  }, []);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -33,7 +38,7 @@ export const TiltCard: React.FC<TiltCardProps> = ({
   });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
+    if (isTouchDevice || !cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -41,12 +46,23 @@ export const TiltCard: React.FC<TiltCardProps> = ({
     mouseY.set(y);
   };
 
-  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) setIsHovered(true);
+  };
+
   const handleMouseLeave = () => {
     setIsHovered(false);
     mouseX.set(0);
     mouseY.set(0);
   };
+
+  if (isTouchDevice) {
+    return (
+      <div className={`relative rounded-2xl ${className}`} {...props}>
+        <div className="relative z-10 h-full">{children}</div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

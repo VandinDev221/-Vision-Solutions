@@ -28,33 +28,33 @@ export const PrinciplesSection = () => {
   ];
 
   return (
-    <section className="relative py-28 bg-[#090d16] border-b border-slate-800/80">
+    <section className="relative py-20 sm:py-28 bg-[#090d16] border-b border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="max-w-3xl mb-16 space-y-3 text-left">
+        <div className="max-w-3xl mb-12 sm:mb-16 space-y-3 text-left">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-sky-400 uppercase tracking-wider font-semibold">
             <span>// FILOSOFIA & CRITÉRIOS DE PROJETO</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
             Como pensamos software.
           </h2>
-          <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
             Princípios práticos que guiam cada decisão de arquitetura, interface e desenvolvimento na Vision Solutions.
           </p>
         </div>
 
         {/* 4 Editorial Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {principles.map((p, idx) => (
             <div
               key={idx}
-              className="p-8 rounded-2xl bg-[#0e1422] border border-slate-800/90 hover:border-slate-700 transition-all duration-200 flex flex-col justify-between space-y-6 group"
+              className="p-6 sm:p-8 rounded-2xl bg-[#0e1422] border border-slate-800/90 hover:border-slate-700 transition-all duration-200 flex flex-col justify-between space-y-4 sm:space-y-6 group"
             >
-              <div className="space-y-4">
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 w-fit group-hover:border-slate-700 transition-colors">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 w-fit group-hover:border-slate-700 transition-colors">
                   {p.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
                   {p.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">

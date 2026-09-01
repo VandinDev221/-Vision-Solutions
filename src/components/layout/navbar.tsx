@@ -41,8 +41,8 @@ export const Navbar = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#090d16]/85 backdrop-blur-xl border-b border-slate-800/80 py-3 shadow-2xl shadow-black/40"
-          : "bg-transparent py-5"
+          ? "bg-[#090d16]/90 backdrop-blur-xl border-b border-slate-800/80 py-3 shadow-2xl shadow-black/40"
+          : "bg-transparent py-4 sm:py-5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +84,7 @@ export const Navbar = () => {
           {/* Mobile Menu Trigger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2.5 text-slate-300 hover:text-white rounded-lg bg-slate-900/80 border border-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500/50"
+            className="md:hidden p-2.5 text-slate-300 hover:text-white rounded-lg bg-slate-900/80 border border-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500/50 cursor-pointer"
             aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={mobileMenuOpen}
           >
@@ -101,13 +101,13 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="md:hidden fixed inset-x-0 top-[61px] bottom-0 bg-[#090d16]/98 backdrop-blur-2xl border-t border-slate-800/80 px-6 py-8 flex flex-col justify-between overflow-y-auto"
+            className="md:hidden fixed inset-x-0 top-[57px] bottom-0 bg-[#090d16]/98 backdrop-blur-2xl border-t border-slate-800/80 px-6 py-6 flex flex-col justify-between overflow-y-auto"
           >
-            <div className="space-y-6">
+            <div className="space-y-5">
               <span className="text-[11px] font-mono uppercase tracking-widest text-slate-400 block font-semibold">
                 Navegação
               </span>
-              <nav className="flex flex-col gap-2">
+              <nav className="flex flex-col gap-1.5">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.href}
@@ -128,11 +128,11 @@ export const Navbar = () => {
               </nav>
             </div>
 
-            <div className="pt-8 border-t border-slate-800/80 space-y-4">
+            <div className="pt-6 border-t border-slate-800/80 space-y-3">
               <Link
                 href="/contato"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 text-center font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20"
+                className="w-full py-3 rounded-lg bg-sky-500 hover:bg-sky-400 text-slate-950 text-center font-bold text-sm transition-colors flex items-center justify-center gap-2 shadow-lg shadow-sky-500/20 active:scale-[0.98]"
               >
                 <span>Falar com a equipe</span>
                 <ArrowUpRight className="w-4 h-4" />

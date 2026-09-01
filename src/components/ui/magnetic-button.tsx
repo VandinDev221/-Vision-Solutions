@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -20,10 +20,15 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
+  useEffect(() => {
+    setIsTouchDevice(window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768);
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (shouldReduceMotion || !ref.current) return;
+    if (isTouchDevice || shouldReduceMotion || !ref.current) return;
     const { clientX, clientY } = e;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
     const middleX = clientX - (left + width / 2);
@@ -47,6 +52,21 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       "bg-transparent hover:bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-200",
     ghost: "bg-transparent hover:bg-slate-900/60 text-slate-300 hover:text-white",
   };
+
+  if (isTouchDevice) {
+    return (
+      <button
+        className={cn(
+          "relative inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg text-xs sm:text-sm transition-colors cursor-pointer select-none active:scale-[0.98]",
+          variantStyles[variant],
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
 
   return (
     <motion.button
