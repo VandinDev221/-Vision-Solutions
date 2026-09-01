@@ -3,13 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #040711;
-  --foreground: #f0f6fc;
-  --neon-cyan: #00f0ff;
-  --neon-blue: #0070f3;
-  --neon-purple: #7928ca;
-  --neon-emerald: #00df8f;
-  --holo-border: rgba(0, 240, 255, 0.25);
+  --background: #070B12;
+  --surface-base: #0A101A;
+  --surface-raised: #0E1622;
+  --surface-card: #111A28;
+  --surface-hover: #152033;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(56, 189, 248, 0.35);
+  --text-primary: #F5F7FA;
+  --text-secondary: #B8C3D4;
+  --text-muted: #7F8DA3;
+  --brand-cyan: #38bdf8;
+  --brand-indigo: #6366f1;
+  --status-emerald: #10b981;
 }
 
 html {
@@ -18,7 +24,7 @@ html {
 }
 
 body {
-  color: var(--foreground);
+  color: var(--text-primary);
   background: var(--background);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Geist', 'Inter', 'Segoe UI', Roboto, sans-serif;
   overflow-x: hidden;
@@ -26,55 +32,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Sci-Fi Hologram Grid & Scanline Ambience */
-.cyber-grid-bg {
-  background-size: 50px 50px;
+/* Discrete Engineering Architectural Grid */
+.tech-grid-bg {
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
 }
 
-.holo-scanline {
-  background: linear-gradient(
-    to bottom,
-    transparent 50%,
-    rgba(0, 240, 255, 0.04) 51%,
-    transparent 52%
-  );
-  background-size: 100% 6px;
+/* Circuit Line Glowing Pulses */
+@keyframes circuitPulse {
+  0% { stroke-dashoffset: 200; opacity: 0.2; }
+  50% { opacity: 0.9; }
+  100% { stroke-dashoffset: 0; opacity: 0.2; }
 }
 
-/* Hologram Glass Glow */
-.holo-glass {
-  background: rgba(8, 14, 28, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 240, 255, 0.2);
-  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.1), inset 0 0 15px -5px rgba(0, 240, 255, 0.08);
-}
-
-.holo-glass:hover {
-  border-color: rgba(0, 240, 255, 0.45);
-  box-shadow: 0 0 35px -2px rgba(0, 240, 255, 0.2), inset 0 0 20px -3px rgba(0, 240, 255, 0.15);
-}
-
-/* Neon Text Glow */
-.neon-glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
-}
-
-.neon-glow-purple {
-  text-shadow: 0 0 10px rgba(121, 40, 202, 0.6), 0 0 20px rgba(121, 40, 202, 0.3);
-}
-
-/* Laser sweep animation */
-@keyframes laserSweep {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
-}
-
-.animate-laser {
-  animation: laserSweep 4s ease-in-out infinite;
+.circuit-wire {
+  stroke-dasharray: 200;
+  animation: circuitPulse 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 /* Custom Scrollbar */
@@ -83,20 +58,19 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #040711;
+  background: #070B12;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(0, 240, 255, 0.3);
+  background: #19263A;
   border-radius: 9999px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
-  box-shadow: 0 0 10px #00f0ff;
+  background: #38bdf8;
 }
 
-/* Reduced Motion */
+/* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

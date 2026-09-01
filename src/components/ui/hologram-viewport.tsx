@@ -27,6 +27,7 @@ export const HologramViewport = () => {
       y: height / 2,
       targetX: width / 2,
       targetY: height / 2,
+      radius: 160,
       active: false,
     };
 
@@ -43,121 +44,73 @@ export const HologramViewport = () => {
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // 3D Space Holographic Stars & Energy Nodes
-    const count = Math.min(Math.floor(width / 22), 70);
+    // Discrete Technical Particles (25 to 45 nodes)
+    const count = Math.min(Math.floor(width / 35), 40);
     const nodes: Array<{
       x: number;
       y: number;
-      z: number;
-      vz: number;
+      vx: number;
+      vy: number;
       size: number;
-      hue: number;
       alpha: number;
     }> = [];
 
     for (let i = 0; i < count; i++) {
       nodes.push({
-        x: (Math.random() - 0.5) * width * 1.5,
-        y: (Math.random() - 0.5) * height * 1.5,
-        z: Math.random() * 1000 + 1,
-        vz: Math.random() * 1.5 + 0.5,
-        size: Math.random() * 2.5 + 1,
-        hue: Math.random() > 0.6 ? 185 : Math.random() > 0.3 ? 260 : 160,
-        alpha: Math.random() * 0.7 + 0.3,
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: Math.random() * 1.5 + 0.8,
+        alpha: Math.random() * 0.4 + 0.2,
       });
     }
 
-    let time = 0;
-
     const render = () => {
-      time += 0.015;
       ctx.clearRect(0, 0, width, height);
 
       // Smooth mouse interpolation
       mouse.x += (mouse.targetX - mouse.x) * 0.08;
       mouse.y += (mouse.targetY - mouse.y) * 0.08;
 
-      const fov = 400;
-      const cx = width / 2 + (mouse.x - width / 2) * 0.08;
-      const cy = height / 2 + (mouse.y - height / 2) * 0.08;
+      // Subtle cursor proximity spotlight
+      if (mouse.active) {
+        const spot = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 220);
+        spot.addColorStop(0, "rgba(56, 189, 248, 0.04)");
+        spot.addColorStop(1, "transparent");
+        ctx.fillStyle = spot;
+        ctx.fillRect(0, 0, width, height);
+      }
 
-      // Holographic Deep Space Nebula Radial Aura
-      const nebula = ctx.createRadialGradient(cx, cy, 0, cx, cy, width * 0.8);
-      nebula.addColorStop(0, "rgba(0, 240, 255, 0.04)");
-      nebula.addColorStop(0.3, "rgba(121, 40, 202, 0.03)");
-      nebula.addColorStop(0.7, "rgba(0, 112, 243, 0.015)");
-      nebula.addColorStop(1, "transparent");
-      ctx.fillStyle = nebula;
-      ctx.fillRect(0, 0, width, height);
-
-      // Render 3D Floating Quantum Nodes
+      // Draw nodes and connecting technical lines
       for (let i = 0; i < nodes.length; i++) {
         const node = nodes[i];
-        node.z -= node.vz;
+        node.x += node.vx;
+        node.y += node.vy;
 
-        if (node.z <= 0) {
-          node.z = 1000;
-          node.x = (Math.random() - 0.5) * width * 1.5;
-          node.y = (Math.random() - 0.5) * height * 1.5;
-        }
+        if (node.x < 0 || node.x > width) node.vx *= -1;
+        if (node.y < 0 || node.y > height) node.vy *= -1;
 
-        const scale = fov / (fov + node.z);
-        const px = cx + node.x * scale;
-        const py = cy + node.y * scale;
-        const radius = node.size * scale * 2;
-
-        if (px < 0 || px > width || py < 0 || py > height) continue;
-
-        // Draw quantum particle with glowing aura
+        // Draw node
         ctx.beginPath();
-        ctx.arc(px, py, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${node.hue}, 100%, 70%, ${node.alpha * scale})`;
-        ctx.shadowColor = `hsl(${node.hue}, 100%, 60%)`;
-        ctx.shadowBlur = 10 * scale;
+        ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(184, 195, 212, ${node.alpha})`;
         ctx.fill();
-        ctx.shadowBlur = 0;
 
-        // Draw connecting cyber-circuit lines
+        // Connect nearby nodes
         for (let j = i + 1; j < nodes.length; j++) {
           const node2 = nodes[j];
-          const scale2 = fov / (fov + node2.z);
-          const px2 = cx + node2.x * scale2;
-          const py2 = cy + node2.y * scale2;
+          const dist = Math.hypot(node.x - node2.x, node.y - node2.y);
 
-          const dist = Math.hypot(px - px2, py - py2);
-          if (dist < 130 && Math.abs(node.z - node2.z) < 250) {
+          if (dist < 110) {
             ctx.beginPath();
-            ctx.moveTo(px, py);
-            ctx.lineTo(px2, py2);
-            ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 130) * scale})`;
+            ctx.moveTo(node.x, node.y);
+            ctx.lineTo(node2.x, node2.y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - dist / 110)})`;
             ctx.lineWidth = 0.75;
             ctx.stroke();
           }
         }
-      }
-
-      // Draw Cursor Quantum Energy Reticle
-      if (mouse.active) {
-        ctx.save();
-        ctx.translate(mouse.x, mouse.y);
-        ctx.rotate(time * 0.5);
-
-        // Outer Hex / Ring
-        ctx.beginPath();
-        ctx.arc(0, 0, 45, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(0, 240, 255, 0.25)";
-        ctx.setLineDash([6, 12]);
-        ctx.lineWidth = 1;
-        ctx.stroke();
-
-        // Inner Core Ring
-        ctx.beginPath();
-        ctx.arc(0, 0, 20, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(121, 40, 202, 0.4)";
-        ctx.setLineDash([4, 6]);
-        ctx.stroke();
-
-        ctx.restore();
       }
 
       animationFrameId = requestAnimationFrame(render);
@@ -176,8 +129,8 @@ export const HologramViewport = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 holo-scanline"
-      style={{ opacity: 0.95 }}
+      className="fixed inset-0 pointer-events-none z-0"
+      style={{ opacity: 0.8 }}
     />
   );
 };
