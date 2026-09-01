@@ -1,53 +1,51 @@
 ﻿"use client";
 
-import React from "react";
-import { Code2, Server, Database, Cloud, ShieldCheck, Zap, Lock, Terminal } from "lucide-react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Code2,
+  Server,
+  Database,
+  Cloud,
+  ShieldCheck,
+  Zap,
+  Lock,
+  Terminal,
+  Layers,
+  Cpu,
+  ArrowDown,
+  Sparkles
+} from "lucide-react";
 
 export const TechStackSection = () => {
-  const stack = [
-    {
-      category: "Frontend & Interfaces",
-      icon: <Code2 className="w-5 h-5 text-sky-400" />,
-      tagline: "Aplicações web rápidas, sem layout shift e acessíveis",
-      technologies: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Electron"]
-    },
-    {
-      category: "Backend & Microsserviços",
-      icon: <Server className="w-5 h-5 text-cyan-400" />,
-      tagline: "APIs modulares com alta tipagem e baixa latência de execução",
-      technologies: ["Node.js", "Fastify", "NestJS", "REST & Webhooks", "OAuth 2.0"]
-    },
-    {
-      category: "Dados & Cache em Memória",
-      icon: <Database className="w-5 h-5 text-emerald-400" />,
-      tagline: "Modelagem relacional sólida com integridade transacional",
-      technologies: ["PostgreSQL 16", "Redis Cache", "Prisma ORM", "SQL Indexing"]
-    },
-    {
-      category: "Infraestrutura & Filas",
-      icon: <Cloud className="w-5 h-5 text-purple-400" />,
-      tagline: "Isolamento em contêineres e processamento assíncrono",
-      technologies: ["Docker", "Linux Cloud", "NATS JetStream", "BullMQ Queues", "CI/CD"]
-    }
-  ];
+  const [activeNode, setActiveNode] = useState<"frontend" | "backend" | "workers" | "database">("frontend");
 
-  const architecturalPillars = [
-    {
-      title: "Isolamento Multi-Tenant",
-      desc: "Segregação estrita de dados por organização para segurança total.",
-      icon: <Lock className="w-4 h-4 text-sky-400" />
+  const nodeDetails = {
+    frontend: {
+      title: "Camada de Interface & Frontend",
+      stack: ["Next.js 15 (App Router)", "React 19", "TypeScript", "Tailwind CSS", "Electron"],
+      description: "Interfaces com renderização híbrida (SSR/SSG), zero layout shift, carregamento em menos de 100ms e experiência de aplicativo nativo no desktop.",
+      metrics: "FCP < 0.4s • Score 100 Performance"
     },
-    {
-      title: "Tipagem Estrita de Ponta a Ponta",
-      desc: "TypeScript compartilhado entre banco, API e telas para zero erros em runtime.",
-      icon: <ShieldCheck className="w-4 h-4 text-emerald-400" />
+    backend: {
+      title: "API Gateway & Microsserviços",
+      stack: ["Node.js 22 LTS", "Fastify", "NestJS", "RESTful & Webhooks", "OAuth 2.0 / JWT"],
+      description: "Servidores HTTP de alta vazão com tipagem estrita de contratos, validação de payload via Zod e baixa latência de execução por requisição.",
+      metrics: "Latência p99 < 18ms • 50k req/s"
     },
-    {
-      title: "Filas com Retry Automático",
-      desc: "Mensageria e webhooks resilientes a quedas com reprocessamento assíncrono.",
-      icon: <Zap className="w-4 h-4 text-amber-400" />
+    workers: {
+      title: "Filas Assíncronas & Mensageria",
+      stack: ["Redis 7 Cache", "BullMQ Queues", "NATS JetStream", "Cron Workers"],
+      description: "Processamento distribuído em segundo plano para envio em massa de mensagens no WhatsApp, relatórios pesados e reprocessamento com retry exponencial.",
+      metrics: "Zero bloqueio na thread principal"
+    },
+    database: {
+      title: "Banco de Dados & Multi-Tenancy",
+      stack: ["PostgreSQL 16", "Prisma ORM", "Schema Isolation", "WAL Backups"],
+      description: "Modelagem relacional normalizada com isolamento estrito de dados por organização cliente, índices otimizados e conformidade com a LGPD.",
+      metrics: "Transações ACID • Backups Diários"
     }
-  ];
+  };
 
   return (
     <section id="tecnologia" className="relative py-28 bg-[#090d16] border-b border-slate-800/80">
@@ -55,61 +53,208 @@ export const TechStackSection = () => {
         {/* Section Heading */}
         <div className="max-w-3xl mb-16 space-y-3 text-left">
           <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">
-            <span>// BASE TECNOLÓGICA & INFRAESTRUTURA</span>
+            <span>// TOPOLOGIA DO SISTEMA & ENGENHARIA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Engenharia por trás do produto.
+            Arquitetura em produção.
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            Utilizamos uma stack moderna e consolidada para garantir que qualquer software construído pela Vision Solutions seja seguro, rápido e simples de manter no longo prazo.
+            Interaja com os nós da nossa infraestrutura para entender como o fluxo de dados trafega de ponta a ponta.
           </p>
         </div>
 
-        {/* 4 Stack Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {stack.map((cat, idx) => (
-            <div
-              key={idx}
-              className="p-7 rounded-2xl bg-[#0e1422] border border-slate-800/90 hover:border-slate-700 transition-all duration-200 flex flex-col justify-between space-y-6"
-            >
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-slate-900 border border-slate-800">
-                    {cat.icon}
-                  </div>
-                  <h3 className="text-base font-bold text-white">{cat.category}</h3>
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">{cat.tagline}</p>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-slate-800/80">
-                {cat.technologies.map((tech, tIdx) => (
-                  <span
-                    key={tIdx}
-                    className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#090d16] text-slate-300 border border-slate-800"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+        {/* Interactive Architecture Canvas */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Interactive Topology Node Graph */}
+          <div className="lg:col-span-6 p-6 sm:p-8 rounded-2xl bg-[#0e1422] border border-slate-800/90 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-800/80">
+              <span className="text-xs font-mono text-slate-400 uppercase font-semibold">
+                Nós da Arquitetura (Clique para Inspecionar)
+              </span>
+              <span className="text-xs font-mono text-emerald-400 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Cluster Ativo
+              </span>
             </div>
-          ))}
-        </div>
 
-        {/* Architectural Guarantees Footer Bar */}
-        <div className="p-8 rounded-2xl bg-[#0e1422] border border-slate-800/90">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {architecturalPillars.map((pillar, idx) => (
-              <div key={idx} className="flex items-start gap-3.5">
-                <div className="p-2 rounded-lg bg-slate-900 border border-slate-800 shrink-0 mt-0.5">
-                  {pillar.icon}
+            {/* Node 1: Frontend */}
+            <div
+              onClick={() => setActiveNode("frontend")}
+              className={`p-4 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-between ${
+                activeNode === "frontend"
+                  ? "bg-[#090d16] border-sky-500/60 shadow-md shadow-sky-500/10"
+                  : "bg-[#090d16]/60 border-slate-800/80 hover:border-slate-700"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`p-2.5 rounded-lg border ${
+                  activeNode === "frontend" ? "bg-slate-900 border-sky-500/40 text-sky-400" : "bg-slate-900/80 border-slate-800 text-slate-400"
+                }`}>
+                  <Code2 className="w-5 h-5" />
                 </div>
-                <div className="space-y-1">
-                  <h4 className="text-sm font-bold text-white">{pillar.title}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{pillar.desc}</p>
+                <div>
+                  <h4 className="text-sm font-bold text-white">01. Frontend & Client Layer</h4>
+                  <span className="text-xs text-slate-400 font-mono">Next.js 15 • React 19 • Electron</span>
                 </div>
               </div>
-            ))}
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                activeNode === "frontend" ? "bg-sky-950 text-sky-300 border-sky-800" : "bg-slate-900 text-slate-500 border-slate-800"
+              }`}>
+                {activeNode === "frontend" ? "Selecionado" : "Inspecionar"}
+              </span>
+            </div>
+
+            {/* Animated Connector 1 */}
+            <div className="flex justify-center py-0.5">
+              <ArrowDown className="w-4 h-4 text-slate-600 animate-bounce" />
+            </div>
+
+            {/* Node 2: Backend */}
+            <div
+              onClick={() => setActiveNode("backend")}
+              className={`p-4 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-between ${
+                activeNode === "backend"
+                  ? "bg-[#090d16] border-cyan-500/60 shadow-md shadow-cyan-500/10"
+                  : "bg-[#090d16]/60 border-slate-800/80 hover:border-slate-700"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`p-2.5 rounded-lg border ${
+                  activeNode === "backend" ? "bg-slate-900 border-cyan-500/40 text-cyan-400" : "bg-slate-900/80 border-slate-800 text-slate-400"
+                }`}>
+                  <Server className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white">02. API Gateway & Fastify Services</h4>
+                  <span className="text-xs text-slate-400 font-mono">Fastify • NestJS • REST & Webhooks</span>
+                </div>
+              </div>
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                activeNode === "backend" ? "bg-cyan-950 text-cyan-300 border-cyan-800" : "bg-slate-900 text-slate-500 border-slate-800"
+              }`}>
+                {activeNode === "backend" ? "Selecionado" : "Inspecionar"}
+              </span>
+            </div>
+
+            {/* Animated Connector 2 */}
+            <div className="flex justify-center py-0.5">
+              <ArrowDown className="w-4 h-4 text-slate-600 animate-bounce" />
+            </div>
+
+            {/* Node 3: Workers & Queues */}
+            <div
+              onClick={() => setActiveNode("workers")}
+              className={`p-4 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-between ${
+                activeNode === "workers"
+                  ? "bg-[#090d16] border-purple-500/60 shadow-md shadow-purple-500/10"
+                  : "bg-[#090d16]/60 border-slate-800/80 hover:border-slate-700"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`p-2.5 rounded-lg border ${
+                  activeNode === "workers" ? "bg-slate-900 border-purple-500/40 text-purple-400" : "bg-slate-900/80 border-slate-800 text-slate-400"
+                }`}>
+                  <Cloud className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white">03. Filas Assíncronas & Mensageria</h4>
+                  <span className="text-xs text-slate-400 font-mono">BullMQ • Redis • NATS JetStream</span>
+                </div>
+              </div>
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                activeNode === "workers" ? "bg-purple-950 text-purple-300 border-purple-800" : "bg-slate-900 text-slate-500 border-slate-800"
+              }`}>
+                {activeNode === "workers" ? "Selecionado" : "Inspecionar"}
+              </span>
+            </div>
+
+            {/* Animated Connector 3 */}
+            <div className="flex justify-center py-0.5">
+              <ArrowDown className="w-4 h-4 text-slate-600 animate-bounce" />
+            </div>
+
+            {/* Node 4: Database */}
+            <div
+              onClick={() => setActiveNode("database")}
+              className={`p-4 rounded-xl border transition-all duration-200 cursor-pointer flex items-center justify-between ${
+                activeNode === "database"
+                  ? "bg-[#090d16] border-emerald-500/60 shadow-md shadow-emerald-500/10"
+                  : "bg-[#090d16]/60 border-slate-800/80 hover:border-slate-700"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className={`p-2.5 rounded-lg border ${
+                  activeNode === "database" ? "bg-slate-900 border-emerald-500/40 text-emerald-400" : "bg-slate-900/80 border-slate-800 text-slate-400"
+                }`}>
+                  <Database className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white">04. Banco Relacional & Multi-Tenancy</h4>
+                  <span className="text-xs text-slate-400 font-mono">PostgreSQL 16 • Prisma • Schemas</span>
+                </div>
+              </div>
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
+                activeNode === "database" ? "bg-emerald-950 text-emerald-300 border-emerald-800" : "bg-slate-900 text-slate-500 border-slate-800"
+              }`}>
+                {activeNode === "database" ? "Selecionado" : "Inspecionar"}
+              </span>
+            </div>
+          </div>
+
+          {/* Right Column: Dynamic Deep Architecture Node Inspector */}
+          <div className="lg:col-span-6">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeNode}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="p-8 sm:p-10 rounded-2xl bg-[#0e1422] border border-slate-800/90 shadow-2xl space-y-6"
+              >
+                <div className="space-y-2 pb-4 border-b border-slate-800/80">
+                  <span className="text-[11px] font-mono text-sky-400 uppercase font-semibold">
+                    Especificação Técnica do Nó
+                  </span>
+                  <h3 className="text-2xl font-bold text-white">
+                    {nodeDetails[activeNode].title}
+                  </h3>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    {nodeDetails[activeNode].description}
+                  </p>
+                </div>
+
+                {/* Tech Badges */}
+                <div className="space-y-2">
+                  <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block">
+                    Tecnologias Integradas
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {nodeDetails[activeNode].stack.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs font-mono px-3 py-1.5 rounded-lg bg-[#090d16] text-slate-200 border border-slate-800 font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Performance SLA Metrics Card */}
+                <div className="p-4 rounded-xl bg-[#090d16] border border-slate-800 flex items-center justify-between text-xs">
+                  <div className="flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span className="text-slate-300 font-medium font-mono">
+                      Métrica: {nodeDetails[activeNode].metrics}
+                    </span>
+                  </div>
+                  <span className="text-emerald-400 font-mono text-[10px] font-semibold">
+                    100% Produção
+                  </span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
