@@ -12,21 +12,27 @@ import { ProcessSection } from "@/components/sections/process-section";
 import { TechStackSection } from "@/components/sections/tech-stack-section";
 import { PrinciplesSection } from "@/components/sections/principles-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { InteractiveCanvas } from "@/components/ui/interactive-canvas";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#090d16] text-slate-100 selection:bg-sky-500 selection:text-slate-950 antialiased overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <ComplexityTransformationSection />
-      <CoreSolutionsSection />
-      <SaaSShowcase />
-      <CustomSoftwareSection />
-      <ProcessSection />
-      <TechStackSection />
-      <PrinciplesSection />
-      <ContactSection />
-      <Footer />
+    <main className="relative min-h-screen bg-[#090d16] text-slate-100 selection:bg-sky-500 selection:text-slate-950 antialiased overflow-x-hidden">
+      {/* Full-screen Interactive Particle, Laser & Cursor Spotlight System */}
+      <InteractiveCanvas />
+
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <ComplexityTransformationSection />
+        <CoreSolutionsSection />
+        <SaaSShowcase />
+        <CustomSoftwareSection />
+        <ProcessSection />
+        <TechStackSection />
+        <PrinciplesSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </main>
   );
 }
