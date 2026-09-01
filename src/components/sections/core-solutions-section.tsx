@@ -62,7 +62,7 @@ export const CoreSolutionsSection = () => {
             </div>
 
             <div className="pt-6 border-t border-slate-800/80 flex items-center justify-between">
-              <span className="text-xs font-mono text-slate-400">8+ plataformas ativas</span>
+              <span className="text-xs font-mono text-slate-400">Plataformas em produção</span>
               <Link
                 href="/produtos"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-400 hover:text-sky-300 transition-colors"

@@ -63,7 +63,7 @@ export const Footer = () => {
               ))}
               <li>
                 <Link href="/produtos" className="text-sky-400 hover:text-sky-300 font-semibold inline-flex items-center gap-1 pt-1">
-                  <span>Ver todos os {saasProducts.length} produtos</span>
+                  <span>Ver todos os produtos</span>
                   <ArrowUpRight className="w-3 h-3" />
                 </Link>
               </li>

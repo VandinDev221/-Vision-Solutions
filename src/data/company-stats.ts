@@ -8,7 +8,7 @@
 export const companyFacts: VerifiableFact[] = [
   {
     label: "Produtos em Desenvolvimento",
-    value: "8+",
+    value: "Multi-SaaS",
     description: "Plataformas SaaS e sistemas para nichos específicos de negócio",
     iconName: "Layers"
   },

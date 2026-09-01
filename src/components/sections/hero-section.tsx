@@ -67,8 +67,8 @@ export const HeroSection = () => {
             {/* Credibility Badges & Architecture Facts */}
             <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80">
               <div>
-                <span className="block text-xl sm:text-2xl font-bold font-mono text-white">8+</span>
-                <span className="text-[11px] text-slate-400 font-medium">Produtos no ecossistema</span>
+                <span className="block text-xl sm:text-2xl font-bold font-mono text-white">Multi-SaaS</span>
+                <span className="text-[11px] text-slate-400 font-medium">Soluções proprietárias</span>
               </div>
               <div>
                 <span className="block text-xl sm:text-2xl font-bold font-mono text-emerald-400">100%</span>

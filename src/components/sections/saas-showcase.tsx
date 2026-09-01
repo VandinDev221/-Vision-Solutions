@@ -79,7 +79,7 @@ export const SaaSShowcase = () => {
           {/* Left Column: Product Selector List */}
           <div className="lg:col-span-5 space-y-3">
             <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-2">
-              Selecione o Sistema ({products.length} ativos)
+              Selecione o Sistema
             </span>
 
             <div className="space-y-2">
