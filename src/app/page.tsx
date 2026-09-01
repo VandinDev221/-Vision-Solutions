@@ -14,7 +14,7 @@ import { ContactSection } from "@/components/sections/contact-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#090d16] text-slate-100 selection:bg-sky-500 selection:text-slate-950">
+    <main className="min-h-screen bg-[#090d16] text-slate-100 selection:bg-sky-500 selection:text-slate-950 antialiased overflow-x-hidden">
       <Navbar />
       <HeroSection />
       <CoreSolutionsSection />
