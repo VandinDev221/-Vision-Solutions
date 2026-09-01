@@ -1,16 +1,15 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #090d16;
-  --foreground: #f8fafc;
-  --surface-card: #111726;
-  --surface-hover: #161e31;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(56, 189, 248, 0.3);
-  --accent-cyan: #38bdf8;
-  --accent-indigo: #6366f1;
+  --background: #040711;
+  --foreground: #f0f6fc;
+  --neon-cyan: #00f0ff;
+  --neon-blue: #0070f3;
+  --neon-purple: #7928ca;
+  --neon-emerald: #00df8f;
+  --holo-border: rgba(0, 240, 255, 0.25);
 }
 
 html {
@@ -27,25 +26,77 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Sci-Fi Hologram Grid & Scanline Ambience */
+.cyber-grid-bg {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+}
+
+.holo-scanline {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 240, 255, 0.04) 51%,
+    transparent 52%
+  );
+  background-size: 100% 6px;
+}
+
+/* Hologram Glass Glow */
+.holo-glass {
+  background: rgba(8, 14, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow: 0 0 25px -5px rgba(0, 240, 255, 0.1), inset 0 0 15px -5px rgba(0, 240, 255, 0.08);
+}
+
+.holo-glass:hover {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 0 35px -2px rgba(0, 240, 255, 0.2), inset 0 0 20px -3px rgba(0, 240, 255, 0.15);
+}
+
+/* Neon Text Glow */
+.neon-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.neon-glow-purple {
+  text-shadow: 0 0 10px rgba(121, 40, 202, 0.6), 0 0 20px rgba(121, 40, 202, 0.3);
+}
+
+/* Laser sweep animation */
+@keyframes laserSweep {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(1000%); }
+}
+
+.animate-laser {
+  animation: laserSweep 4s ease-in-out infinite;
+}
+
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #040711;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: rgba(0, 240, 255, 0.3);
   border-radius: 9999px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
 }
 
-/* Reduced Motion Accessibility */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
