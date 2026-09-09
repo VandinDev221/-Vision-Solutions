@@ -4,6 +4,7 @@ import React from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
+import { MonolithArchitectureSection } from "@/components/sections/monolith-architecture-section";
 import { ComplexityTransformationSection } from "@/components/sections/complexity-transformation-section";
 import { CoreSolutionsSection } from "@/components/sections/core-solutions-section";
 import { SaaSShowcase } from "@/components/sections/saas-showcase";
@@ -20,10 +21,11 @@ export default function Home() {
       {/* Unified Continuous 3D WebGL World */}
       <SceneWrapper />
 
-      {/* Accessible Editorial Semantic Content Layers */}
+      {/* Spatial & Editorial Content Layers */}
       <div className="relative z-10">
         <Navbar />
         <HeroSection />
+        <MonolithArchitectureSection />
         <ComplexityTransformationSection />
         <CoreSolutionsSection />
         <SaaSShowcase />

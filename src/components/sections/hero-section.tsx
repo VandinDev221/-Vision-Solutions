@@ -4,30 +4,121 @@ import React, { useState } from "react";
 import Link from "next/link";
 import {
   ArrowRight,
-  CheckCircle2,
   Wrench,
   Stethoscope,
-  Clock,
-  Search,
-  Plus
+  Car,
+  Activity,
+  CheckCircle2,
+  Cpu,
+  Layers,
+  Sparkles,
+  Zap,
+  Cog
 } from "lucide-react";
 
 export const HeroSection = () => {
   const [activeTab, setActiveTab] = useState<"torqueos" | "syndent">("torqueos");
-  const [subTab, setSubTab] = useState<"os" | "pecas" | "caixa">("os");
+  const [selectedCard, setSelectedCard] = useState<number>(0);
+
+  const vehicleCards = [
+    {
+      car: "Toyota Corolla",
+      client: "Carlos M.",
+      service: "Revisão 60k + Freios",
+      status: "Em Execução",
+      statusColor: "text-blue-400 bg-blue-950/80 border-blue-800",
+      price: "R$ 1.840,00",
+      progress: "75%",
+      icon: "🚗"
+    },
+    {
+      car: "Honda Civic",
+      client: "Amanda R.",
+      service: "Troca Amortecedores",
+      status: "Aguardando Peça",
+      statusColor: "text-amber-400 bg-amber-950/80 border-amber-800",
+      price: "R$ 2.450,00",
+      progress: "30%",
+      icon: "🏎️"
+    },
+    {
+      car: "Jeep Compass",
+      client: "Eduardo S.",
+      service: "Diagnóstico Injeção",
+      status: "Finalizado",
+      statusColor: "text-emerald-400 bg-emerald-950/80 border-emerald-800",
+      price: "R$ 720,00",
+      progress: "100%",
+      icon: "🚙"
+    }
+  ];
+
+  const clinicalCards = [
+    {
+      car: "Mariana Costa",
+      client: "Dra. Beatriz",
+      service: "Endodontia Dente 16",
+      status: "Em Atendimento",
+      statusColor: "text-blue-400 bg-blue-950/80 border-blue-800",
+      price: "R$ 1.200,00",
+      progress: "80%",
+      icon: "🦷"
+    },
+    {
+      car: "Rafael Lima",
+      client: "Dr. Henrique",
+      service: "Alinhador Invisível",
+      status: "Moldagem 3D",
+      statusColor: "text-purple-400 bg-purple-950/80 border-purple-800",
+      price: "R$ 4.500,00",
+      progress: "45%",
+      icon: "✨"
+    },
+    {
+      car: "Juliana Santos",
+      client: "Dra. Camila",
+      service: "Profilaxia & Clareamento",
+      status: "Finalizado",
+      statusColor: "text-emerald-400 bg-emerald-950/80 border-emerald-800",
+      price: "R$ 850,00",
+      progress: "100%",
+      icon: "🩺"
+    }
+  ];
+
+  const currentCards = activeTab === "torqueos" ? vehicleCards : clinicalCards;
 
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0B0E14] border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-[#0B0E14] border-b border-white/10 overflow-hidden">
+      {/* 3D Ambient Depth Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-600/10 via-cyan-500/10 to-indigo-600/10 blur-[140px] pointer-events-none rounded-full" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Editorial Positioning */}
           <div className="lg:col-span-5 space-y-8 text-left">
+            {/* 3D Monogram Tag */}
+            <div className="inline-flex items-center gap-3 p-1.5 pr-4 rounded-lg bg-[#111622] border border-blue-500/30 shadow-lg shadow-blue-950/40">
+              <div className="w-8 h-8 rounded bg-gradient-to-br from-blue-500 to-indigo-700 flex items-center justify-center text-white font-mono font-bold text-xs shadow-md">
+                VS
+              </div>
+              <div className="flex flex-col text-left leading-none">
+                <span className="text-xs font-bold font-mono text-white tracking-wider uppercase">
+                  VISION SOLUTIONS
+                </span>
+                <span className="text-[10px] text-blue-400 font-mono mt-0.5">
+                  SOFTWARE HOUSE & SAAS STUDIO
+                </span>
+              </div>
+            </div>
+
+            {/* Main Headline */}
             <div className="space-y-4">
-              <span className="inline-block text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">
-                Software House & SaaS Studio
-              </span>
-              <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.12]">
-                Software para operações que não cabem em software genérico.
+              <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-[1.12]">
+                Software para operações que não cabem em{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-300">
+                  software genérico.
+                </span>
               </h1>
               <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
                 Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada, rápida e estável.
@@ -35,17 +126,17 @@ export const HeroSection = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
               <Link
                 href="/produtos"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-all duration-200 shadow-lg shadow-blue-600/25 active:scale-[0.98]"
               >
                 <span>Conhecer nossos produtos</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contato"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-medium text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-[#111622] hover:bg-[#161D2B] text-slate-200 border border-white/10 font-semibold text-sm transition-all"
               >
                 <span>Construir um sistema</span>
               </Link>
@@ -68,18 +159,18 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column: Real Operating Product UI Component */}
-          <div className="lg:col-span-7">
-            <div className="rounded-lg bg-[#111622] border border-white/10 shadow-2xl overflow-hidden text-slate-200">
-              {/* Product Switcher Bar */}
-              <div className="flex items-center justify-between px-4 py-3 bg-[#0E131E] border-b border-white/10">
+          {/* Right Column: 3D Spatial Engine + Interactive Floating Breakout Cards */}
+          <div className="lg:col-span-7 relative">
+            <div className="p-6 sm:p-8 rounded-xl bg-[#111622] border border-blue-500/20 shadow-2xl space-y-6 relative overflow-hidden">
+              {/* Top Engine Control Bar */}
+              <div className="flex items-center justify-between pb-4 border-b border-white/10 relative z-10">
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setActiveTab("torqueos")}
-                    className={`px-3 py-1.5 rounded text-xs font-medium font-mono flex items-center gap-1.5 transition-colors cursor-pointer ${
+                    className={`px-3 py-1.5 rounded text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                       activeTab === "torqueos"
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "text-slate-400 hover:text-white"
+                        ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                        : "bg-[#0B0E14] text-slate-400 hover:text-white border border-white/5"
                     }`}
                   >
                     <Wrench className="w-3.5 h-3.5" />
@@ -87,10 +178,10 @@ export const HeroSection = () => {
                   </button>
                   <button
                     onClick={() => setActiveTab("syndent")}
-                    className={`px-3 py-1.5 rounded text-xs font-medium font-mono flex items-center gap-1.5 transition-colors cursor-pointer ${
+                    className={`px-3 py-1.5 rounded text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                       activeTab === "syndent"
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "text-slate-400 hover:text-white"
+                        ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                        : "bg-[#0B0E14] text-slate-400 hover:text-white border border-white/5"
                     }`}
                   >
                     <Stethoscope className="w-3.5 h-3.5" />
@@ -98,204 +189,124 @@ export const HeroSection = () => {
                   </button>
                 </div>
 
-                <span className="text-[11px] font-mono text-slate-400 hidden sm:inline-block">
-                  Ambiente de Produção
-                </span>
+                <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Ambiente de Produção Ativo</span>
+                </div>
               </div>
 
-              {/* Product Workspace Body */}
-              <div className="p-5 space-y-4">
-                {activeTab === "torqueos" ? (
-                  <div className="space-y-4">
-                    {/* Header Controls */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/5">
-                      <div>
-                        <h2 className="text-sm font-bold text-white flex items-center gap-2">
-                          TorqueOS AutoCenter
-                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
-                            Ativo
-                          </span>
-                        </h2>
-                        <p className="text-xs text-slate-400">Oficina Principal • 18 O.S. no pátio hoje</p>
-                      </div>
-
-                      {/* Sub Tabs */}
-                      <div className="flex items-center gap-1 bg-[#0B0E14] p-1 rounded border border-white/5 text-xs font-mono">
-                        <button
-                          onClick={() => setSubTab("os")}
-                          className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
-                            subTab === "os" ? "bg-slate-800 text-white font-semibold" : "text-slate-400 hover:text-white"
-                          }`}
-                        >
-                          Ordens de Serviço
-                        </button>
-                        <button
-                          onClick={() => setSubTab("pecas")}
-                          className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
-                            subTab === "pecas" ? "bg-slate-800 text-white font-semibold" : "text-slate-400 hover:text-white"
-                          }`}
-                        >
-                          Peças
-                        </button>
-                        <button
-                          onClick={() => setSubTab("caixa")}
-                          className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
-                            subTab === "caixa" ? "bg-slate-800 text-white font-semibold" : "text-slate-400 hover:text-white"
-                          }`}
-                        >
-                          Financeiro
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Operational Table */}
-                    {subTab === "os" && (
-                      <div className="overflow-x-auto">
-                        <table className="w-full text-left text-xs font-mono">
-                          <thead>
-                            <tr className="border-b border-white/10 text-slate-400 text-[11px]">
-                              <th className="pb-2 font-medium">Nº O.S.</th>
-                              <th className="pb-2 font-medium">Veículo / Cliente</th>
-                              <th className="pb-2 font-medium">Serviço</th>
-                              <th className="pb-2 font-medium">Status</th>
-                              <th className="pb-2 font-medium text-right">Valor</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-white/5">
-                            <tr className="hover:bg-white/[0.02]">
-                              <td className="py-2.5 text-white font-bold">#4892</td>
-                              <td className="py-2.5 text-slate-200">Toyota Corolla (Carlos M.)</td>
-                              <td className="py-2.5 text-slate-300">Revisão 60k + Freios</td>
-                              <td className="py-2.5">
-                                <span className="px-2 py-0.5 rounded text-[10px] bg-blue-950 text-blue-400 border border-blue-800">
-                                  Em Execução
-                                </span>
-                              </td>
-                              <td className="py-2.5 text-right text-emerald-400 font-bold">R$ 1.840,00</td>
-                            </tr>
-                            <tr className="hover:bg-white/[0.02]">
-                              <td className="py-2.5 text-white font-bold">#4891</td>
-                              <td className="py-2.5 text-slate-200">Honda Civic (Amanda R.)</td>
-                              <td className="py-2.5 text-slate-300">Troca Amortecedores</td>
-                              <td className="py-2.5">
-                                <span className="px-2 py-0.5 rounded text-[10px] bg-amber-950 text-amber-400 border border-amber-800">
-                                  Aguardando Peça
-                                </span>
-                              </td>
-                              <td className="py-2.5 text-right text-emerald-400 font-bold">R$ 2.450,00</td>
-                            </tr>
-                            <tr className="hover:bg-white/[0.02]">
-                              <td className="py-2.5 text-white font-bold">#4890</td>
-                              <td className="py-2.5 text-slate-200">Jeep Compass (Eduardo S.)</td>
-                              <td className="py-2.5 text-slate-300">Diagnóstico Injeção</td>
-                              <td className="py-2.5">
-                                <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-950 text-emerald-400 border border-emerald-800">
-                                  Finalizado
-                                </span>
-                              </td>
-                              <td className="py-2.5 text-right text-emerald-400 font-bold">R$ 720,00</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    )}
-
-                    {subTab === "pecas" && (
-                      <div className="space-y-2 text-xs font-mono">
-                        <div className="flex items-center justify-between p-2.5 rounded bg-[#0E131E] border border-white/5">
-                          <div>
-                            <span className="font-bold text-white block">COD-8821 • Filtro de Óleo Motor 1.8 Flex</span>
-                            <span className="text-[11px] text-slate-400">Compatível: Corolla / Yaris / Etios</span>
-                          </div>
-                          <span className="text-emerald-400 font-bold">24 em estoque</span>
-                        </div>
-                        <div className="flex items-center justify-between p-2.5 rounded bg-[#0E131E] border border-white/5">
-                          <div>
-                            <span className="font-bold text-white block">COD-1904 • Jogo Velas Iridium NGK</span>
-                            <span className="text-[11px] text-slate-400">Compatível: Linha Honda / Civic / Fit</span>
-                          </div>
-                          <span className="text-emerald-400 font-bold">12 em estoque</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {subTab === "caixa" && (
-                      <div className="grid grid-cols-3 gap-3 font-mono text-xs">
-                        <div className="p-3 rounded bg-[#0E131E] border border-white/5">
-                          <span className="text-slate-400 text-[10px] block uppercase">Faturamento Dia</span>
-                          <span className="text-base font-bold text-emerald-400 block mt-1">R$ 14.820,00</span>
-                        </div>
-                        <div className="p-3 rounded bg-[#0E131E] border border-white/5">
-                          <span className="text-slate-400 text-[10px] block uppercase">Recebido via Pix</span>
-                          <span className="text-base font-bold text-white block mt-1">R$ 9.400,00</span>
-                        </div>
-                        <div className="p-3 rounded bg-[#0E131E] border border-white/5">
-                          <span className="text-slate-400 text-[10px] block uppercase">Cartão / Faturado</span>
-                          <span className="text-base font-bold text-white block mt-1">R$ 5.420,00</span>
-                        </div>
-                      </div>
-                    )}
+              {/* Central 3D Engine Columns + Breakout Fiber Conduits */}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center relative z-10">
+                {/* 3D Physical Server / Engine Block */}
+                <div className="md:col-span-5 p-5 rounded-lg bg-[#0B0E14] border border-blue-500/30 shadow-xl space-y-4 text-center relative group">
+                  {/* Top Animated Mechanical Pistons/Gears Indicator */}
+                  <div className="flex items-center justify-center gap-3 pb-2 border-b border-white/5 text-blue-400">
+                    <Cog className="w-5 h-5 animate-spin" style={{ animationDuration: "8s" }} />
+                    <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-200">
+                      {activeTab === "torqueos" ? "Motor Operacional" : "Núcleo Clínico"}
+                    </span>
+                    <Cog className="w-4 h-4 animate-spin" style={{ animationDuration: "6s", animationDirection: "reverse" }} />
                   </div>
-                ) : (
-                  <div className="space-y-4">
-                    {/* SynDent Real Clinical Workspace */}
-                    <div className="flex items-center justify-between pb-3 border-b border-white/5">
-                      <div>
-                        <h2 className="text-sm font-bold text-white flex items-center gap-2">
-                          SynDent Odontologia Integrada
-                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800">
-                            Clínica Principal
-                          </span>
-                        </h2>
-                        <p className="text-xs text-slate-400">Paciente: Mariana Costa (32 anos) • Dr. Henrique</p>
-                      </div>
 
-                      <span className="text-xs font-mono text-emerald-400 font-semibold">
-                        Confirmado WhatsApp
+                  {/* 3 Modular Server Tower Pillars with illuminated status LEDs */}
+                  <div className="grid grid-cols-3 gap-2 py-2">
+                    <div className="p-2 rounded bg-[#111622] border border-blue-500/30 flex flex-col items-center gap-1">
+                      <span className="text-[9px] font-mono uppercase text-slate-400">
+                        {activeTab === "torqueos" ? "O.S." : "Prontuário"}
                       </span>
+                      <div className="w-full h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                      <span className="text-xs font-bold font-mono text-white">18</span>
                     </div>
-
-                    {/* Clinical Dental Chart & Details */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                      <div className="p-3 rounded bg-[#0E131E] border border-white/5 space-y-2">
-                        <span className="text-[10px] font-mono text-slate-400 uppercase block font-semibold">
-                          Odontograma Gráfico Ativo
-                        </span>
-                        <div className="flex items-center gap-2 font-mono text-xs">
-                          <div className="p-2 rounded bg-[#0B0E14] border border-blue-800 text-blue-300 font-bold">
-                            Dente 16
-                          </div>
-                          <div>
-                            <span className="text-white font-bold block">Endodontia (Canal)</span>
-                            <span className="text-slate-400 text-[11px]">Face Oclusal restaurada</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="p-3 rounded bg-[#0E131E] border border-white/5 space-y-2">
-                        <span className="text-[10px] font-mono text-slate-400 uppercase block font-semibold">
-                          Próximos Horários Hoje
-                        </span>
-                        <div className="space-y-1.5 font-mono text-[11px]">
-                          <div className="flex items-center justify-between text-slate-300">
-                            <span>09:30 - Mariana Costa</span>
-                            <span className="text-emerald-400">Em Atendimento</span>
-                          </div>
-                          <div className="flex items-center justify-between text-slate-300">
-                            <span>10:30 - Rafael Lima</span>
-                            <span className="text-blue-400">Na Recepção</span>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="p-2 rounded bg-[#111622] border border-cyan-500/30 flex flex-col items-center gap-1">
+                      <span className="text-[9px] font-mono uppercase text-slate-400">
+                        {activeTab === "torqueos" ? "Pátio" : "Odonto 3D"}
+                      </span>
+                      <div className="w-full h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                      <span className="text-xs font-bold font-mono text-cyan-300">Ativo</span>
+                    </div>
+                    <div className="p-2 rounded bg-[#111622] border border-emerald-500/30 flex flex-col items-center gap-1">
+                      <span className="text-[9px] font-mono uppercase text-slate-400">
+                        {activeTab === "torqueos" ? "Caixa" : "Agenda"}
+                      </span>
+                      <div className="w-full h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span className="text-xs font-bold font-mono text-emerald-400">100%</span>
                     </div>
                   </div>
-                )}
+
+                  <p className="text-[11px] text-slate-400 leading-tight">
+                    {activeTab === "torqueos"
+                      ? "Processamento em tempo real de ordens, catálogo de peças e fluxo de caixa."
+                      : "Sincronização imediata de anamnese, odontograma 2D/3D e repasses clínicos."}
+                  </p>
+                </div>
+
+                {/* Right: Floating Interactive Breakout Product Cards */}
+                <div className="md:col-span-7 space-y-2.5">
+                  {currentCards.map((card, idx) => {
+                    const isSelected = selectedCard === idx;
+
+                    return (
+                      <div
+                        key={idx}
+                        onClick={() => setSelectedCard(idx)}
+                        className={`p-3.5 rounded-lg border transition-all duration-200 cursor-pointer flex items-center justify-between gap-3 ${
+                          isSelected
+                            ? "bg-[#161D2B] border-blue-500 shadow-lg shadow-blue-500/10 translate-x-1"
+                            : "bg-[#0B0E14] border-white/5 hover:border-white/20"
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="text-xl shrink-0">{card.icon}</div>
+                          <div className="text-left">
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs font-bold font-mono text-white">
+                                {card.car}
+                              </span>
+                              <span className="text-[10px] text-slate-400 font-mono">
+                                ({card.client})
+                              </span>
+                            </div>
+                            <span className="text-[11px] text-slate-300 block mt-0.5">
+                              {card.service}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="text-right shrink-0">
+                          <span className={`text-[10px] font-mono px-2 py-0.5 rounded border block mb-1 ${card.statusColor}`}>
+                            {card.status}
+                          </span>
+                          <span className="text-xs font-mono font-bold text-emerald-400">
+                            {card.price}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
 
-              {/* Bottom Real Architecture Strip */}
-              <div className="px-5 py-3 bg-[#0E131E] border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span>Stack: Next.js 15 • Fastify • PostgreSQL 16</span>
-                <span className="text-slate-300">Multi-Tenant com Schemas Isolados</span>
+              {/* Bottom Conduits Connected Stack Dock */}
+              <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 relative z-10 font-mono text-xs text-slate-400">
+                <div className="flex items-center gap-3">
+                  <span className="text-slate-500">Conexões Ativas:</span>
+                  <span className="px-2.5 py-1 rounded bg-[#0B0E14] border border-white/5 text-white font-bold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                    Next.js 15
+                  </span>
+                  <span className="px-2.5 py-1 rounded bg-[#0B0E14] border border-white/5 text-white font-bold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                    Fastify
+                  </span>
+                  <span className="px-2.5 py-1 rounded bg-[#0B0E14] border border-white/5 text-white font-bold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    PostgreSQL 16
+                  </span>
+                </div>
+
+                <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                  <Zap className="w-3.5 h-3.5" /> Latência Sub-18ms
+                </span>
               </div>
             </div>
           </div>
