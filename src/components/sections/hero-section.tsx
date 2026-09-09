@@ -6,14 +6,9 @@ import {
   ArrowRight,
   Wrench,
   Stethoscope,
-  Car,
-  Activity,
+  Cog,
   CheckCircle2,
-  Cpu,
-  Layers,
-  Sparkles,
-  Zap,
-  Cog
+  Zap
 } from "lucide-react";
 
 export const HeroSection = () => {
@@ -89,7 +84,7 @@ export const HeroSection = () => {
   const currentCards = activeTab === "torqueos" ? vehicleCards : clinicalCards;
 
   return (
-    <section className="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-[#0B0E14] border-b border-white/10 overflow-hidden">
+    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-[#0B0E14] border-b border-white/10 overflow-hidden">
       {/* 3D Ambient Depth Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-blue-600/10 via-cyan-500/10 to-indigo-600/10 blur-[140px] pointer-events-none rounded-full" />
 
@@ -240,7 +235,7 @@ export const HeroSection = () => {
                   </p>
                 </div>
 
-                {/* Right: Floating Interactive Breakout Product Cards */}
+                {/* Right: Floating Interactive Breakout Product Cards with Fiber-Optic Connection */}
                 <div className="md:col-span-7 space-y-2.5">
                   {currentCards.map((card, idx) => {
                     const isSelected = selectedCard === idx;
