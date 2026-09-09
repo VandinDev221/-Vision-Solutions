@@ -12,21 +12,28 @@ import { ProcessSection } from "@/components/sections/process-section";
 import { TechStackSection } from "@/components/sections/tech-stack-section";
 import { PrinciplesSection } from "@/components/sections/principles-section";
 import { ContactSection } from "@/components/sections/contact-section";
+import { SceneWrapper } from "@/components/3d/SceneWrapper";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0B0E14] text-slate-100 selection:bg-blue-600 selection:text-white antialiased overflow-x-hidden">
-      <Navbar />
-      <HeroSection />
-      <ComplexityTransformationSection />
-      <CoreSolutionsSection />
-      <SaaSShowcase />
-      <CustomSoftwareSection />
-      <ProcessSection />
-      <TechStackSection />
-      <PrinciplesSection />
-      <ContactSection />
-      <Footer />
+    <main className="relative min-h-screen bg-[#0B0E14] text-slate-100 selection:bg-blue-600 selection:text-white antialiased overflow-x-hidden">
+      {/* Unified Continuous 3D WebGL World */}
+      <SceneWrapper />
+
+      {/* Accessible Editorial Semantic Content Layers */}
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <ComplexityTransformationSection />
+        <CoreSolutionsSection />
+        <SaaSShowcase />
+        <CustomSoftwareSection />
+        <ProcessSection />
+        <TechStackSection />
+        <PrinciplesSection />
+        <ContactSection />
+        <Footer />
+      </div>
     </main>
   );
 }
