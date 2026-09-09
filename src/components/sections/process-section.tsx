@@ -6,78 +6,78 @@ export const ProcessSection = () => {
   const steps = [
     {
       number: "01",
-      title: "Entendimento",
-      desc: "Imersão nos gargalos da operação, regras de negócio e mapeamento dos requisitos que geram valor imediato.",
-      deliverable: "Documento de Requisitos & Escopo"
+      title: "Entendimento & Requisitos",
+      desc: "Imersão nos gargalos da operação, regras de negócio e mapeamento dos fluxos críticos que geram valor imediato.",
+      deliverable: "Documento de Escopo & Arquitetura"
     },
     {
       number: "02",
-      title: "Arquitetura",
-      desc: "Modelagem do banco de dados relacional, definição das camadas técnicas, contratos de API e fluxos de tela.",
+      title: "Modelagem & Protótipo",
+      desc: "Estruturação do banco de dados relacional, definição das camadas técnicas, contratos de API e fluxos de tela.",
       deliverable: "Modelo de Dados & Wireframes"
     },
     {
       number: "03",
-      title: "Desenvolvimento",
-      desc: "Construção com TypeScript estrito, testes automatizados e ciclos incrementais com validação frequente.",
-      deliverable: "Sprints com Entregas Semanais"
+      title: "Desenvolvimento Incremental",
+      desc: "Construção com TypeScript estrito, testes automatizados e validações frequentes com o cliente.",
+      deliverable: "Entregas Semanais em Staging"
     },
     {
       number: "04",
-      title: "Validação",
-      desc: "Homologação dos fluxos de trabalho com os usuários reais da empresa e testes de carga em ambiente espelho.",
-      deliverable: "Checklist de Homologação"
+      title: "Homologação & Testes",
+      desc: "Validação dos fluxos de trabalho com os operadores reais da empresa e testes de carga em ambiente espelho.",
+      deliverable: "Checklist de Homologação Aprovado"
     },
     {
       number: "05",
-      title: "Produção",
-      desc: "Deploy seguro em nuvem, configuração de pipelines CI/CD, migração de dados e acompanhamento assistido no lançamento.",
+      title: "Deploy em Produção",
+      desc: "Publicação segura em nuvem, configuração de pipelines CI/CD, migração de dados e acompanhamento assistido no lançamento.",
       deliverable: "Software em Nuvem Ativo"
     },
     {
       number: "06",
-      title: "Evolução",
-      desc: "Monitoramento contínuo de erros e latência, suporte técnico direto e desenvolvimento de novos módulos operacionais.",
+      title: "Suporte & Evolução",
+      desc: "Monitoramento de erros e latência, suporte técnico direto com o time de engenharia e desenvolvimento de novos módulos.",
       deliverable: "SLA & Suporte Contínuo"
     }
   ];
 
   return (
-    <section id="processo" className="relative py-20 sm:py-28 bg-[#090d16] border-b border-slate-800/80">
+    <section id="processo" className="py-20 sm:py-28 bg-[#080B10] border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <div className="max-w-3xl mb-12 sm:mb-16 space-y-3 text-left">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-sky-400 uppercase tracking-wider font-semibold">
-            <span>// METODOLOGIA DE ENGENHARIA</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Da ideia à produção. Sem surpresas.
+        <div className="max-w-3xl mb-14 space-y-3 text-left">
+          <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">
+            Metodologia de Entrega
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
+            Da concepção à produção. Sem surpresas.
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
-            Processo estruturado em etapas previsíveis para que você acompanhe o progresso técnico com clareza e controle.
+          <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            Processo estruturado em etapas previsíveis para que você acompanhe o progresso técnico com clareza, transparência e controle.
           </p>
         </div>
 
-        {/* 6 Steps Grid with Deliverable Tags */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {/* 6 Steps Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {steps.map((step, idx) => (
             <div
               key={idx}
-              className="p-6 sm:p-8 rounded-2xl bg-[#0e1422] border border-slate-800/90 hover:border-slate-700 transition-all duration-200 flex flex-col justify-between space-y-4 sm:space-y-6 group"
+              className="p-6 rounded-lg bg-[#111622] border border-white/10 flex flex-col justify-between space-y-5"
             >
-              <div className="space-y-2.5 sm:space-y-3">
-                <span className="text-2xl sm:text-3xl font-extrabold font-mono text-sky-400 block group-hover:translate-x-1 transition-transform">
+              <div className="space-y-2.5">
+                <span className="text-2xl font-bold font-mono text-blue-400 block">
                   {step.number}
                 </span>
-                <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-sky-300 transition-colors">
+                <h3 className="text-base font-bold text-white">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-300 leading-relaxed font-sans">
                   {step.desc}
                 </p>
               </div>
 
-              <div className="pt-3 sm:pt-4 border-t border-slate-800/80 flex items-center justify-between text-[10px] sm:text-[11px] font-mono">
+              <div className="pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono">
                 <span className="text-slate-400">Entrega:</span>
                 <span className="text-emerald-400 font-semibold">{step.deliverable}</span>
               </div>

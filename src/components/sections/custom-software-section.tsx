@@ -2,28 +2,21 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Building,
-  Laptop,
-  Network,
-  Workflow,
-  Terminal
-} from "lucide-react";
+import { ArrowRight, Building2, Layers, Network, Workflow, ShieldCheck } from "lucide-react";
 
 export const CustomSoftwareSection = () => {
   const capabilities = [
     {
-      title: "ERPs & Sistemas de Gestão Operacional",
-      desc: "Sistemas desenhados rigorosamente para as regras do seu negócio: estoque, orçamentos, ordem de serviço, faturamento e permissões granulares.",
-      icon: <Building className="w-5 h-5 text-sky-400" />,
-      tag: "Backoffices & Balcão"
+      title: "ERPs & Backoffices Operacionais",
+      desc: "Sistemas desenhados rigorosamente para as regras do seu negócio: estoque, orçamentos, ordens de serviço, faturamento e permissões granulares.",
+      icon: <Building2 className="w-5 h-5 text-blue-400" />,
+      tag: "Gestão Interna"
     },
     {
       title: "Plataformas SaaS Multi-Tenant",
-      desc: "Arquitetura com isolamento de dados por cliente, autenticação JWT/OAuth, faturamento recorrente automatizado e painel administrativo master.",
-      icon: <Laptop className="w-5 h-5 text-cyan-400" />,
-      tag: "Recorrência & Escala"
+      desc: "Arquitetura com isolamento de dados por cliente, autenticação segura, faturamento recorrente automatizado e painel administrativo central.",
+      icon: <Layers className="w-5 h-5 text-sky-400" />,
+      tag: "Escalabilidade"
     },
     {
       title: "APIs & Integrações de Sistemas",
@@ -32,81 +25,82 @@ export const CustomSoftwareSection = () => {
       tag: "REST & Webhooks"
     },
     {
-      title: "Filas Assíncronas & Processamento em Lote",
-      desc: "Execução distribuída em segundo plano para envio em massa de mensagens, processamento de relatórios pesados e sincronizações periódicas.",
+      title: "Filas & Automação de Processos",
+      desc: "Execução distribuída em segundo plano para envio de notificações, relatórios pesados e sincronizações periódicas sem travar o usuário.",
       icon: <Workflow className="w-5 h-5 text-purple-400" />,
       tag: "Redis & BullMQ"
     }
   ];
 
   return (
-    <section id="sob-medida" className="relative py-20 sm:py-28 bg-[#090d16] border-b border-slate-800/80">
+    <section id="sob-medida" className="py-20 sm:py-28 bg-[#080B10] border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Scope & Contract Guarantees */}
-          <div className="lg:col-span-5 space-y-6 sm:space-y-8 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          {/* Left Column: Guarantees & Positioning */}
+          <div className="lg:col-span-5 space-y-6 text-left">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">
-                <span>// ENGENHARIA SOB DEMANDA</span>
-              </div>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">
+                Engenharia Sob Demanda
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight leading-tight">
                 Software sob medida para o seu processo.
               </h2>
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
-                Quando a sua operação possui regras que ferramentas genéricas não comportam, nós construímos a solução de ponta a ponta.
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                Quando a sua operação possui regras que ferramentas genéricas não comportam, nós construímos a solução de ponta a ponta — com código 100% autoral e propriedade total do cliente.
               </p>
             </div>
 
-            {/* Architecture Code Snippet Visual */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#0e1422] border border-slate-800 space-y-3 font-mono text-xs overflow-x-auto">
-              <div className="flex items-center justify-between text-slate-400 pb-2 border-b border-slate-800/80 min-w-[240px]">
-                <span className="flex items-center gap-1.5 text-[11px] text-slate-300">
-                  <Terminal className="w-3.5 h-3.5 text-sky-400" />
-                  architecture_manifest.ts
-                </span>
-                <span className="text-[10px] text-emerald-400">clean_arch: true</span>
-              </div>
-              <div className="space-y-1 text-slate-300 text-[11px] min-w-[240px]">
-                <p><span className="text-purple-400">export const</span> <span className="text-sky-300">ProjectSpec</span> = &#123;</p>
-                <p className="pl-4">ownership: <span className="text-emerald-300">"100% Client Owned"</span>,</p>
-                <p className="pl-4">database: <span className="text-emerald-300">"PostgreSQL Strict Schemas"</span>,</p>
-                <p className="pl-4">typeSafety: <span className="text-emerald-300">"End-to-End TypeScript"</span>,</p>
-                <p className="pl-4">deploy: <span className="text-emerald-300">"Dockerized Cloud CI/CD"</span></p>
-                <p>&#125;;</p>
+            <div className="p-5 rounded-lg bg-[#111622] border border-white/10 space-y-3 font-mono text-xs">
+              <span className="text-slate-400 font-semibold uppercase block text-[11px]">
+                Garantias Contratuais do Projeto:
+              </span>
+              <div className="space-y-2 text-slate-300">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Código-fonte 100% de propriedade do cliente</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Sem dependência de plataformas proprietárias terceiras</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Documentação técnica de arquitetura e endpoints</span>
+                </div>
               </div>
             </div>
 
             <div>
               <Link
                 href="/contato"
-                className="group inline-flex items-center justify-center w-full sm:w-auto gap-2 px-5 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-md shadow-emerald-500/10 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition-colors"
               >
                 <span>Solicitar diagnóstico do seu projeto</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
-          {/* Right Column: 4 Core Capability Cards */}
-          <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+          {/* Right Column: 4 Core Capability Tiles */}
+          <div className="lg:col-span-7 space-y-3">
             {capabilities.map((cap, idx) => (
               <div
                 key={idx}
-                className="p-5 sm:p-7 rounded-2xl bg-[#0e1422] border border-slate-800/90 hover:border-slate-700 transition-all duration-200 flex flex-col sm:flex-row items-start gap-4 sm:gap-5 group"
+                className="p-5 sm:p-6 rounded-lg bg-[#111622] border border-white/10 hover:border-white/20 transition-colors flex flex-col sm:flex-row items-start gap-4"
               >
-                <div className="p-2.5 sm:p-3 rounded-xl bg-slate-900 border border-slate-800 shrink-0 group-hover:border-slate-700 transition-colors">
+                <div className="p-2.5 rounded bg-[#0B0E14] border border-white/5 shrink-0">
                   {cap.icon}
                 </div>
-                <div className="space-y-1.5 sm:space-y-2 flex-1">
+                <div className="space-y-1 flex-1">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-sky-300 transition-colors">
+                    <h3 className="text-base font-bold text-white">
                       {cap.title}
                     </h3>
-                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                    <span className="text-[10px] font-mono text-slate-400 uppercase">
                       {cap.tag}
                     </span>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
                     {cap.desc}
                   </p>
                 </div>

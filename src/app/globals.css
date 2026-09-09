@@ -3,19 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --background: #070B12;
-  --surface-base: #0A101A;
-  --surface-raised: #0E1622;
-  --surface-card: #111A28;
-  --surface-hover: #152033;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-active: rgba(56, 189, 248, 0.35);
-  --text-primary: #F5F7FA;
-  --text-secondary: #B8C3D4;
-  --text-muted: #7F8DA3;
-  --brand-cyan: #38bdf8;
-  --brand-indigo: #6366f1;
-  --status-emerald: #10b981;
+  --background: #0B0E14;
+  --surface: #111622;
+  --surface-raised: #161D2B;
+  --surface-active: #1D2638;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --success: #10B981;
 }
 
 html {
@@ -26,51 +25,41 @@ html {
 body {
   color: var(--text-primary);
   background: var(--background);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Geist', 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Discrete Engineering Architectural Grid */
-.tech-grid-bg {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+/* Subtle architectural hairline border */
+.border-subtle {
+  border-color: var(--border-subtle);
 }
 
-/* Circuit Line Glowing Pulses */
-@keyframes circuitPulse {
-  0% { stroke-dashoffset: 200; opacity: 0.2; }
-  50% { opacity: 0.9; }
-  100% { stroke-dashoffset: 0; opacity: 0.2; }
+.border-strong {
+  border-color: var(--border-strong);
 }
 
-.circuit-wire {
-  stroke-dasharray: 200;
-  animation: circuitPulse 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-/* Custom Scrollbar */
+/* Crisp technical table scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
+  height: 4px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #070B12;
+  background: #0B0E14;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #19263A;
-  border-radius: 9999px;
+  background: #1E293B;
+  border-radius: 2px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: #334155;
 }
 
-/* Reduced Motion Accessibility */
+/* Accessibility: Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

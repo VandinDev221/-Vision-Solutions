@@ -12,27 +12,21 @@ import { ProcessSection } from "@/components/sections/process-section";
 import { TechStackSection } from "@/components/sections/tech-stack-section";
 import { PrinciplesSection } from "@/components/sections/principles-section";
 import { ContactSection } from "@/components/sections/contact-section";
-import { HologramViewport } from "@/components/ui/hologram-viewport";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-[#040711] text-slate-100 selection:bg-cyan-400 selection:text-slate-950 antialiased overflow-x-hidden">
-      {/* Immersive Sci-Fi Holographic 3D Particle Universe */}
-      <HologramViewport />
-
-      <div className="relative z-10">
-        <Navbar />
-        <HeroSection />
-        <ComplexityTransformationSection />
-        <CoreSolutionsSection />
-        <SaaSShowcase />
-        <CustomSoftwareSection />
-        <ProcessSection />
-        <TechStackSection />
-        <PrinciplesSection />
-        <ContactSection />
-        <Footer />
-      </div>
+    <main className="min-h-screen bg-[#0B0E14] text-slate-100 selection:bg-blue-600 selection:text-white antialiased overflow-x-hidden">
+      <Navbar />
+      <HeroSection />
+      <ComplexityTransformationSection />
+      <CoreSolutionsSection />
+      <SaaSShowcase />
+      <CustomSoftwareSection />
+      <ProcessSection />
+      <TechStackSection />
+      <PrinciplesSection />
+      <ContactSection />
+      <Footer />
     </main>
   );
 }

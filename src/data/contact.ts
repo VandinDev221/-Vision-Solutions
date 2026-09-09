@@ -1,9 +1,9 @@
-export const SITE_CONTACT = {
+﻿export const SITE_CONTACT = {
   // E-mail real que recebe as mensagens
   realEmail: "vandersonandrade_dev@outlook.com",
 
   // E-mail visual exibido na interface
-  displayEmail: "contato@visionsolution.com.br",
+  displayEmail: "vandersonandrade_dev@outlook.com",
 
   // WhatsApp oficial da Vision Solutions (DDD 98 - São Luís, MA)
   whatsappNumber: "5598989198146",
@@ -17,21 +17,21 @@ export const SITE_CONTACT = {
   location: "São Luís, MA — Brasil",
 
   // URL universal para envio de e-mail (mailto)
-  getEmailComposeUrl: (subject = "Solicitação de Orçamento — Vision Solutions", body = "") => {
+  getEmailComposeUrl: (subject = "Solicitação de Projeto — Vision Solutions", body = "") => {
     const encodedSubject = encodeURIComponent(subject);
     const encodedBody = encodeURIComponent(body);
     return `mailto:vandersonandrade_dev@outlook.com?subject=${encodedSubject}&body=${encodedBody}`;
   },
 
-  // URL para abrir tela web do Gmail apontando para o destinatário Outlook
-  getGmailComposeUrl: (subject = "Solicitação de Orçamento — Vision Solutions", body = "") => {
+  // URL para abrir tela web do Gmail
+  getGmailComposeUrl: (subject = "Solicitação de Projeto — Vision Solutions", body = "") => {
     const encodedSubject = encodeURIComponent(subject);
     const encodedBody = encodeURIComponent(body);
     return `https://mail.google.com/mail/?view=cm&fs=1&to=vandersonandrade_dev@outlook.com&su=${encodedSubject}&body=${encodedBody}`;
   },
 
   // URL para abrir o WhatsApp comercial em nova aba
-  getWhatsappUrl: (message = "Olá! Gostaria de solicitar um orçamento para a Vision Solutions.") => {
+  getWhatsappUrl: (message = "Olá! Gostaria de conversar com a equipe da Vision Solutions sobre um projeto.") => {
     const encodedMsg = encodeURIComponent(message);
     return `https://wa.me/5598989198146?text=${encodedMsg}`;
   }

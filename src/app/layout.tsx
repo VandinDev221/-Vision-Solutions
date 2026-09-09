@@ -3,7 +3,7 @@ import "./globals.css";
 import { saasProducts } from "@/data/saas-products";
 
 export const viewport: Viewport = {
-  themeColor: "#090d16",
+  themeColor: "#0B0E14",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -12,10 +12,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://visionsolutionsbr.vercel.app"),
   title: {
-    default: "Vision Solutions — Software, SaaS e Soluções Digitais",
+    default: "Vision Solutions - Software House & SaaS Studio",
     template: "%s | Vision Solutions"
   },
-  description: "Desenvolvemos produtos SaaS, sistemas empresariais e soluções digitais sob medida para transformar processos complexos em software simples de operar.",
+  description: "Desenvolvemos produtos SaaS proprietários e sistemas empresariais sob medida para operações que precisam de controle, automação e previsibilidade.",
   keywords: [
     "Vision Solutions",
     "Software House",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "TorqueOS",
     "SynDent",
     "BarberCRM",
-    "Software para negócios",
+    "DisparoFlow",
     "Automação de processos"
   ],
   authors: [{ name: "Vision Solutions", url: "https://visionsolutionsbr.vercel.app" }],
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
     canonical: "https://visionsolutionsbr.vercel.app",
   },
   openGraph: {
-    title: "Vision Solutions — Software, SaaS e Soluções Digitais",
-    description: "Desenvolvemos produtos SaaS, sistemas empresariais e soluções digitais sob medida para transformar processos complexos em software simples de operar.",
+    title: "Vision Solutions - Software House & SaaS Studio",
+    description: "Desenvolvemos produtos SaaS proprietários e sistemas empresariais sob medida para operações que precisam de controle, automação e previsibilidade.",
     url: "https://visionsolutionsbr.vercel.app",
     siteName: "Vision Solutions",
     locale: "pt_BR",
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vision Solutions — Software, SaaS e Soluções Digitais",
-    description: "Desenvolvemos produtos SaaS, sistemas empresariais e soluções digitais sob medida.",
+    title: "Vision Solutions - Software House & SaaS Studio",
+    description: "Desenvolvemos produtos SaaS proprietários e sistemas empresariais sob medida.",
   },
   robots: {
     index: true,
@@ -63,7 +63,7 @@ export default function RootLayout({
     "@type": "Organization",
     "name": "Vision Solutions",
     "url": "https://visionsolutionsbr.vercel.app",
-    "description": "Software House & Studio especializado no desenvolvimento de plataformas SaaS e sistemas sob medida."
+    "description": "Software House & SaaS Studio especializado no desenvolvimento de plataformas proprietárias e sistemas sob medida."
   };
 
   const softwareAppsSchema = saasProducts.map((product) => ({
@@ -90,7 +90,7 @@ export default function RootLayout({
           />
         ))}
       </head>
-      <body className="min-h-screen bg-[#090d16] text-slate-100 antialiased selection:bg-sky-500 selection:text-slate-950">
+      <body className="min-h-screen bg-[#0B0E14] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
         {children}
       </body>
     </html>

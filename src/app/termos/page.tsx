@@ -6,15 +6,15 @@ import { Footer } from "@/components/layout/footer";
 
 export default function TermosPage() {
   return (
-    <main className="min-h-screen bg-[#090d16] text-slate-100 selection:bg-sky-500 selection:text-slate-950">
+    <main className="min-h-screen bg-[#0B0E14] text-slate-100 selection:bg-blue-600 selection:text-white">
       <Navbar />
 
-      <section className="pt-36 pb-16 bg-[#090d16] border-b border-slate-800/80">
+      <section className="pt-36 pb-16 bg-[#0B0E14] border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
-          <span className="text-xs font-mono font-semibold text-slate-400 uppercase tracking-wider block mb-2">
+          <span className="text-xs font-mono font-semibold text-blue-400 uppercase tracking-wider block mb-2">
             Legal & Conformidade
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             Termos de Uso
           </h1>
           <p className="mt-2 text-xs text-slate-400 font-mono">
@@ -23,7 +23,7 @@ export default function TermosPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-[#090d16] text-slate-300 text-sm leading-relaxed">
+      <section className="py-16 bg-[#0B0E14] text-slate-300 text-sm leading-relaxed">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           <div className="space-y-3">
             <h2 className="text-lg font-bold text-white">1. Aceitação dos Termos</h2>

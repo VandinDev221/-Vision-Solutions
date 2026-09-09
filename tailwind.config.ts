@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+﻿import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -9,33 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        slateSurface: {
-          50: "#f8fafc",
-          800: "#1e293b",
-          900: "#0f172a",
-          950: "#090d16",
-          card: "#111726",
-          hover: "#161e31",
+        background: "#0B0E14",
+        surface: {
+          DEFAULT: "#111622",
+          raised: "#161D2B",
+          active: "#1D2638",
+          card: "#0E131E",
         },
-        brandAccent: {
-          cyan: "#38bdf8",
-          indigo: "#6366f1",
-          violet: "#8b5cf6",
-          emerald: "#10b981",
+        brand: {
+          primary: "#2563EB",
+          hover: "#1D4ED8",
+          blue: "#3B82F6",
+          sky: "#0284C7",
         },
       },
       borderRadius: {
-        sm: "6px",
-        md: "10px",
-        lg: "16px",
-        xl: "24px",
+        none: "0px",
+        sm: "4px",
+        DEFAULT: "6px",
+        md: "6px",
+        lg: "8px",
+        xl: "10px",
       },
-      transitionDuration: {
-        fast: "150ms",
-        normal: "250ms",
-        smooth: "400ms",
+      fontFamily: {
+        sans: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          '"Helvetica Neue"',
+          "Arial",
+          "sans-serif",
+        ],
+        mono: [
+          '"SF Mono"',
+          "Consolas",
+          '"Liberation Mono"',
+          "Menlo",
+          "Courier",
+          "monospace",
+        ],
       },
     },
   },
