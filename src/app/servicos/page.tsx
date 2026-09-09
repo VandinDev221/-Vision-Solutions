@@ -1,10 +1,16 @@
-﻿"use client";
+"use client";
 
 import React from "react";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { Building2, Layers, Network, Workflow, ShieldCheck, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Building2, Layers, Network, Workflow, ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+
+const PageScene3D = dynamic(
+  () => import("@/components/3d/PageScene3D").then((m) => ({ default: m.PageScene3D })),
+  { ssr: false }
+);
 
 export default function ServicosPage() {
   const services = [
@@ -58,15 +64,16 @@ export default function ServicosPage() {
     <main className="min-h-screen bg-[#0B0E14] text-slate-100 selection:bg-blue-600 selection:text-white">
       <Navbar />
 
-      <section className="pt-36 pb-16 bg-[#0B0E14] border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-left">
-          <span className="text-xs font-mono font-semibold text-blue-400 uppercase tracking-wider block mb-2">
+      <section className="relative pt-36 pb-0 bg-[#0B0E14] border-b border-white/[0.06] overflow-hidden">
+        <PageScene3D variant="servicos" height="260px" className="absolute inset-x-0 top-0 opacity-55" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
+          <span className="text-[11px] font-mono font-semibold text-blue-400 uppercase tracking-[0.18em] block mb-4">
             Engenharia Sob Demanda
           </span>
           <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Desenvolvimento de Software Sob Medida
           </h1>
-          <p className="mt-4 text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-base text-slate-400 leading-relaxed max-w-2xl">
             Construímos sistemas empresariais sob medida para negócios que possuem regras e fluxos de dados que ferramentas genéricas de prateleira não conseguem atender.
           </p>
         </div>
@@ -78,7 +85,7 @@ export default function ServicosPage() {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-lg bg-[#111622] border border-white/10 hover:border-white/20 transition-colors flex flex-col justify-between space-y-6"
+                className="p-8 rounded-lg bg-[#111622] border border-white/[0.08] hover:border-white/15 transition-colors flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
                   <div className="p-3 rounded bg-[#0B0E14] border border-white/5 w-fit">
@@ -86,14 +93,14 @@ export default function ServicosPage() {
                   </div>
                   <div>
                     <h2 className="text-xl font-bold text-white">{service.title}</h2>
-                    <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                    <p className="text-sm text-slate-400 mt-2 leading-relaxed">
                       {service.desc}
                     </p>
                   </div>
 
                   <div className="space-y-2 pt-2 border-t border-white/5">
-                    <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block">
-                      Entregas Típicas do Escopo:
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-semibold block">
+                      Entregas do Escopo:
                     </span>
                     <ul className="space-y-2 text-xs text-slate-300">
                       {service.features.map((feat, fIdx) => (
@@ -111,7 +118,7 @@ export default function ServicosPage() {
                     href="/contato"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
                   >
-                    <span>Solicitar proposta para este modelo</span>
+                    <span>Solicitar proposta</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -119,39 +126,22 @@ export default function ServicosPage() {
             ))}
           </div>
 
-          {/* Guarantees Box */}
-          <div className="p-8 rounded-lg bg-[#111622] border border-white/10 space-y-6">
+          <div className="p-8 rounded-lg bg-[#111622] border border-white/[0.08] space-y-6">
             <h3 className="text-lg font-bold text-white">Garantias de Engenharia Vision Solutions</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-bold text-white">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Código 100% Autoral</span>
+              {[
+                { color: "text-emerald-400", title: "Código 100% Autoral", desc: "Sem dependência de templates genéricos. O software pertence integralmente à sua empresa." },
+                { color: "text-blue-400", title: "Arquitetura Escalável", desc: "Modelagem relacional consistente no PostgreSQL com APIs tipadas e desacopladas." },
+                { color: "text-purple-400", title: "Suporte Contínuo", desc: "Acompanhamento técnico no deploy, monitoramento de performance e evolução contínua." },
+              ].map((g, i) => (
+                <div key={i} className="space-y-2">
+                  <div className={`flex items-center gap-2 text-sm font-bold text-white`}>
+                    <CheckCircle2 className={`w-4 h-4 ${g.color} shrink-0`} />
+                    <span>{g.title}</span>
+                  </div>
+                  <p className="text-xs text-slate-400 leading-relaxed">{g.desc}</p>
                 </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Sem dependência de templates genéricos ou código descartável. O software pertence integralmente à sua empresa.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-bold text-white">
-                  <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span>Arquitetura Escalável</span>
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Modelagem relacional consistente no PostgreSQL com APIs tipadas e desacopladas.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm font-bold text-white">
-                  <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
-                  <span>Suporte Contínuo</span>
-                </div>
-                <p className="text-xs text-slate-400 leading-relaxed">
-                  Acompanhamento técnico no deploy, monitoramento de performance e evolução contínua.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>

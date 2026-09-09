@@ -1,12 +1,18 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { saasProducts, SaaSProduct } from "@/data/saas-products";
 import { CheckCircle2, ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { SaaSDetailModal } from "@/components/sections/saas-detail-modal";
+
+const PageScene3D = dynamic(
+  () => import("@/components/3d/PageScene3D").then((m) => ({ default: m.PageScene3D })),
+  { ssr: false }
+);
 
 export default function ProdutosPage() {
   const [selectedProduct, setSelectedProduct] = useState<SaaSProduct | null>(null);
@@ -15,15 +21,16 @@ export default function ProdutosPage() {
     <main className="min-h-screen bg-[#0B0E14] text-slate-100 selection:bg-blue-600 selection:text-white">
       <Navbar />
 
-      <section className="pt-36 pb-16 bg-[#0B0E14] border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-left">
-          <span className="text-xs font-mono font-semibold text-blue-400 uppercase tracking-wider block mb-2">
+      <section className="relative pt-36 pb-0 bg-[#0B0E14] border-b border-white/[0.06] overflow-hidden">
+        <PageScene3D variant="produtos" height="260px" className="absolute inset-x-0 top-0 opacity-60" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
+          <span className="text-[11px] font-mono font-semibold text-blue-400 uppercase tracking-[0.18em] block mb-4">
             Portfólio de Produtos
           </span>
           <h1 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Plataformas SaaS e Soluções Digitais
           </h1>
-          <p className="mt-4 text-base text-slate-300 leading-relaxed">
+          <p className="mt-4 text-base text-slate-400 leading-relaxed max-w-2xl">
             Ecossistema de plataformas proprietárias desenvolvidas com arquitetura multi-tenant, código 100% autoral e foco exclusivo em resolver o fluxo de trabalho do seu mercado.
           </p>
         </div>

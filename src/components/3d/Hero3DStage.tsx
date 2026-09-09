@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -336,22 +336,8 @@ export const Hero3DStage: React.FC<Hero3DStageProps> = ({
   }, [selectedCard, onSelectCard]);
 
   return (
-    <div className="relative w-full h-[460px] sm:h-[520px] rounded-2xl bg-[#080d1a] border border-blue-500/30 shadow-2xl overflow-hidden group">
-      {/* 3D WebGL Canvas Viewport */}
+    <div className="relative w-full h-[460px] sm:h-[520px] rounded-xl bg-[#080d1a] border border-white/8 shadow-2xl overflow-hidden">
       <div ref={mountRef} className="w-full h-full" />
-
-      {/* Interactive Overlay Info */}
-      <div className="absolute top-4 left-4 flex items-center gap-2 pointer-events-none z-10">
-        <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping" />
-        <span className="text-[11px] font-mono text-cyan-300 font-bold bg-[#040814]/80 px-2.5 py-1 rounded border border-cyan-500/30 backdrop-blur-md">
-          {activeTab === "torqueos" ? "TORQUEOS MOTOR 3D ATIVO" : "SYNDENT NÚCLEO CLÍNICO"}
-        </span>
-      </div>
-
-      <div className="absolute bottom-4 inset-x-4 flex items-center justify-between pointer-events-none z-10 text-[11px] font-mono text-slate-400 bg-[#040814]/85 px-4 py-2 rounded-lg border border-white/10 backdrop-blur-md">
-        <span>Clique nos cartões 3D para alternar o foco</span>
-        <span className="text-emerald-400 font-bold">● 60 FPS WebGL Engine</span>
-      </div>
     </div>
   );
 };
