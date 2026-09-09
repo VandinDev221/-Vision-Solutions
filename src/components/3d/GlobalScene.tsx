@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
@@ -32,7 +32,7 @@ export const GlobalScene: React.FC = () => {
       alpha: true,
       powerPreference: "high-performance",
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x0b0e14, 0);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -73,7 +73,7 @@ export const GlobalScene: React.FC = () => {
       opacity: 0.35,
     });
 
-    const moduleCount = 7;
+    const moduleCount = 5;
     const modules: THREE.Mesh[] = [];
     const baseOffsets: THREE.Vector3[] = [];
 
@@ -240,7 +240,7 @@ export const GlobalScene: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-30"
       aria-hidden="true"
     />
   );
