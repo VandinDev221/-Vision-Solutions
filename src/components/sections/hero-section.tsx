@@ -1,150 +1,111 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import dynamic from "next/dynamic";
-import { Play, ArrowRight, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
-const Hero3DStage = dynamic(
-  () => import("../3d/Hero3DStage").then((m) => ({ default: m.Hero3DStage })),
+// The renderer touches window/canvas — must never run during SSR.
+const GlobalScene = dynamic(
+  () => import("@/components/3d/GlobalScene").then((mod) => mod.GlobalScene),
   { ssr: false }
 );
 
-export const HeroSection = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = totalScroll > 0 ? window.scrollY / totalScroll : 0;
-      setScrollProgress(progress);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <div className="relative min-h-screen bg-[#05080e] text-white selection:bg-cyan-500 selection:text-black">
-      {/* 3D Cybernetic Helix Canvas Background */}
-      <Hero3DStage scrollProgress={scrollProgress} />
-
-      {/* ── Frame 00:00 (Hero Stage 1) ── */}
-      <section className="relative min-h-screen flex flex-col justify-between p-8 sm:p-16 z-10 pointer-events-none">
-        
-        {/* Top Right Floating Video Button (Matching Video 00:00) */}
-        <div className="flex justify-end pt-20 pointer-events-auto">
-          <button
-            onClick={() => setVideoModalOpen(true)}
-            className="group flex items-center gap-4 text-xs font-mono text-slate-300 hover:text-white cursor-pointer transition-colors"
-          >
-            <div className="w-12 h-12 rounded-full bg-slate-800/80 border border-white/20 group-hover:border-cyan-400 flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-xl backdrop-blur-md">
-              <Play className="w-4 h-4 text-cyan-400 fill-cyan-400 ml-0.5" />
-            </div>
-            <span className="tracking-wider">Watch video</span>
-          </button>
-        </div>
-
-        {/* Bottom Left Editorial Typography (Matching Video 00:00) */}
-        <div className="max-w-md space-y-6 pb-12 pointer-events-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-sans font-extrabold tracking-tight text-white leading-[1.12]">
-            Descubra o que o software autoral pode fazer pela sua empresa.
-          </h1>
-          <p className="text-sm text-slate-400 leading-relaxed font-sans">
-            Construímos plataformas SaaS verticais e sistemas sob medida desenhados para transformar processos complexos em operações de alto rendimento.
-          </p>
-          <div>
-            <Link
-              href="/produtos"
-              className="inline-flex items-center gap-2 text-xs font-mono text-white hover:text-cyan-400 tracking-wider transition-colors group cursor-pointer"
-            >
-              <span>&gt; Conhecer produtos</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frame 00:01 - 00:02 (Section 2 - Scroll Right Alignment) ── */}
-      <section className="relative min-h-screen flex flex-col justify-center items-end p-8 sm:p-16 z-10 pointer-events-none">
-        <div className="max-w-md space-y-6 pointer-events-auto text-left">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-extrabold tracking-tight text-white leading-[1.12]">
-            Como o software sob medida transforma sua operação?
-          </h2>
-          <p className="text-sm text-slate-400 leading-relaxed font-sans">
-            Sistemas verticais oferecem controle total sobre regras de negócio, estoque e faturamento, eliminando gargalos de softwares genéricos.
-          </p>
-          <div>
-            <Link
-              href="/servicos"
-              className="inline-flex items-center gap-2 text-xs font-mono text-white hover:text-cyan-400 tracking-wider transition-colors group cursor-pointer"
-            >
-              <span>&gt; Ver casos de sucesso</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frame 00:03 - 00:05 (Section 3 - Macro Close Up) ── */}
-      <section className="relative min-h-screen flex flex-col justify-center items-end p-8 sm:p-16 z-10 pointer-events-none">
-        <div className="max-w-md space-y-6 pointer-events-auto text-left">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-extrabold tracking-tight text-white leading-[1.12]">
-            Qual é a arquitetura técnica da sua empresa?
-          </h2>
-          <p className="text-sm text-slate-400 leading-relaxed font-sans">
-            Arquitetura limpa com PostgreSQL, APIs tipadas em Fastify e mensageria de alta velocidade para garantir 100% de estabilidade.
-          </p>
-          <div>
-            <Link
-              href="/tecnologia"
-              className="inline-flex items-center gap-2 text-xs font-mono text-white hover:text-cyan-400 tracking-wider transition-colors group cursor-pointer"
-            >
-              <span>&gt; Saber mais</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Frame 00:06 - 00:07 (Section 4 - Full View Final Action) ── */}
-      <section className="relative min-h-screen flex flex-col justify-end p-8 sm:p-16 z-10 pointer-events-none pb-24">
-        <div className="max-w-md space-y-6 pointer-events-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-extrabold tracking-tight text-white leading-[1.12]">
-            Pronto para evoluir a sua operação digital?
-          </h2>
-          <p className="text-sm text-slate-400 leading-relaxed font-sans">
-            Entre em contato diretamente com nossa equipe de engenheiros e avalie o cenário da sua empresa.
-          </p>
-          <div>
-            <Link
-              href="/contato"
-              className="inline-flex items-center gap-2 text-xs font-mono text-white hover:text-cyan-400 tracking-wider transition-colors group cursor-pointer"
-            >
-              <span>&gt; Falar com a Vision Solutions</span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Modal (Triggered by Watch Video button) */}
-      {videoModalOpen && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-2xl z-50 flex items-center justify-center p-4 sm:p-8">
-          <div className="relative w-full max-w-4xl bg-[#090e1a] border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
-            <button
-              onClick={() => setVideoModalOpen(false)}
-              className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full bg-black/50 z-10 cursor-pointer"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <div className="aspect-video w-full">
-              <video
-                src="/modelo do site/1080p.mp4"
-                controls
-                autoPlay
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+const contentVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.09,
+      delayChildren: 0.1,
+    },
+  },
 };
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+export function HeroSection() {
+  return (
+    <section className="relative overflow-hidden border-b border-line bg-base">
+      <div className="mx-auto grid max-w-editorial grid-cols-1 lg:grid-cols-12">
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={contentVariants}
+          className="relative z-10 col-span-1 flex flex-col justify-center px-6 pb-16 pt-28 sm:px-10 lg:col-span-6 lg:px-14 lg:pb-32 lg:pt-40 xl:pl-20"
+        >
+          <motion.span
+            variants={itemVariants}
+            className="font-technical text-micro uppercase tracking-wide text-ink-faint"
+          >
+            Software House &amp; SaaS Studio
+          </motion.span>
+
+          <motion.h1
+            variants={itemVariants}
+            className="mt-6 max-w-xl text-display-1 font-semibold text-ink"
+          >
+            Software para operações que não cabem em software genérico.
+          </motion.h1>
+
+          <motion.p
+            variants={itemVariants}
+            className="mt-6 max-w-md text-body-lg text-ink-dim"
+          >
+            Construímos SaaS verticais e sistemas sob medida para empresas que
+            precisam transformar processos complexos em operação digital
+            estruturada, rápida e estável.
+          </motion.p>
+
+          <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href="#produtos"
+              className="group inline-flex items-center gap-2 rounded bg-primary px-5 py-3 text-body font-medium text-white transition-colors duration-300 ease-system hover:bg-primary-dim"
+            >
+              Conhecer nossos produtos
+              <ArrowUpRight
+                size={16}
+                strokeWidth={2}
+                className="transition-transform duration-300 ease-system group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+            <a
+              href="#contato"
+              className="inline-flex items-center gap-2 rounded border border-line-strong px-5 py-3 text-body font-medium text-ink transition-colors duration-300 ease-system hover:border-ink-dim hover:bg-elevated"
+            >
+              Construir um sistema
+            </a>
+          </motion.div>
+        </motion.div>
+
+        <div className="relative col-span-1 h-[70vh] min-h-[420px] lg:col-span-6 lg:h-auto">
+          <GlobalScene className="absolute inset-0 h-full w-full" />
+
+          {/* Content stays reachable even where WebGL is unavailable or disabled. */}
+          <noscript>
+            <div className="flex h-full items-center justify-center p-10 text-center text-body text-ink-dim">
+              A Vision Solutions constrói sistemas de software modulares:
+              frontend, API, regras de negócio, banco de dados, filas e
+              infraestrutura funcionando como uma única operação.
+            </div>
+          </noscript>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="pointer-events-none absolute bottom-6 left-6 right-6 flex items-center justify-between font-technical text-micro text-ink-faint sm:bottom-10 sm:left-10 sm:right-10"
+          >
+            <span>VISION SYSTEM</span>
+            <span>FRONTEND · API · RULES · DATA · QUEUES · INFRA</span>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

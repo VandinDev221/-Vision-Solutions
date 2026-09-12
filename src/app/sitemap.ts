@@ -1,13 +1,13 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+
+const routes = ["", "/produtos", "/servicos", "/tecnologia", "/sobre", "/contato"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://visionsolutionsbr.vercel.app";
-  const routes = ["", "/produtos", "/servicos", "/tecnologia", "/sobre", "/contato", "/privacidade", "/termos"];
-
+  const base = "https://visionsolutions.com.br";
   return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${base}${route}`,
     lastModified: new Date(),
-    changeFrequency: route === "" ? "daily" : "weekly",
-    priority: route === "" ? 1.0 : 0.8,
+    changeFrequency: "monthly",
+    priority: route === "" ? 1 : 0.7,
   }));
 }

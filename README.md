@@ -1,203 +1,113 @@
-# Vision Solutions — Site Institucional
+# Vision Solutions — Software House & SaaS Studio
 
-Site institucional da **Vision Solutions**, Software House & SaaS Studio especializada em plataformas SaaS verticais e sistemas empresariais sob medida.
+Site institucional e plataforma interativa da **Vision Solutions**, especializada no desenvolvimento de ecossistemas SaaS verticais e engenharia de software sob medida para empresas.
 
-**Deploy:** [visionsolutionsbr.vercel.app](https://visionsolutionsbr.vercel.app)
-
----
-
-## Stack
-
-| Camada | Tecnologia |
-|---|---|
-| Framework | Next.js 15 (App Router) |
-| UI Runtime | React 19 |
-| Linguagem | TypeScript (strict) |
-| Estilos | Tailwind CSS 3.4 |
-| 3D / WebGL | Three.js (puro, sem R3F) |
-| Animação | Framer Motion |
-| Icons | Lucide React |
-| Deploy | Vercel |
+**Live Demo:** [visionsolutionsbr.vercel.app](https://visionsolutionsbr.vercel.app)  
+**Licença:** [MIT License](LICENSE)
 
 ---
 
-## Estrutura do Projeto
+## 🛠️ Stack Tecnológica
 
-```
+| Camada | Tecnologia | Descrição |
+|---|---|---|
+| **Framework** | Next.js 15 (App Router) | React Server Components, SSR e otimização de assets |
+| **UI Runtime** | React 19 | Interface declarativa e reativa de altíssimo desempenho |
+| **Linguagem** | TypeScript 5.7 (Strict Mode) | Tipagem estrita de ponta a ponta sem `any` implícito |
+| **Estilos** | Tailwind CSS 3.4 & PostCSS | Tokens institucionais e utilitários otimizados |
+| **3D / WebGL Engine** | Three.js | Motor 3D autoral orientada a objetos (sem dependência de R3F) |
+| **Acessibilidade** | `use-reduced-motion` | Suporte a preferências do sistema para mobilidade reduzida |
+| **Ícones** | Lucide React | Biblioteca de ícones vetoriais modernos |
+
+---
+
+## 📁 Estrutura de Diretórios da Nova Arquitetura
+
+```text
 empresa.site/
-├── src/
-│   ├── app/                        # Next.js App Router
-│   │   ├── layout.tsx              # Root layout + metadata + JSON-LD
-│   │   ├── page.tsx                # Home (todas as seções)
-│   │   ├── globals.css             # CSS variables + tokens de design
-│   │   ├── contato/page.tsx        # Página de contato
-│   │   ├── produtos/page.tsx       # Portfólio de produtos SaaS
-│   │   ├── servicos/page.tsx       # Serviços de desenvolvimento
-│   │   ├── sobre/page.tsx          # Sobre a empresa
-│   │   ├── tecnologia/page.tsx     # Stack tecnológica
-│   │   ├── privacidade/page.tsx    # Política de privacidade
-│   │   ├── termos/page.tsx         # Termos de uso
-│   │   ├── admin/                  # Área administrativa (protegida)
-│   │   ├── robots.ts               # robots.txt
-│   │   └── sitemap.ts              # sitemap.xml
-│   │
-│   ├── components/
-│   │   ├── 3d/                     # Engines WebGL (Three.js)
-│   │   │   ├── GlobalScene.tsx     # Canvas fixo de fundo (toda a home)
-│   │   │   ├── Hero3DStage.tsx     # Canvas interativo do hero (pilares, conduits, cards)
-│   │   │   ├── PageScene3D.tsx     # Canvas reutilizável para headers de páginas internas
-│   │   │   └── SceneWrapper.tsx    # Dynamic import SSR-safe do GlobalScene
-│   │   │
-│   │   ├── layout/
-│   │   │   ├── navbar.tsx          # Navegação principal
-│   │   │   └── footer.tsx          # Rodapé 4 colunas
-│   │   │
-│   │   ├── sections/               # Seções da home
-│   │   │   ├── hero-section.tsx                    # Hero assimétrico com canvas 3D
-│   │   │   ├── saas-showcase.tsx                   # Product Shelf (TorqueOS, SynDent...)
-│   │   │   ├── monolith-architecture-section.tsx   # Diagrama de ecossistema VS
-│   │   │   ├── complexity-transformation-section.tsx
-│   │   │   ├── core-solutions-section.tsx
-│   │   │   ├── custom-software-section.tsx
-│   │   │   ├── process-section.tsx
-│   │   │   ├── tech-stack-section.tsx
-│   │   │   ├── principles-section.tsx
-│   │   │   ├── contact-section.tsx
-│   │   │   └── saas-detail-modal.tsx               # Modal de ficha técnica de produto
-│   │   │
-│   │   └── ui/                     # Componentes base
-│   │       ├── logo.tsx
-│   │       ├── button.tsx
-│   │       ├── card.tsx
-│   │       ├── badge.tsx
-│   │       └── modal.tsx
-│   │
-│   ├── data/                       # Dados estáticos tipados
-│   │   ├── saas-products.ts        # Produtos: TorqueOS, SynDent, BarberCRM, DisparoFlow, AdvCargo
-│   │   ├── contact.ts              # SITE_CONTACT com canais de atendimento
-│   │   ├── services.ts             # Serviços de desenvolvimento
-│   │   ├── company-stats.ts        # Métricas da empresa
-│   │   └── testimonials.ts         # Depoimentos
-│   │
-│   └── lib/
-│       ├── utils.ts                # cn() — clsx + tailwind-merge
-│       ├── motion-tokens.ts        # Variantes de animação Framer Motion
-│       └── admin-store.ts          # Estado da área admin
+├── LICENSE                         # Licença MIT Open Source
+├── README.md                       # Documentação técnica do projeto
+├── next.config.ts                  # Configurações do Next.js 15
+├── package.json                    # Scripts e dependências
+├── postcss.config.js               # Pipeline PostCSS
+├── tailwind.config.ts              # Tokens de cor e tipografia Tailwind
+├── tsconfig.json                   # Configuração estrita do TypeScript
 │
-├── public/                         # Assets estáticos
-├── tailwind.config.ts              # Paleta, border-radius, tipografia
-├── tsconfig.json                   # TypeScript strict
-├── next.config.ts                  # Next.js config
-└── package.json
+├── public/                         # Assets estáticos públicos (logos, ícones)
+│
+└── src/
+    ├── app/                        # Next.js App Router
+    │   ├── globals.css             # Variáveis CSS institucionais e resets
+    │   ├── layout.tsx              # Root Layout, metadados e SEO
+    │   ├── page.tsx                # Página principal (Home)
+    │   ├── robots.ts               # Configuração estática do robots.txt
+    │   └── sitemap.ts              # Geração dinâmica do sitemap.xml
+    │
+    ├── components/                 # Componentes da interface
+    │   ├── 3d/                     # Motor WebGL 3D Orientado a Objetos (Three.js)
+    │   │   ├── ConnectionLine.ts   # Conexões ópticas e linhas spline de energia
+    │   │   ├── GlobalScene.tsx     # Mount do Canvas WebGL interativo
+    │   │   ├── SystemModule.ts     # Módulos geométricos 3D e rotações
+    │   │   └── VisionSystem.ts     # Orquestrador da cena, câmera e iluminação 3D
+    │   │
+    │   ├── layout/                 # Estruturas globais de layout
+    │   │   ├── footer.tsx          # Rodapé institucional 4 colunas
+    │   │   └── navbar.tsx          # Cabeçalho e navegação principal
+    │   │
+    │   └── sections/               # Seções da experiência do usuário
+    │       └── hero-section.tsx    # Seção principal Hero com integração 3D
+    │
+    ├── data/                       # Dados institucionais estáticos tipados
+    │   ├── contact.ts              # Canais de atendimento e localização
+    │   └── saas-products.ts        # Catálogo de produtos (TorqueOS, SynDent, etc.)
+    │
+    └── lib/                        # Utilitários e hooks customizados
+        └── use-reduced-motion.ts   # Hook para detecção de preferência de animação
 ```
 
 ---
 
-## Design System
+## 🚀 Engenharia & Destaques da Arquitetura 3D
 
-### Paleta de Cores
-
-| Token | Hex | Uso |
-|---|---|---|
-| `bg-base` | `#0B0E14` | Fundo principal |
-| `bg-surface` | `#111622` | Cards e painéis |
-| `bg-elevated` | `#161D2B` | Hover state / selecionado |
-| `accent-blue` | `#2563EB` | CTA primário |
-| `accent-sky` | `#38BDF8` | Acento secundário / 3D glow |
-| `accent-emerald` | `#10B981` | Status positivo |
-| `accent-purple` | `#A855F7` | Destaque alternativo |
-
-### Tipografia
-
-- **Sistema:** `-apple-system, BlinkMacSystemFont, Segoe UI, Roboto`
-- **Mono:** `ui-monospace, SFMono-Regular, Menlo`
-- **Border-radius:** `4px` (sm), `6px` (md), `8px` (lg), `12px` (xl)
+- **Motor 3D Modular Orientado a Objetos (`VisionSystem.ts`)**: O motor Three.js é encapsulado em classes bem definidas (`SystemModule`, `ConnectionLine`) para controle total de alocação de memória, ciclo de renderização e descarte de geometrias (*garbage collection*).
+- **Desempenho 60 FPS & SSR-Safe**: Carregamento dinâmico sem erros de *hydration*, mantendo a aplicação leve com resposta fluida em múltiplos dispositivos.
+- **Ecossistema Multi-SaaS**: Apresentação dos produtos proprietários:
+  - **TorqueOS** — ERP Automotivo e Gestão de Oficinas
+  - **SynDent** — Prontuário Clínico Odontológico
+  - **BarberCRM** — Gestão e Agendamento para Barbearias
+  - **DisparoFlow** — Automação de Comunicação
+  - **AdvCargo** — Logística e Transportes
 
 ---
 
-## Componentes 3D
-
-### `GlobalScene.tsx`
-Canvas Three.js fixo (`position: fixed`) como camada de fundo da home. Renderiza módulos geométricos orbitais conectados por conduits CatmullRom com partículas viajando. Opacity 30% para ser sutil. Reage ao scroll e ao mouse (parallax).
-
-### `Hero3DStage.tsx`
-Canvas interativo no painel direito do hero. Contém:
-- 3 pilares metálicos com LED bands (azul/ciano/emerald)
-- Engrenagens 3D rotacionando em direções opostas
-- 3 cards 3D flutuantes interativos (clicáveis via Raycaster)
-- Fiber-optic conduits (TubeGeometry) conectando engine aos cards
-- Sparks viajando pelos conduits em tempo real
-- Parallax suave ao mouse
-
-### `PageScene3D.tsx`
-Canvas Three.js reutilizável para headers das páginas internas. Variantes por página com paletas de acento diferentes. Sem overlays de texto. Renderiza formas geométricas flutuantes (cubes, octahedra, tetrahedra) com conduits e partículas.
-
-**Variantes:**
-- `produtos` — azul cobalto + ciano
-- `servicos` — sky + indigo + emerald
-- `sobre` — blue + purple + cyan
-- `tecnologia` — cyan + blue + emerald
-- `contato` — blue + sky + purple
-
----
-
-## Produtos SaaS (dados reais)
-
-| Produto | Categoria | Status |
-|---|---|---|
-| **TorqueOS** | ERP Automotivo | Em Produção |
-| **SynDent** | SaaS Odontológico | Em Produção |
-| **BarberCRM** | CRM Barbearias | Em Desenvolvimento |
-| **DisparoFlow** | Automação de Mensagens | Em Desenvolvimento |
-| **AdvCargo** | Gestão de Transportadoras | Em Desenvolvimento |
-
----
-
-## Rodando Localmente
+## 💻 Como Rodar o Projeto
 
 ```bash
-# Instalar dependências
+# 1. Clonar o repositório
+git clone https://github.com/VandinDev221/-Vision-Solutions.git
+
+# 2. Entrar na pasta do projeto
+cd empresa.site
+
+# 3. Instalar as dependências
 npm install
 
-# Servidor de desenvolvimento (Turbopack)
+# 4. Executar em ambiente de desenvolvimento (Turbopack)
 npm run dev
 
-# Build de produção
+# 5. Gerar build de produção
 npm run build
 
-# Iniciar produção local
+# 6. Iniciar servidor local de produção
 npm start
 ```
 
-Abrir [http://localhost:3000](http://localhost:3000)
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
-## Deploy
-
-O projeto faz deploy automático na **Vercel** a cada push na branch `main`.
-
-```bash
-git add .
-git commit -m "feat: descrição da mudança"
-git push origin main
-```
-
----
-
-## Decisões de Arquitetura
-
-**Por que Three.js puro (sem React Three Fiber)?**
-Controle total sobre o ciclo de vida do renderer WebGL, disposal de geometrias e integração com eventos DOM nativos. Mais previsível para múltiplos canvas coexistindo na mesma página.
-
-**Por que `dynamic()` com `ssr: false` nos canvas 3D?**
-Three.js acessa `window` e `document` durante a inicialização — incompatível com SSR do Next.js. O `dynamic()` garante que o componente só monta no client, evitando erros de hydration.
-
-**Por que App Router e não Pages Router?**
-Next.js 15 recomenda App Router para novos projetos. Permite Server Components, layouts aninhados e melhor performance de carregamento.
-
----
-
-## Licença
-
-Código proprietário — © Vision Solutions. Todos os direitos reservados.
+© 2026 **Vision Solutions** — Software House & SaaS Studio.

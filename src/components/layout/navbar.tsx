@@ -1,86 +1,67 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
-export const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
+const LINKS = [
+  { href: "/produtos", label: "Produtos" },
+  { href: "/servicos", label: "Soluções" },
+  { href: "/tecnologia", label: "Engenharia" },
+  { href: "/sobre", label: "Empresa" },
+  { href: "/contato", label: "Contato" },
+];
 
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "Produtos", href: "/produtos" },
-    { label: "Soluções", href: "/servicos" },
-    { label: "Engenharia", href: "/tecnologia" },
-    { label: "Sobre", href: "/sobre" },
-    { label: "Contato", href: "/contato" }
-  ];
+export function Navbar() {
+  const [compact, setCompact] = useState(false);
+
+  useEffect(() => {
+    // Only flips state when crossing the threshold, not on every scroll tick.
+    function handleScroll() {
+      const shouldBeCompact = window.scrollY > 24;
+      setCompact((current) => (current === shouldBeCompact ? current : shouldBeCompact));
+    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 py-6 px-8 sm:px-12 pointer-events-none">
-      <div className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
-        
-        {/* Left Placeholder for symmetry */}
-        <div className="w-16 hidden sm:block" />
-
-        {/* Center: Monogram Square Logo (Matching 'H' Badge in Video 1080p.mp4) */}
-        <Link href="/" className="inline-flex items-center justify-center">
-          <div className="w-10 h-10 rounded-sm bg-white text-black font-extrabold font-mono text-base flex items-center justify-center shadow-2xl tracking-tighter hover:scale-105 transition-transform cursor-pointer">
-            VS
-          </div>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-[padding,background-color,border-color] duration-300 ease-system ${
+        compact
+          ? "border-line bg-base/90 py-3 backdrop-blur-md"
+          : "border-transparent bg-transparent py-6"
+      }`}
+    >
+      <nav className="mx-auto flex max-w-editorial items-center justify-between px-6 sm:px-10 xl:px-20">
+        <Link
+          href="/"
+          className="font-technical text-body font-medium tracking-tight text-ink"
+          aria-label="Vision Solutions — página inicial"
+        >
+          VS <span className="text-ink-faint">/ Vision Solutions</span>
         </Link>
 
-        {/* Right: Minimalist 'menu' trigger (Matching Video Header) */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="text-xs font-mono text-cyan-400 hover:text-white uppercase tracking-widest flex items-center gap-2 cursor-pointer transition-colors"
-          aria-label="Abrir Menu"
-        >
-          <span>menu</span>
-          {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
-        </button>
-      </div>
-
-      {/* Fullscreen Overlay Menu */}
-      {mobileMenuOpen && (
-        <div className="pointer-events-auto fixed inset-0 bg-[#05080e]/96 backdrop-blur-2xl z-50 flex flex-col justify-between p-8 sm:p-16">
-          <div className="flex items-center justify-between">
-            <Link href="/" onClick={() => setMobileMenuOpen(false)}>
-              <div className="w-10 h-10 rounded-sm bg-white text-black font-extrabold font-mono text-base flex items-center justify-center">
-                VS
-              </div>
-            </Link>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-xs font-mono text-cyan-400 uppercase tracking-widest flex items-center gap-2 cursor-pointer"
-            >
-              <span>fechar</span>
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          <nav className="flex flex-col gap-6 max-w-xl mx-auto text-center">
-            {navLinks.map((link) => (
+        <ul className="hidden items-center gap-8 md:flex">
+          {LINKS.map((link) => (
+            <li key={link.href}>
               <Link
-                key={link.href}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-2xl sm:text-4xl font-bold font-sans tracking-tight transition-colors ${
-                  pathname === link.href ? "text-cyan-400" : "text-slate-300 hover:text-white"
-                }`}
+                className="text-label text-ink-dim transition-colors duration-200 hover:text-ink"
               >
                 {link.label}
               </Link>
-            ))}
-          </nav>
+            </li>
+          ))}
+        </ul>
 
-          <div className="text-center font-mono text-xs text-slate-500">
-            © VISION SOLUTIONS — SOFTWARE HOUSE &amp; SAAS STUDIO
-          </div>
-        </div>
-      )}
+        <Link
+          href="/contato"
+          className="rounded border border-line-strong px-4 py-2 text-label text-ink transition-colors duration-200 ease-system hover:border-ink-dim hover:bg-elevated"
+        >
+          Falar com a Vision
+        </Link>
+      </nav>
     </header>
   );
-};
+}

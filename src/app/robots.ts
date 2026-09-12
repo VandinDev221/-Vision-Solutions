@@ -1,22 +1,12 @@
-﻿import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
-      {
-        userAgent: "Googlebot",
-        allow: "/",
-      },
-      {
-        userAgent: "Bingbot",
-        allow: "/",
-      }
-    ],
-    sitemap: "https://visionsolutionsbr.vercel.app/sitemap.xml",
-    host: "https://visionsolutionsbr.vercel.app",
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: ["/admin"],
+    },
+    sitemap: "https://visionsolutions.com.br/sitemap.xml",
   };
 }

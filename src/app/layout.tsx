@@ -1,97 +1,58 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 import "./globals.css";
-import { saasProducts } from "@/data/saas-products";
 
-export const viewport: Viewport = {
-  themeColor: "#0B0E14",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-};
+const siteUrl = "https://visionsolutions.com.br";
+const title = "Vision Solutions — Software House & SaaS Studio";
+const description =
+  "Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada, rápida e estável.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://visionsolutionsbr.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Vision Solutions - Software House & SaaS Studio",
-    template: "%s | Vision Solutions"
+    default: title,
+    template: "%s — Vision Solutions",
   },
-  description: "Desenvolvemos produtos SaaS proprietários e sistemas empresariais sob medida para operações que precisam de controle, automação e previsibilidade.",
-  keywords: [
-    "Vision Solutions",
-    "Software House",
-    "Desenvolvimento de SaaS",
-    "Sistemas Empresariais",
-    "Sistemas sob medida",
-    "TorqueOS",
-    "SynDent",
-    "BarberCRM",
-    "DisparoFlow",
-    "Automação de processos"
-  ],
-  authors: [{ name: "Vision Solutions", url: "https://visionsolutionsbr.vercel.app" }],
-  creator: "Vision Solutions",
-  publisher: "Vision Solutions",
-  alternates: {
-    canonical: "https://visionsolutionsbr.vercel.app",
-  },
+  description,
   openGraph: {
-    title: "Vision Solutions - Software House & SaaS Studio",
-    description: "Desenvolvemos produtos SaaS proprietários e sistemas empresariais sob medida para operações que precisam de controle, automação e previsibilidade.",
-    url: "https://visionsolutionsbr.vercel.app",
-    siteName: "Vision Solutions",
-    locale: "pt_BR",
     type: "website",
+    locale: "pt_BR",
+    url: siteUrl,
+    siteName: "Vision Solutions",
+    title,
+    description,
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vision Solutions - Software House & SaaS Studio",
-    description: "Desenvolvemos produtos SaaS proprietários e sistemas empresariais sob medida.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+    title,
+    description,
+    images: ["/og-image.png"],
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Vision Solutions",
-    "url": "https://visionsolutionsbr.vercel.app",
-    "description": "Software House & SaaS Studio especializado no desenvolvimento de plataformas proprietárias e sistemas sob medida."
-  };
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Vision Solutions",
+  url: siteUrl,
+  description,
+  sameAs: [],
+};
 
-  const softwareAppsSchema = saasProducts.map((product) => ({
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": product.name,
-    "operatingSystem": "Web, Windows, Mobile",
-    "applicationCategory": "BusinessApplication",
-    "description": product.description
-  }));
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className="dark scroll-smooth">
-      <head>
+    <html lang="pt-BR">
+      <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        {softwareAppsSchema.map((appSchema, idx) => (
-          <script
-            key={idx}
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }}
-          />
-        ))}
-      </head>
-      <body className="min-h-screen bg-[#0B0E14] text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
