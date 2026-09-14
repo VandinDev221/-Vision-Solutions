@@ -1,113 +1,70 @@
-# Vision Solutions — Software House & SaaS Studio
+# Vision Solutions — Fundação
 
-Site institucional e plataforma interativa da **Vision Solutions**, especializada no desenvolvimento de ecossistemas SaaS verticais e engenharia de software sob medida para empresas.
+Scaffold Next.js 15 + React 19 + TypeScript strict + Tailwind 3.4 + Three.js puro
++ Framer Motion, implementando a primeira fase do briefing: design system,
+layout raiz, o **Vision System** 3D e o Hero completo.
 
-**Live Demo:** [visionsolutionsbr.vercel.app](https://visionsolutionsbr.vercel.app)  
-**Licença:** [MIT License](LICENSE)
-
----
-
-## 🛠️ Stack Tecnológica
-
-| Camada | Tecnologia | Descrição |
-|---|---|---|
-| **Framework** | Next.js 15 (App Router) | React Server Components, SSR e otimização de assets |
-| **UI Runtime** | React 19 | Interface declarativa e reativa de altíssimo desempenho |
-| **Linguagem** | TypeScript 5.7 (Strict Mode) | Tipagem estrita de ponta a ponta sem `any` implícito |
-| **Estilos** | Tailwind CSS 3.4 & PostCSS | Tokens institucionais e utilitários otimizados |
-| **3D / WebGL Engine** | Three.js | Motor 3D autoral orientada a objetos (sem dependência de R3F) |
-| **Acessibilidade** | `use-reduced-motion` | Suporte a preferências do sistema para mobilidade reduzida |
-| **Ícones** | Lucide React | Biblioteca de ícones vetoriais modernos |
-
----
-
-## 📁 Estrutura de Diretórios da Nova Arquitetura
-
-```text
-empresa.site/
-├── LICENSE                         # Licença MIT Open Source
-├── README.md                       # Documentação técnica do projeto
-├── next.config.ts                  # Configurações do Next.js 15
-├── package.json                    # Scripts e dependências
-├── postcss.config.js               # Pipeline PostCSS
-├── tailwind.config.ts              # Tokens de cor e tipografia Tailwind
-├── tsconfig.json                   # Configuração estrita do TypeScript
-│
-├── public/                         # Assets estáticos públicos (logos, ícones)
-│
-└── src/
-    ├── app/                        # Next.js App Router
-    │   ├── globals.css             # Variáveis CSS institucionais e resets
-    │   ├── layout.tsx              # Root Layout, metadados e SEO
-    │   ├── page.tsx                # Página principal (Home)
-    │   ├── robots.ts               # Configuração estática do robots.txt
-    │   └── sitemap.ts              # Geração dinâmica do sitemap.xml
-    │
-    ├── components/                 # Componentes da interface
-    │   ├── 3d/                     # Motor WebGL 3D Orientado a Objetos (Three.js)
-    │   │   ├── ConnectionLine.ts   # Conexões ópticas e linhas spline de energia
-    │   │   ├── GlobalScene.tsx     # Mount do Canvas WebGL interativo
-    │   │   ├── SystemModule.ts     # Módulos geométricos 3D e rotações
-    │   │   └── VisionSystem.ts     # Orquestrador da cena, câmera e iluminação 3D
-    │   │
-    │   ├── layout/                 # Estruturas globais de layout
-    │   │   ├── footer.tsx          # Rodapé institucional 4 colunas
-    │   │   └── navbar.tsx          # Cabeçalho e navegação principal
-    │   │
-    │   └── sections/               # Seções da experiência do usuário
-    │       └── hero-section.tsx    # Seção principal Hero com integração 3D
-    │
-    ├── data/                       # Dados institucionais estáticos tipados
-    │   ├── contact.ts              # Canais de atendimento e localização
-    │   └── saas-products.ts        # Catálogo de produtos (TorqueOS, SynDent, etc.)
-    │
-    └── lib/                        # Utilitários e hooks customizados
-        └── use-reduced-motion.ts   # Hook para detecção de preferência de animação
-```
-
----
-
-## 🚀 Engenharia & Destaques da Arquitetura 3D
-
-- **Motor 3D Modular Orientado a Objetos (`VisionSystem.ts`)**: O motor Three.js é encapsulado em classes bem definidas (`SystemModule`, `ConnectionLine`) para controle total de alocação de memória, ciclo de renderização e descarte de geometrias (*garbage collection*).
-- **Desempenho 60 FPS & SSR-Safe**: Carregamento dinâmico sem erros de *hydration*, mantendo a aplicação leve com resposta fluida em múltiplos dispositivos.
-- **Ecossistema Multi-SaaS**: Apresentação dos produtos proprietários:
-  - **TorqueOS** — ERP Automotivo e Gestão de Oficinas
-  - **SynDent** — Prontuário Clínico Odontológico
-  - **BarberCRM** — Gestão e Agendamento para Barbearias
-  - **DisparoFlow** — Automação de Comunicação
-  - **AdvCargo** — Logística e Transportes
-
----
-
-## 💻 Como Rodar o Projeto
+## Rodar localmente
 
 ```bash
-# 1. Clonar o repositório
-git clone https://github.com/VandinDev221/-Vision-Solutions.git
-
-# 2. Entrar na pasta do projeto
-cd empresa.site
-
-# 3. Instalar as dependências
 npm install
-
-# 4. Executar em ambiente de desenvolvimento (Turbopack)
 npm run dev
-
-# 5. Gerar build de produção
-npm run build
-
-# 6. Iniciar servidor local de produção
-npm start
 ```
 
----
+Abra http://localhost:3000. Rode `npm run build` e `npm run typecheck` antes
+de subir para produção — isso não foi validado neste ambiente por falta de
+acesso à internet para instalar dependências.
 
-## 📄 Licença
+## O que está implementado
 
-Este projeto está sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+- **Design system** (`tailwind.config.ts`, `globals.css`): paleta, tipografia,
+  radius e grid exatamente como especificado no briefing (base #0B0E14,
+  surface #111622, elevated #161D2B, azul #2563EB como identidade, cyan/
+  emerald/purple usados com moderação).
+- **Vision System 3D** (`src/components/3d/`): universo modular único —
+  `SystemModule` (cada camada: Frontend, API, Business Rules, Database,
+  Queues, Infrastructure), `ConnectionLine` (comunicação entre módulos, com
+  packet de dados animado), `VisionSystem` (orquestra a narrativa de
+  formação: fragmentado → conectando → estruturado → estável) e
+  `GlobalScene` (host React SSR-safe do canvas, com resize, DPR limitado,
+  parallax de mouse suavizado e dispose completo de geometries/materials/
+  textures).
+- **Hero** (`hero-section.tsx`): duas colunas — conteúdo à esquerda, Vision
+  System à direita — com uma única sequência de entrada orquestrada via
+  Framer Motion (não fade-and-slide por elemento solto).
+- **Navbar/Footer**: navbar minimalista que comprime discretamente no scroll;
+  footer lendo de `src/data/contact.ts`.
+- **SEO base**: metadata, Open Graph, Twitter card, JSON-LD de Organization,
+  `robots.ts` e `sitemap.ts`.
+- **Acessibilidade/performance**: `prefers-reduced-motion` respeitado (a
+  animação de formação pula direto para o estado estável), `aria-label`
+  descritivo no canvas, `<noscript>` com o conteúdo essencial, foco visível
+  global, sem uso de state React por frame (tudo via refs + rAF).
 
----
+## Páginas internas (fase 2 — conteúdo editorial, sem 3D ainda)
 
-© 2026 **Vision Solutions** — Software House & SaaS Studio.
+- `/produtos` — lista editorial dos produtos reais (`data/saas-products.ts`).
+- `/servicos` (Soluções) — ERPs/Multi-tenant/APIs/Queues + metodologia em 6 etapas.
+- `/tecnologia` (Engenharia) — arquitetura em camadas com a stack técnica real.
+- `/sobre` (Empresa) — posicionamento + princípios.
+- `/contato` — formulário (via `mailto:`, sem backend ainda) + dados de contato.
+- `/privacidade`, `/termos` — placeholders, precisam de revisão jurídica.
+
+Todas usam o mesmo design system e tipografia do Hero. Nenhuma ainda usa o
+Vision System 3D — isso é a próxima fase (showcase de produtos reorganizando
+os módulos, arquitetura 3D em `/tecnologia`, scroll storytelling na home).
+
+## O que falta (próximas fases, mesma profundidade)
+
+Seção de transformação de complexidade (fragmentação → estruturação) na
+home, showcase de produtos 3D reorganizando o `VisionSystem`, câmera
+atravessando as camadas em `/tecnologia`, e o formulário de contato ligado a
+um endpoint real. Nenhuma nova seção 3D deve instanciar uma cena isolada —
+todas devem re-direcionar a mesma instância do `VisionSystem`.
+
+## Dados de placeholder
+
+`src/data/contact.ts` contém valores de exemplo claramente marcados —
+substitua por email/telefone/redes reais antes de publicar. Os produtos em
+`src/data/saas-products.ts` (TorqueOS, SynDent, BarberCRM, DisparoFlow,
+AdvCargo) são os reais informados no briefing, sem métricas inventadas.
