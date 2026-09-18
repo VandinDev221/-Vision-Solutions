@@ -16,7 +16,7 @@ export default function ProdutosPage() {
         description="Cada produto nasce de um processo real que não cabia em software genérico. Alguns já estão em produção, outros em desenvolvimento ativo."
       />
 
-      <section className="px-6 py-16 sm:px-10 xl:px-20">
+      <section className="px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto max-w-editorial divide-y divide-line">
           {saasProducts.map((product) => (
             <article

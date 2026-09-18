@@ -16,7 +16,7 @@ export default function TecnologiaPage() {
         description="Cada sistema é construído sobre a mesma base técnica sólida — da interface até a infraestrutura."
       />
 
-      <section className="px-6 py-16 sm:px-10 xl:px-20">
+      <section className="px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto max-w-editorial">
           <div className="relative border-l border-line pl-8">
             {techLayers.map((layer) => (
@@ -44,7 +44,7 @@ export default function TecnologiaPage() {
         </div>
       </section>
 
-      <section className="border-t border-line px-6 py-16 sm:px-10 xl:px-20">
+      <section className="border-t border-line px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto max-w-editorial">
           <span className="font-technical text-micro uppercase tracking-wide text-ink-faint">
             Stack

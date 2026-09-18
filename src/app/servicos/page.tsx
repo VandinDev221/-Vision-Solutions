@@ -16,7 +16,7 @@ export default function ServicosPage() {
         description="Não vendemos módulos prontos. Construímos o sistema que a sua operação realmente precisa."
       />
 
-      <section className="border-b border-line px-6 py-16 sm:px-10 xl:px-20">
+      <section className="border-b border-line px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto grid max-w-editorial grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2">
           {coreSolutions.map((solution) => (
             <div key={solution.title} className="border-t border-line pt-6">
@@ -32,7 +32,7 @@ export default function ServicosPage() {
         </div>
       </section>
 
-      <section className="px-6 py-16 sm:px-10 xl:px-20">
+      <section className="px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto max-w-editorial">
           <span className="font-technical text-micro uppercase tracking-wide text-ink-faint">
             Como trabalhamos

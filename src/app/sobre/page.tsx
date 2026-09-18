@@ -16,7 +16,7 @@ export default function SobrePage() {
         description="Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada, rápida e estável."
       />
 
-      <section className="border-b border-line px-6 py-16 sm:px-10 xl:px-20">
+      <section className="border-b border-line px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto grid max-w-editorial grid-cols-1 gap-10 md:grid-cols-12">
           <p className="text-body-lg text-ink-dim md:col-span-7">
             A maioria dos gargalos operacionais não é falta de esforço da
@@ -28,7 +28,7 @@ export default function SobrePage() {
         </div>
       </section>
 
-      <section className="px-6 py-16 sm:px-10 xl:px-20">
+      <section className="px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto max-w-editorial">
           <span className="font-technical text-micro uppercase tracking-wide text-ink-faint">
             Princípios

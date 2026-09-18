@@ -1,4 +1,4 @@
-# Vision Solutions — Fundação
+# Vision Solutions
 
 Scaffold Next.js 15 + React 19 + TypeScript strict + Tailwind 3.4 + Three.js puro
 + Framer Motion, implementando a primeira fase do briefing: design system,
@@ -54,12 +54,42 @@ Todas usam o mesmo design system e tipografia do Hero. Nenhuma ainda usa o
 Vision System 3D — isso é a próxima fase (showcase de produtos reorganizando
 os módulos, arquitetura 3D em `/tecnologia`, scroll storytelling na home).
 
+## Fase 3 — redesign "Dark SaaS Premium" (sem imagem de referência anexada)
+
+A reformulação pedida citava uma imagem de referência que não chegou a ser
+anexada neste ambiente. Implementei com base na descrição textual, que era
+bastante específica (cores, conteúdo do painel TorqueOS, estrutura seção a
+seção). Se a imagem existir, revise principalmente proporções e densidade
+dos cards contra ela — isso não dá pra validar só por texto.
+
+O que mudou:
+
+- **Design tokens**: paleta mais escura (`#08090D`/`#111622`/`#151923`),
+  roxo (`#7C3AED`/`#8B5CF6`) como acento principal em vez do azul, container
+  compacto (`max-w-editorial` = 1200px em vez de 1440px).
+- **Navbar**: mais baixa (h-14), links centralizados, hambúrguer mobile
+  elegante com scroll-lock.
+- **Footer**: colunas compactas (Produtos/Soluções/Empresa/Tecnologia/
+  Contato) + WhatsApp/Instagram/Email/São Luís–MA.
+- **Hero**: painel de produto real do TorqueOS
+  (`components/sections/torqueos-panel.tsx` + `data/torqueos-demo.ts`) como
+  visual principal à direita, com o Vision System 3D como camada de fundo
+  discreta (opacity baixa, mask radial) em vez de protagonista — conforme a
+  hierarquia pedida (design > conteúdo > produto > interação > 3D).
+- **Novas seções na home**: Soluções (cards compactos dos produtos reais),
+  Engenharia (grid de features), Complexidade → Software (3 estágios com
+  visual abstrato próprio por estágio), Duas Frentes, Metodologia compacta,
+  Stack técnica em formato "spec sheet", Filosofia (princípios), CTA final.
+- **Páginas internas**: paddings/containers atualizados para o mesmo
+  sistema compacto; ainda sem os cards/densidade específicos da referência
+  visual (ver ressalva acima).
+
 ## O que falta (próximas fases, mesma profundidade)
 
-Seção de transformação de complexidade (fragmentação → estruturação) na
-home, showcase de produtos 3D reorganizando o `VisionSystem`, câmera
-atravessando as camadas em `/tecnologia`, e o formulário de contato ligado a
-um endpoint real. Nenhuma nova seção 3D deve instanciar uma cena isolada —
+Validar contra a imagem de referência quando ela for anexada. Reorganizar o
+`VisionSystem` 3D quando um produto é selecionado no showcase. Câmera
+atravessando as camadas em `/tecnologia`. Formulário de contato ligado a um
+endpoint real. Nenhuma nova seção 3D deve instanciar uma cena isolada —
 todas devem re-direcionar a mesma instância do `VisionSystem`.
 
 ## Dados de placeholder

@@ -17,7 +17,7 @@ export default function ContatoPage() {
         description="Conte sobre o processo que hoje não cabe em software genérico. Respondemos diretamente, sem camadas de atendimento."
       />
 
-      <section className="px-6 py-16 sm:px-10 xl:px-20">
+      <section className="px-5 py-16 sm:px-6 xl:px-0">
         <div className="mx-auto grid max-w-editorial grid-cols-1 gap-16 md:grid-cols-12">
           <div className="md:col-span-7">
             <ContactForm />

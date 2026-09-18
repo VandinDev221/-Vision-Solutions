@@ -8,9 +8,10 @@ export const contact = {
   email: "contato@visionsolutions.com.br",
   phone: "+55 (00) 00000-0000",
   whatsapp: "https://wa.me/5500000000000",
-  location: "Brasil · Atendimento remoto",
+  location: "São Luís, MA — Brasil",
   social: {
     linkedin: "https://linkedin.com/company/vision-solutions",
     github: "https://github.com/vision-solutions",
+    instagram: "https://instagram.com/visionsolutions",
   },
 } as const;

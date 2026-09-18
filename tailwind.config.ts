@@ -5,22 +5,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        base: "#0B0E14",
+        base: "#08090D",
+        "base-2": "#0B0E14",
         surface: "#111622",
-        elevated: "#161D2B",
-        line: "rgba(231, 234, 240, 0.08)",
-        "line-strong": "rgba(231, 234, 240, 0.14)",
+        elevated: "#151923",
+        "elevated-2": "#1A1E29",
+        line: "rgba(231, 234, 240, 0.07)",
+        "line-strong": "rgba(231, 234, 240, 0.13)",
         ink: {
           DEFAULT: "#E7EAF0",
           dim: "#9AA3B5",
           faint: "#5C6478",
         },
         primary: {
-          DEFAULT: "#2563EB",
-          dim: "#1D4ED8",
+          DEFAULT: "#7C3AED",
+          dim: "#6D28D9",
+          soft: "#8B5CF6",
         },
+        violet: "#A855F7",
         sky: "#38BDF8",
+        blue: "#2563EB",
         emerald: "#10B981",
+        // Kept for any component still referencing the previous token name.
         purple: "#A855F7",
       },
       fontFamily: {
@@ -57,7 +63,7 @@ const config: Config = {
         md: "8px",
       },
       maxWidth: {
-        editorial: "1440px",
+        editorial: "1200px",
       },
       gridTemplateColumns: {
         "12": "repeat(12, minmax(0, 1fr))",
