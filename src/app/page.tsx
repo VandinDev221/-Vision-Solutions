@@ -311,10 +311,10 @@ export default function HomePage() {
           {/* Headline — word reveal */}
           <div className="max-w-4xl mb-6">
             <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold leading-[1.08] tracking-[-0.03em]">
-              <HeroWord text="Software para operações" delay={0.2} />
+              <HeroWord text="Construímos software para operações" delay={0.2} />
               <br />
               <span className="text-white/35">
-                <HeroWord text="que não cabem em plataformas genéricas." delay={0.5} />
+                <HeroWord text="que já superaram planilhas." delay={0.5} />
               </span>
             </h1>
           </div>
@@ -338,7 +338,7 @@ export default function HomePage() {
           >
             <Link
               href="/produtos"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white text-[13px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.25)] hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white text-[13px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300"
             >
               Ver nossos produtos
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -566,27 +566,27 @@ export default function HomePage() {
       </section>
 
       {/* ═══════════════════════════════════════════════════════
-          5. ENGINEERING
+          5. ENGINEERING & INTERACTIVE ARCHITECTURE PIPELINE
       ═══════════════════════════════════════════════════════ */}
-      <section id="engenharia" className="py-24 px-6 border-t border-white/[0.05]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+      <section id="engenharia" className="py-28 px-6 border-t border-white/[0.05]">
+        <div className="max-w-7xl mx-auto space-y-16">
 
-            <div className="lg:col-span-4 space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5 space-y-6">
               <FadeIn>
                 <div className="text-[11px] font-mono text-white/20 uppercase tracking-[0.2em]">
-                  <span className="text-blue-400/60">04</span> — Engenharia
+                  <span className="text-blue-400/60">04</span> — Engenharia & Arquitetura
                 </div>
               </FadeIn>
               <FadeIn delay={0.1}>
-                <h2 className="text-[clamp(1.8rem,3vw,2.4rem)] font-bold leading-[1.12] tracking-[-0.03em]">
+                <h2 className="text-[clamp(1.8rem,3vw,2.5rem)] font-bold leading-[1.12] tracking-[-0.03em]">
                   Arquitetura que sustenta{" "}
-                  <span className="text-white/35">operações reais.</span>
+                  <span className="text-white/35">operações de missão crítica.</span>
                 </h2>
               </FadeIn>
               <FadeIn delay={0.2}>
                 <p className="text-[14px] text-white/35 leading-relaxed">
-                  Cada camada é escolhida com intenção. Do schema do banco ao componente React, a tipagem estrita e as responsabilidades bem definidas eliminam classes inteiras de bugs em produção.
+                  Fluxo de dados previsível, tipagem estrita de ponta a ponta e processamento assíncrono isolado. Do evento no navegador ao registro relacional no PostgreSQL, cada etapa é projetada para resiliência.
                 </p>
               </FadeIn>
               <FadeIn delay={0.3}>
@@ -600,20 +600,48 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            <FadeIn className="lg:col-span-8" delay={0.2} direction="up" distance={28}>
-              <div className="rounded-xl bg-[#0B0D14] border border-white/[0.07] overflow-hidden">
-                {/* Terminal bar */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-[#0D0F16]">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-                  <span className="ml-3 text-[11px] text-white/25 font-mono">stack.architecture.ts</span>
+            <FadeIn className="lg:col-span-7" delay={0.2} direction="up" distance={28}>
+              <div className="rounded-xl bg-[#0B0D14] border border-white/[0.07] overflow-hidden p-6 space-y-6">
+                <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
+                    <span className="ml-2 text-[11px] text-white/30 font-mono">data-pipeline.topology.ts</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-blue-400/70 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+                    Fluxo End-to-End
+                  </span>
                 </div>
 
-                <StaggerList className="divide-y divide-white/[0.04]" stagger={0.06}>
+                {/* Interactive Flow Pipeline Nodes */}
+                <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 relative">
+                  {[
+                    { step: "01", name: "Frontend", tech: "Next.js 15", tag: "Client" },
+                    { step: "02", name: "API Gateway", tech: "Fastify / Nest", tag: "REST/WS" },
+                    { step: "03", name: "Queue Engine", tech: "BullMQ / Redis", tag: "Queue" },
+                    { step: "04", name: "Async Worker", tech: "Isolated Jobs", tag: "Workers" },
+                    { step: "05", name: "Database", tech: "PostgreSQL 16", tag: "Prisma" },
+                  ].map((node, i) => (
+                    <div
+                      key={node.name}
+                      className="group p-3.5 rounded-lg bg-white/[0.02] border border-white/[0.06] hover:bg-white/[0.05] hover:border-blue-500/30 transition-all duration-300 relative text-left"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[9px] font-mono text-white/20">{node.step}</span>
+                        <span className="text-[9px] font-mono text-blue-400/60 uppercase">{node.tag}</span>
+                      </div>
+                      <div className="text-[12px] font-semibold text-white/85 group-hover:text-white transition-colors">{node.name}</div>
+                      <div className="text-[10px] text-white/30 font-mono mt-0.5">{node.tech}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Technical Stack Layer Breakdown */}
+                <StaggerList className="divide-y divide-white/[0.04] pt-2" stagger={0.05}>
                   {ARCHITECTURE.map((a, i) => (
                     <StaggerItem key={a.layer}>
-                      <div className="flex items-start gap-4 px-5 py-4 hover:bg-white/[0.02] transition-colors duration-200">
+                      <div className="flex items-start gap-4 py-3 hover:bg-white/[0.02] transition-colors duration-200 px-2 rounded">
                         <div className="flex items-center gap-3 shrink-0 w-28">
                           <span className="text-[11px] text-white/15 font-mono w-4 text-right">{String(i + 1).padStart(2, "0")}</span>
                           <span className="px-1.5 py-0.5 rounded text-[9px] font-mono bg-white/[0.04] border border-white/[0.07] text-white/30 uppercase tracking-wider">{a.badge}</span>
@@ -626,25 +654,21 @@ export default function HomePage() {
                     </StaggerItem>
                   ))}
                 </StaggerList>
+
               </div>
             </FadeIn>
-
           </div>
+
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════════════════
           6. CTA
       ═══════════════════════════════════════════════════════ */}
-      <section className="py-24 px-6 border-t border-white/[0.05]">
+      <section className="py-28 px-6 border-t border-white/[0.05]">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <div className="relative rounded-2xl bg-white/[0.02] border border-white/[0.07] p-10 sm:p-16 overflow-hidden text-center">
-              {/* Subtle identity glow */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-[500px] h-[250px] bg-blue-600/[0.05] rounded-full blur-3xl" />
-              </div>
-
               <div className="relative space-y-6 max-w-2xl mx-auto">
                 <div className="text-[11px] font-mono text-white/20 uppercase tracking-[0.2em]">
                   <span className="text-blue-400/60">05</span> — Vamos construir juntos
@@ -659,7 +683,7 @@ export default function HomePage() {
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                   <Link
                     href="/contato"
-                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white text-[14px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300 shadow-[0_0_20px_rgba(37,99,235,0.25)] hover:shadow-[0_0_30px_rgba(37,99,235,0.35)]"
+                    className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-600 text-white text-[14px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300"
                   >
                     Falar com a Vision
                     <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
