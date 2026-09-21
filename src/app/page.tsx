@@ -377,19 +377,26 @@ export default function HomePage() {
               <div className="absolute inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-500/15 to-cyan-400/20 blur-3xl rounded-full pointer-events-none animate-pulse" />
 
               {/* Floating Particle Sphere Frame */}
-              <div className="relative w-full max-w-sm sm:max-w-md aspect-square flex items-center justify-center">
+              <div className="relative w-full max-w-sm sm:max-w-md aspect-square flex items-center justify-center bg-transparent">
                 <motion.img
                   src="/images/hero-sphere.png"
                   alt="Neural Software Architecture Sphere"
+                  initial={{ opacity: 0 }}
                   animate={{
+                    opacity: 0.95,
                     y: [-8, 8, -8],
                     rotate: [0, 360],
                   }}
                   transition={{
+                    opacity: { duration: 0.8, delay: 0.3 },
                     y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                     rotate: { duration: 75, repeat: Infinity, ease: "linear" },
                   }}
-                  className="w-full h-full object-contain mix-blend-screen pointer-events-none opacity-90 hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    maskImage: "radial-gradient(circle, black 60%, transparent 95%)",
+                    WebkitMaskImage: "radial-gradient(circle, black 60%, transparent 95%)",
+                  }}
+                  className="w-full h-full object-contain mix-blend-screen pointer-events-none hover:opacity-100 transition-opacity duration-500 bg-transparent"
                 />
               </div>
             </motion.div>
