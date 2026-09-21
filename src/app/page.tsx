@@ -86,36 +86,44 @@ const STATUS_COLORS: Record<string, string> = {
 
 const ECOSYSTEM = [
   {
+    id: "disparoflow",
     name: "DisparoFlow",
     category: "Mensageria Enterprise",
     desc: "Campanhas WhatsApp multi-tenant com filas NATS/BullMQ, aquecimento inteligente de chips, tracking de conversão e analytics em tempo real.",
     stack: ["NestJS", "BullMQ", "NATS", "Redis", "Next.js 15"],
     accent: "text-emerald-400",
     accentBg: "bg-emerald-500/10 border-emerald-500/20",
+    image: undefined as string | undefined, // Pass string image path here anytime (e.g. "/images/disparoflow.png")
   },
   {
+    id: "barbercrm",
     name: "BarberCRM",
     category: "Gestão de Barbearias",
     desc: "CRM completo com agendamento online, fidelidade com pontos, notificações WhatsApp via Evolution API e relatórios financeiros.",
     stack: ["Next.js", "NestJS", "PostgreSQL", "Prisma", "Evolution API"],
     accent: "text-amber-400",
     accentBg: "bg-amber-500/10 border-amber-500/20",
+    image: undefined as string | undefined,
   },
   {
+    id: "advcargo",
     name: "AdvCargo",
     category: "Gestão Jurídica",
     desc: "Sistema para advogados: processos, prazos, audiências, financeiro e relatórios. HTTPS obrigatório com HSTS em toda a stack.",
     stack: ["React", "Vite", "Express", "PostgreSQL", "Prisma"],
     accent: "text-slate-300",
     accentBg: "bg-slate-500/10 border-slate-500/20",
+    image: undefined as string | undefined,
   },
   {
+    id: "esperaai",
     name: "EsperaAí",
     category: "Inteligência de Preços",
     desc: "Monitoramento de preços com histórico e recomendação de compra. Workers BullMQ para scraping contínuo e alertas de queda.",
     stack: ["Next.js", "Fastify", "BullMQ", "Redis", "PostgreSQL"],
     accent: "text-sky-400",
     accentBg: "bg-sky-500/10 border-sky-500/20",
+    image: undefined as string | undefined,
   },
 ];
 
@@ -538,25 +546,116 @@ export default function HomePage() {
             </FadeIn>
           </div>
 
-          <StaggerList className="grid grid-cols-1 sm:grid-cols-2 gap-4" stagger={0.1}>
+          <StaggerList className="grid grid-cols-1 lg:grid-cols-2 gap-6" stagger={0.12}>
             {ECOSYSTEM.map((p) => (
               <StaggerItem key={p.name}>
-                <div className="group p-6 rounded-xl bg-[#161C2B]/80 border border-white/[0.08] hover:bg-[#1A2234] hover:border-white/[0.14] transition-all duration-300 space-y-4 h-full">
-                  <div className="flex items-start justify-between">
-                    <div className="space-y-1.5">
-                      <h3 className="text-[15.5px] font-semibold text-white/90 tracking-[-0.01em]">{p.name}</h3>
-                      <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono border ${p.accent} ${p.accentBg}`}>
-                        {p.category}
-                      </span>
+                <div className="group p-6 sm:p-7 rounded-2xl bg-[#161C2B]/90 border border-white/[0.09] hover:bg-[#1A2235] hover:border-white/[0.16] transition-all duration-500 overflow-hidden shadow-xl grid grid-cols-1 sm:grid-cols-12 gap-6 items-center h-full">
+                  
+                  {/* Left Column: Text & Stack */}
+                  <div className="sm:col-span-7 space-y-4 flex flex-col justify-between h-full">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between">
+                        <h3 className="text-[17px] font-bold text-white tracking-[-0.01em]">{p.name}</h3>
+                        <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                      </div>
+                      <div>
+                        <span className={`inline-block px-2.5 py-0.5 rounded text-[10px] font-mono border ${p.accent} ${p.accentBg}`}>
+                          {p.category}
+                        </span>
+                      </div>
+                      <p className="text-[13px] text-white/60 leading-relaxed pt-1">{p.desc}</p>
                     </div>
-                    <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-white/70 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 mt-0.5" />
+
+                    <div className="flex flex-wrap gap-1.5 pt-2">
+                      {p.stack.map((t) => (
+                        <span key={t} className="px-2 py-0.5 rounded text-[10px] font-mono text-white/50 bg-white/[0.05] border border-white/[0.08]">{t}</span>
+                      ))}
+                    </div>
                   </div>
-                  <p className="text-[13px] text-white/55 leading-relaxed">{p.desc}</p>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {p.stack.map((t) => (
-                      <span key={t} className="px-2 py-0.5 rounded text-[10px] font-mono text-white/45 bg-white/[0.05] border border-white/[0.08]">{t}</span>
-                    ))}
+
+                  {/* Right Column: Floating Preview Image / UI Container */}
+                  <div className="sm:col-span-5 relative flex items-center justify-center">
+                    <div className="relative w-full aspect-[4/3] rounded-xl bg-[#111522] border border-white/[0.12] p-3 shadow-2xl transform group-hover:scale-[1.03] group-hover:-translate-y-1.5 group-hover:rotate-0 -rotate-1 transition-all duration-500 overflow-hidden flex flex-col justify-between">
+                      {p.image ? (
+                        <img src={p.image} alt={p.name} className="w-full h-full object-cover rounded-lg border border-white/10" />
+                      ) : (
+                        /* Styled Floating SaaS Mini Mockup */
+                        <div className="h-full flex flex-col justify-between font-mono text-[10px] space-y-2">
+                          {/* Mini Header Bar */}
+                          <div className="flex items-center justify-between pb-1.5 border-b border-white/[0.08]">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-rose-500/80" />
+                              <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                              <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                            </div>
+                            <span className="text-white/40 text-[9px] truncate max-w-[80px]">{p.id}</span>
+                          </div>
+
+                          {/* Dynamic Custom Mini Visuals per Product */}
+                          {p.id === "disparoflow" && (
+                            <div className="space-y-1.5">
+                              <div className="flex justify-between items-center text-slate-300">
+                                <span className="text-emerald-400 font-semibold">● Fila NATS</span>
+                                <span className="text-white/40 text-[9px]">99.4%</span>
+                              </div>
+                              <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                                <div className="bg-emerald-400 h-full w-[94%]" />
+                              </div>
+                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 truncate">
+                                +55 11 98... <span className="text-emerald-400">Entregue</span>
+                              </div>
+                            </div>
+                          )}
+
+                          {p.id === "barbercrm" && (
+                            <div className="space-y-1.5">
+                              <div className="flex justify-between items-center">
+                                <span className="text-amber-400 font-semibold">● Agenda Hoje</span>
+                                <span className="text-white/40 text-[9px]">8 Slots</span>
+                              </div>
+                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 space-y-0.5">
+                                <div className="text-white font-medium">14:00 Rodrigo S.</div>
+                                <div className="text-amber-400 text-[8px]">Corte &amp; Barba · Confirmado</div>
+                              </div>
+                            </div>
+                          )}
+
+                          {p.id === "advcargo" && (
+                            <div className="space-y-1.5">
+                              <div className="flex justify-between items-center">
+                                <span className="text-slate-300 font-semibold">● Proc. 00249</span>
+                                <span className="text-blue-400 text-[9px]">HSTS OK</span>
+                              </div>
+                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 space-y-0.5">
+                                <div className="text-white font-medium">Audiência de Conciliação</div>
+                                <div className="text-blue-400 text-[8px]">Hoje às 15:30h · 1ª Vara</div>
+                              </div>
+                            </div>
+                          )}
+
+                          {p.id === "esperaai" && (
+                            <div className="space-y-1.5">
+                              <div className="flex justify-between items-center">
+                                <span className="text-sky-400 font-semibold">● Preço Mínimo</span>
+                                <span className="text-emerald-400 text-[9px]">-14%</span>
+                              </div>
+                              <div className="bg-[#171E2E] p-1.5 rounded text-[9px] text-slate-300 flex items-end justify-between gap-1 h-8">
+                                {[40, 65, 50, 80, 45, 90, 70].map((h, idx) => (
+                                  <div key={idx} style={{ height: `${h}%` }} className="w-full bg-gradient-to-t from-sky-500 to-cyan-400 rounded-t-sm" />
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Footer Tag */}
+                          <div className="text-[8px] text-white/30 text-right pt-0.5">
+                            preview.live
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
+
                 </div>
               </StaggerItem>
             ))}
