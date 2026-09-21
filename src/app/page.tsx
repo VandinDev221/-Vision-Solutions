@@ -296,69 +296,105 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto relative">
 
-          {/* Label */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex items-center gap-3 mb-8"
-          >
-            <span className="inline-flex items-center gap-2 text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
-              <span className="w-5 h-px bg-blue-500/60" />
-              Software House & SaaS Studio
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
-              </span>
-              <span className="text-[10px] font-mono text-emerald-400 font-medium">Em produção</span>
-            </span>
-          </motion.div>
+          {/* Upper Hero Grid: Text Left, Floating Sphere Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-12">
+            
+            {/* Left Column: Typography & CTAs */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Label */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex items-center gap-3"
+              >
+                <span className="inline-flex items-center gap-2 text-[11px] font-mono text-white/40 uppercase tracking-[0.2em] font-medium">
+                  <span className="w-5 h-px bg-blue-500/60" />
+                  Software House &amp; SaaS Studio
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+                  </span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-medium">Em produção</span>
+                </span>
+              </motion.div>
 
-          {/* Headline — word reveal */}
-          <div className="max-w-4xl mb-6">
-            <h1 className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold leading-[1.08] tracking-[-0.03em]">
-              <HeroWord text="Construímos software para operações" delay={0.2} />
-              <br />
-              <span className="text-white/50">
-                <HeroWord text="que já superaram planilhas." delay={0.5} />
-              </span>
-            </h1>
+              {/* Headline — word reveal */}
+              <div>
+                <h1 className="text-[clamp(2.2rem,4.5vw,3.6rem)] font-bold leading-[1.08] tracking-[-0.03em]">
+                  <HeroWord text="Construímos software para operações" delay={0.2} />
+                  <br />
+                  <span className="text-white/50">
+                    <HeroWord text="que já superaram planilhas." delay={0.5} />
+                  </span>
+                </h1>
+              </div>
+
+              {/* Subheadline */}
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                className="text-[15px] text-white/60 leading-relaxed max-w-2xl"
+              >
+                Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada — do prontuário odontológico à ordem de serviço automotiva.
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
+                className="flex flex-wrap items-center gap-3 pt-2"
+              >
+                <Link
+                  href="/produtos"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white text-[13px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300 shadow-md"
+                >
+                  Ver nossos produtos
+                  <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+                </Link>
+                <Link
+                  href="/contato"
+                  className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.06] border border-white/[0.12] text-white/80 text-[13px] font-medium hover:text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300"
+                >
+                  Construir um sistema
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Seamless Floating Particle Sphere Visualizer */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="lg:col-span-5 relative flex items-center justify-center py-4"
+            >
+              {/* Subtle ambient light glow behind particle sphere */}
+              <div className="absolute inset-4 bg-gradient-to-r from-blue-600/20 via-indigo-500/15 to-cyan-400/20 blur-3xl rounded-full pointer-events-none animate-pulse" />
+
+              {/* Floating Particle Sphere Frame */}
+              <div className="relative w-full max-w-sm sm:max-w-md aspect-square flex items-center justify-center">
+                <motion.img
+                  src="/images/hero-sphere.png"
+                  alt="Neural Software Architecture Sphere"
+                  animate={{
+                    y: [-8, 8, -8],
+                    rotate: [0, 360],
+                  }}
+                  transition={{
+                    y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                    rotate: { duration: 75, repeat: Infinity, ease: "linear" },
+                  }}
+                  className="w-full h-full object-contain mix-blend-screen pointer-events-none opacity-90 hover:opacity-100 transition-opacity duration-500"
+                />
+              </div>
+            </motion.div>
+
           </div>
-
-          {/* Subheadline */}
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="text-[15px] text-white/60 leading-relaxed max-w-2xl mb-10"
-          >
-            Construímos SaaS verticais e sistemas sob medida para empresas que precisam transformar processos complexos em operação digital estruturada — do prontuário odontológico à ordem de serviço automotiva.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 1.1 }}
-            className="flex flex-wrap items-center gap-3 mb-12"
-          >
-            <Link
-              href="/produtos"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-blue-600 text-white text-[13px] font-semibold tracking-[-0.01em] hover:bg-blue-500 transition-all duration-300 shadow-md"
-            >
-              Ver nossos produtos
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-            </Link>
-            <Link
-              href="/contato"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.06] border border-white/[0.12] text-white/80 text-[13px] font-medium hover:text-white hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300"
-            >
-              Construir um sistema
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-200" />
-            </Link>
-          </motion.div>
 
           {/* Infra Stats Bar */}
           <motion.div
