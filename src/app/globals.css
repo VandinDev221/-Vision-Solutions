@@ -29,8 +29,8 @@ html {
 }
 
 body {
-  background-color: #08090d;
-  color: #e7eaf0;
+  background-color: #111520;
+  color: #f1f5f9;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -54,14 +54,14 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #08090d;
+  background: #111520;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1b212f;
+  background: #252e42;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #283247;
+  background: #333f59;
 }
 
 /* Utility: numeric/technical text */
