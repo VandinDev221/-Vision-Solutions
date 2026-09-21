@@ -43,27 +43,38 @@ body {
   border-radius: 4px;
 }
 
+::selection {
+  background-color: rgba(59, 130, 246, 0.4);
+  color: #ffffff;
+}
+
 /* Thin, quiet scrollbar consistent with the editorial/technical tone */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #08090d;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1f2635;
-  border-radius: 6px;
-  border: 2px solid #08090d;
+  background: #1b212f;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a3346;
+  background: #283247;
 }
 
 /* Utility: numeric/technical text */
 .font-technical {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* Subtle architectural grid pattern */
+.bg-subtle-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* Content that must remain reachable without WebGL / with JS disabled */
@@ -73,3 +84,4 @@ body {
 html:not(.js) .no-js-fallback {
   display: block;
 }
+
